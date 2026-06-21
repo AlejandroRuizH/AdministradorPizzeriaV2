@@ -38,6 +38,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             cardLayout.show(PanelPrincipal,"MENU");    
             this.setLocationRelativeTo(null);
             pack();
+            //Faltan agregar mas como
             // Aquí creas y muestras tu ventana (JFrame)
             //cardLayout = new CardLayout();
             //PanelPrincipal.setLayout(cardLayout);
