@@ -12,11 +12,9 @@ package vista;
 public class LoginGerente extends javax.swing.JPanel {
 
     /** Creates new form LoginGerente */
-    private MenuPrincipal frame;
     
-    public LoginGerente(MenuPrincipal frame) {
+    public LoginGerente(MenuPrincipal menuPrincipal) {
         initComponents();
-        this.frame = frame;
     }
 
     /** This method is called from within the constructor to

@@ -13,7 +13,7 @@ public class AdministradorClientes extends javax.swing.JPanel {
     /**
      * Creates new form AdministradorClientes
      */
-    public AdministradorClientes() {
+    public AdministradorClientes(MenuPrincipal menuPrincipal) {
         initComponents();
     }
 

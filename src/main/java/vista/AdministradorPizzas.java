@@ -13,7 +13,7 @@ public class AdministradorPizzas extends javax.swing.JPanel {
     /**
      * Creates new form AdministradorPizzas
      */
-    public AdministradorPizzas() {
+    public AdministradorPizzas(MenuPrincipal menuPrincipal) {
         initComponents();
     }
 

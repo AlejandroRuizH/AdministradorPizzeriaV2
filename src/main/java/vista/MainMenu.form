@@ -31,54 +31,57 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace pref="51" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ButtonAdminSucursal" min="-2" pref="120" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="ButtonCorteParcial" min="-2" pref="120" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="ButtonCorteFinal" min="-2" pref="120" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="ButtonReporteVentas" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="ButtonAdminSucursal" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="ButtonCorteParcial" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="ButtonCorteFinal" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="ButtonReporteVentas" min="-2" pref="120" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="ButtonAdminEmpleados" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="ButtonCancelaciones" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="ButtonReimpresion" min="-2" pref="120" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="ButtonAdminEmpleados" min="-2" pref="120" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="ButtonCancelaciones" min="-2" pref="120" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="ButtonReimpresion" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="LabelPizzeriaTitulo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
-                  <Component id="LabelPizzeriaTitulo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                   <Component id="LabelPizzeriaTitulo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="ButtonAdminEmpleados" min="-2" pref="80" max="-2" attributes="0"/>
-                      <Component id="ButtonCancelaciones" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
-                      <Component id="ButtonReimpresion" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                      <Component id="ButtonCancelaciones" min="-2" pref="80" max="-2" attributes="0"/>
+                      <Component id="ButtonReimpresion" min="-2" pref="80" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ButtonCorteParcial" min="-2" pref="80" max="-2" attributes="0"/>
-                      <Component id="ButtonCorteFinal" min="-2" pref="80" max="-2" attributes="0"/>
-                      <Component id="ButtonReporteVentas" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ButtonCorteParcial" alignment="3" min="-2" pref="80" max="-2" attributes="0"/>
+                      <Component id="ButtonCorteFinal" alignment="3" min="-2" pref="80" max="-2" attributes="0"/>
+                      <Component id="ButtonReporteVentas" alignment="3" min="-2" pref="80" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="ButtonAdminSucursal" min="-2" pref="80" max="-2" attributes="0"/>
-                  <EmptySpace pref="215" max="32767" attributes="0"/>
+                  <EmptySpace pref="121" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -96,6 +99,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;Administraci&#xf3;n&lt;br&gt;De Empleados&lt;/center&gt;&lt;/html&gt;"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAdminEmpleadosActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ButtonCancelaciones">
           <Properties>

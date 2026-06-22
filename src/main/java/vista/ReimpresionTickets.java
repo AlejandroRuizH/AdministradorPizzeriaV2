@@ -13,7 +13,7 @@ public class ReimpresionTickets extends javax.swing.JPanel {
     /**
      * Creates new form ReimpresionTickets
      */
-    public ReimpresionTickets() {
+    public ReimpresionTickets(MenuPrincipal menuPrincipal) {
         initComponents();
     }
 

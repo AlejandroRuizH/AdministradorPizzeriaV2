@@ -13,7 +13,7 @@ public class CorteParcial extends javax.swing.JPanel {
     /**
      * Creates new form CorteParcial
      */
-    public CorteParcial() {
+    public CorteParcial(MenuPrincipal menuPrincipal) {
         initComponents();
     }
 

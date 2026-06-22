@@ -13,7 +13,7 @@ public class AdministradorProductos extends javax.swing.JPanel {
     /**
      * Creates new form AdministradorProductos
      */
-    public AdministradorProductos() {
+    public AdministradorProductos(MenuPrincipal menuPrincipal) {
         initComponents();
     }
 

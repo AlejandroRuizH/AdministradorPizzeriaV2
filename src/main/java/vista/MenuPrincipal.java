@@ -30,45 +30,64 @@ public class MenuPrincipal extends javax.swing.JFrame {
        SwingUtilities.invokeLater(() -> {
             initComponents();
             cardLayout = new CardLayout();
+            PanelPrincipal.removeAll();
             PanelPrincipal.setLayout(cardLayout);
-            PanelPrincipal.add(new MainMenu(),"MENU");
-            PanelPrincipal.add(new AdministradorEmpleados(), "EMPLEADOS");
-            PanelPrincipal.add(new LoginAdministrador(this),"LOGIN_ADMINISTRADOR");
-            PanelPrincipal.add(new LoginGerente(this), "LOGIN_GERENTE");
-            cardLayout.show(PanelPrincipal,"MENU");    
+            PanelPrincipal.add(new MainMenu(this), PanelDestino.MAIN_MENU.getCardName());
+            PanelPrincipal.add(new AdministradorClientes(this), PanelDestino.ADMIN_CLIENTES.getCardName());
+            PanelPrincipal.add(new AdministradorEmpleados(this), PanelDestino.ADMIN_EMPLEADOS.getCardName());
+            PanelPrincipal.add(new AdministradorPizzas(this), PanelDestino.ADMIN_PIZZAS.getCardName());
+            PanelPrincipal.add(new AdministradorProductos(this), PanelDestino.ADMIN_PRODUCTOS.getCardName());
+            PanelPrincipal.add(new AdministradorPromociones(this), PanelDestino.ADMIN_PROMOCIONES.getCardName());
+            PanelPrincipal.add(new AdministradoringredientesExtra(this), PanelDestino.ADMIN_INGREDIENTES.getCardName());
+            PanelPrincipal.add(new CorteFinal(this), PanelDestino.CORTE_FINAL.getCardName());
+            PanelPrincipal.add(new CorteParcial(this), PanelDestino.CORTE_PARCIAL.getCardName());
+            PanelPrincipal.add(new LoginAdministrador(this), PanelDestino.LOGIN_ADMIN.getCardName());
+            PanelPrincipal.add(new LoginGerente(this), PanelDestino.LOGIN_GERENTE.getCardName());
+            PanelPrincipal.add(new PanelConexionBD(this), PanelDestino.PANEL_CONN_DB.getCardName());
+            PanelPrincipal.add(new PanelDatosSucursal(this), PanelDestino.PANEL_DATOS_SUC.getCardName());
+            PanelPrincipal.add(new ReimpresionTickets(this), PanelDestino.REIMPRESION.getCardName());
+            cardLayout.show(PanelPrincipal,PanelDestino.MAIN_MENU.getCardName()); 
+            PanelPrincipal.revalidate();
+            PanelPrincipal.repaint();
+            
             this.setLocationRelativeTo(null);
             pack();
-            //Faltan agregar mas como
-            // Aquí creas y muestras tu ventana (JFrame)
-            //cardLayout = new CardLayout();
-            //PanelPrincipal.setLayout(cardLayout);
-            //PanelPrincipal.add(new MenuPrincipal(), "Menu");
-            //PanelPrincipal.add(new LoginAdministrador(this), "Login Administrador");
-            //PanelPrincipal.add(new LoginGerente(this), "Login Gerente");
-            //mostrarPanel("Menu");
        
-        });
-       
-        
+        });      
     }
     // empty comment
     
     public enum PanelDestino{
-        EMPLEADOS,
-        REIMPRESION,
-        CANCELACIONES,
-        CORTE_PARCIAL,
-        CORTE_TOTAL,
-        ADMINISTRACION_SUCURSAL
+        MAIN_MENU("MENU"),
+        ADMIN_CLIENTES("ADMIN_CLIENTES"),
+        ADMIN_EMPLEADOS("ADMIN_EMPLEADOS"),
+        ADMIN_PIZZAS("ADMIN_PIZZAS"),
+        ADMIN_PRODUCTOS("ADMIN_PRODUCTOS"),
+        ADMIN_PROMOCIONES("ADMIN_PROMOCIONES"),
+        ADMIN_INGREDIENTES("ADMIN_INGREDIENTES"),
+        CORTE_FINAL("CORTE_FINAL"),
+        CORTE_PARCIAL("CORTE_PARCIAL"),
+        LOGIN_ADMIN("LOGIN_ADMIN"),
+        LOGIN_GERENTE("LOGIN_GERENTE"),
+        PANEL_CONN_DB("PANEL_CONN_DB"),
+        PANEL_DATOS_SUC("PANEL_DATOS_SUC"),
+        REIMPRESION("REIMPRESION");
+        
+        
+        private final String cardName;
+        
+        PanelDestino(String cardName){
+           this.cardName = cardName;
+        }
+        
+        public String getCardName(){
+            return cardName;
+        }
+        
     }
     
-    private void inicializarPaneles(){
-        cardLayout = new CardLayout();
-        PanelPrincipal.setLayout(cardLayout);
-        PanelPrincipal.add(new LoginAdministrador(this), "Login Administrador");
-        PanelPrincipal.add(new LoginGerente(this), "Login Gerente");
-        
-    
+    public void mostrarPanel(String nombre){
+        cardLayout.show(PanelPrincipal, nombre);
     }
     
 

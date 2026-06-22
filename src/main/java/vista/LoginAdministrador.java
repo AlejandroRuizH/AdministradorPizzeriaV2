@@ -4,7 +4,10 @@
  */
 package vista;
 
-import vista.MenuPrincipal.PanelDestino;
+//import vista.MenuPrincipal.PanelDestino;
+
+import javax.swing.JLabel;
+
 
 /**
  *
@@ -16,10 +19,15 @@ public class LoginAdministrador extends javax.swing.JPanel {
      * Creates new form LoginAdministrador
      */
     
-    private MenuPrincipal frame;
-    public LoginAdministrador(MenuPrincipal frame ) {
+    public LoginAdministrador(MenuPrincipal menuPrincipal) {
         initComponents();
-        this.frame = frame;
+        
+        jPanel1.setOpaque(true);
+        jLabel1.setText("LOGIN ADMINISTRADOR");
+        
+        System.out.println("AdministradorEmpleados cargado");
+        System.out.println(getPreferredSize());
+        
     }
 
     /**
@@ -40,17 +48,17 @@ public class LoginAdministrador extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(176, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(108, 108, 108))
+                .addContainerGap(278, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(94, 94, 94)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addContainerGap(277, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -13,7 +13,7 @@ public class AdministradoringredientesExtra extends javax.swing.JPanel {
     /**
      * Creates new form AdministradoringredientesExtra
      */
-    public AdministradoringredientesExtra() {
+    public AdministradoringredientesExtra(MenuPrincipal menuPrincipal) {
         initComponents();
     }
 

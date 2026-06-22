@@ -13,7 +13,7 @@ public class CorteFinal extends javax.swing.JPanel {
     /**
      * Creates new form CorteFinal
      */
-    public CorteFinal() {
+    public CorteFinal(MenuPrincipal menuPrincipal) {
         initComponents();
     }
 

@@ -13,7 +13,7 @@ public class PanelDatosSucursal extends javax.swing.JPanel {
     /**
      * Creates new form PanelDatosSucursal
      */
-    public PanelDatosSucursal() {
+    public PanelDatosSucursal(MenuPrincipal menuPrincipal) {
         initComponents();
     }
 

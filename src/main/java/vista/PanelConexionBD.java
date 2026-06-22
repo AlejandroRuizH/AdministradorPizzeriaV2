@@ -13,7 +13,7 @@ public class PanelConexionBD extends javax.swing.JPanel {
     /**
      * Creates new form PanelConexionBD
      */
-    public PanelConexionBD() {
+    public PanelConexionBD(MenuPrincipal menuPrincipal) {
         initComponents();
     }
 
