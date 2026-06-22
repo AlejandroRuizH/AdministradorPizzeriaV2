@@ -51,10 +51,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
        
         
     }
-    
-    public void mostrarPanel(String nombre) {
-        cardLayout.show(PanelPrincipal, nombre);
-    }
+    // empty comment
     
     public enum PanelDestino{
         EMPLEADOS,
