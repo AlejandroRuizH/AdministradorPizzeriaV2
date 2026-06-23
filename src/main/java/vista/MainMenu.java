@@ -25,7 +25,6 @@ public class MainMenu extends javax.swing.JPanel {
         initComponents();
         this.menuPrincipal = menuPrincipal;
         setPreferredSize(new Dimension(500, 550));
-        initComponents();
         
        
     }
@@ -131,7 +130,7 @@ public class MainMenu extends javax.swing.JPanel {
 
     private void ButtonAdminEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminEmpleadosActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(PanelDestino.ADMIN_EMPLEADOS.getCardName());
+        menuPrincipal.mostrarPanel(PanelDestino.LOGIN_ADMIN.getCardName());
     }//GEN-LAST:event_ButtonAdminEmpleadosActionPerformed
 
 

@@ -27,25 +27,227 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        PanelDatosAdministracionEmpleados = new javax.swing.JPanel();
+        LabelTituloAdministracionEmpleados = new javax.swing.JLabel();
+        PanelTablaEmpleados = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        PanelControlesEmpleados = new javax.swing.JPanel();
+        LabelNombreEmpleado = new javax.swing.JLabel();
+        LabelDomicilioEmpleado = new javax.swing.JLabel();
+        LabelTelefonoEmpleado = new javax.swing.JLabel();
+        LabelFechaIngreso = new javax.swing.JLabel();
+        LabelNipVentas = new javax.swing.JLabel();
+        LabelConfirmaNip = new javax.swing.JLabel();
+        LabelTipoEmpleado = new javax.swing.JLabel();
+        TextFieldNombreEmpleado = new javax.swing.JTextField();
+        TextFieldDomicilioEmpleado = new javax.swing.JTextField();
+        TextFieldTelefonoEmpleado = new javax.swing.JTextField();
+        TextFieldNip = new javax.swing.JTextField();
+        TextFieldConfirmaNip = new javax.swing.JTextField();
+        CheckBoxActivoEmpleado = new javax.swing.JCheckBox();
+        CheckBoxInactivoEmpleado = new javax.swing.JCheckBox();
+        DateChosserEmpleado = new com.toedter.calendar.JDateChooser();
+        ComboBoxTipoEmpleado = new javax.swing.JComboBox<>();
+        ButtonNuevoEmpleado = new javax.swing.JButton();
+        ButtonEditarEmpleado = new javax.swing.JButton();
+        ButtonGrabarEmpleado = new javax.swing.JButton();
+        ButtonEliminarEmpleado = new javax.swing.JButton();
 
-        jLabel1.setText("Menu Administrador Empleados");
+        LabelTituloAdministracionEmpleados.setText("jLabel2");
+
+        javax.swing.GroupLayout PanelDatosAdministracionEmpleadosLayout = new javax.swing.GroupLayout(PanelDatosAdministracionEmpleados);
+        PanelDatosAdministracionEmpleados.setLayout(PanelDatosAdministracionEmpleadosLayout);
+        PanelDatosAdministracionEmpleadosLayout.setHorizontalGroup(
+            PanelDatosAdministracionEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelDatosAdministracionEmpleadosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LabelTituloAdministracionEmpleados)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PanelDatosAdministracionEmpleadosLayout.setVerticalGroup(
+            PanelDatosAdministracionEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelDatosAdministracionEmpleadosLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(LabelTituloAdministracionEmpleados)
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout PanelTablaEmpleadosLayout = new javax.swing.GroupLayout(PanelTablaEmpleados);
+        PanelTablaEmpleados.setLayout(PanelTablaEmpleadosLayout);
+        PanelTablaEmpleadosLayout.setHorizontalGroup(
+            PanelTablaEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelTablaEmpleadosLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        PanelTablaEmpleadosLayout.setVerticalGroup(
+            PanelTablaEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelTablaEmpleadosLayout.createSequentialGroup()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+        );
+
+        LabelNombreEmpleado.setText("* Nombre:");
+
+        LabelDomicilioEmpleado.setText("* Domicilio:");
+
+        LabelTelefonoEmpleado.setText("* Telefono:");
+
+        LabelFechaIngreso.setText("* Fecha de Ingreso:");
+
+        LabelNipVentas.setText("* Nip para ventas");
+
+        LabelConfirmaNip.setText("* Confirma Nip para ventas");
+
+        LabelTipoEmpleado.setText("* Tipo de Empleado:");
+
+        CheckBoxActivoEmpleado.setText("Activo");
+
+        CheckBoxInactivoEmpleado.setText("Inactivo");
+
+        ComboBoxTipoEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Empleado Mostrador o Vendedor", "Empleado de Cocina", "Repartidor" }));
+
+        ButtonNuevoEmpleado.setText("<html>Nuevo<br>Empleado</html>");
+
+        ButtonEditarEmpleado.setText("Editar Datos");
+
+        ButtonGrabarEmpleado.setText("Grabar");
+
+        ButtonEliminarEmpleado.setText("Eliminar");
+
+        javax.swing.GroupLayout PanelControlesEmpleadosLayout = new javax.swing.GroupLayout(PanelControlesEmpleados);
+        PanelControlesEmpleados.setLayout(PanelControlesEmpleadosLayout);
+        PanelControlesEmpleadosLayout.setHorizontalGroup(
+            PanelControlesEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelControlesEmpleadosLayout.createSequentialGroup()
+                .addGap(183, 183, 183)
+                .addGroup(PanelControlesEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelControlesEmpleadosLayout.createSequentialGroup()
+                        .addGroup(PanelControlesEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LabelNombreEmpleado)
+                            .addComponent(TextFieldNombreEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LabelDomicilioEmpleado)
+                            .addComponent(TextFieldDomicilioEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(ButtonNuevoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelControlesEmpleadosLayout.createSequentialGroup()
+                        .addGroup(PanelControlesEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(TextFieldConfirmaNip, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DateChosserEmpleado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(LabelTelefonoEmpleado, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TextFieldTelefonoEmpleado, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LabelFechaIngreso, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelControlesEmpleadosLayout.createSequentialGroup()
+                                .addComponent(CheckBoxActivoEmpleado)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CheckBoxInactivoEmpleado))
+                            .addComponent(LabelNipVentas, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LabelTipoEmpleado, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ComboBoxTipoEmpleado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextFieldNip, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LabelConfirmaNip, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18)
+                        .addGroup(PanelControlesEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ButtonEditarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ButtonGrabarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ButtonEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(20, 20, 20))
+        );
+        PanelControlesEmpleadosLayout.setVerticalGroup(
+            PanelControlesEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelControlesEmpleadosLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(PanelControlesEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelControlesEmpleadosLayout.createSequentialGroup()
+                        .addComponent(LabelNombreEmpleado)
+                        .addGap(6, 6, 6)
+                        .addComponent(TextFieldNombreEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(LabelDomicilioEmpleado)
+                        .addGap(12, 12, 12)
+                        .addComponent(TextFieldDomicilioEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelControlesEmpleadosLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(ButtonNuevoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(PanelControlesEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelControlesEmpleadosLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(LabelTelefonoEmpleado)
+                        .addGap(2, 2, 2)
+                        .addComponent(TextFieldTelefonoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(LabelFechaIngreso))
+                    .addComponent(ButtonEditarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(PanelControlesEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelControlesEmpleadosLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DateChosserEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PanelControlesEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CheckBoxActivoEmpleado)
+                            .addComponent(CheckBoxInactivoEmpleado))
+                        .addGap(18, 18, 18)
+                        .addComponent(LabelTipoEmpleado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addComponent(ComboBoxTipoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(LabelNipVentas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TextFieldNip, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(LabelConfirmaNip)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TextFieldConfirmaNip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(175, 175, 175))
+                    .addGroup(PanelControlesEmpleadosLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(ButtonGrabarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ButtonEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+
+        TextFieldTelefonoEmpleado.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(jLabel1)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(PanelDatosAdministracionEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(PanelTablaEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PanelControlesEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1)
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(PanelDatosAdministracionEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelTablaEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelControlesEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -62,7 +264,32 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton ButtonEditarEmpleado;
+    private javax.swing.JButton ButtonEliminarEmpleado;
+    private javax.swing.JButton ButtonGrabarEmpleado;
+    private javax.swing.JButton ButtonNuevoEmpleado;
+    private javax.swing.JCheckBox CheckBoxActivoEmpleado;
+    private javax.swing.JCheckBox CheckBoxInactivoEmpleado;
+    private javax.swing.JComboBox<String> ComboBoxTipoEmpleado;
+    private com.toedter.calendar.JDateChooser DateChosserEmpleado;
+    private javax.swing.JLabel LabelConfirmaNip;
+    private javax.swing.JLabel LabelDomicilioEmpleado;
+    private javax.swing.JLabel LabelFechaIngreso;
+    private javax.swing.JLabel LabelNipVentas;
+    private javax.swing.JLabel LabelNombreEmpleado;
+    private javax.swing.JLabel LabelTelefonoEmpleado;
+    private javax.swing.JLabel LabelTipoEmpleado;
+    private javax.swing.JLabel LabelTituloAdministracionEmpleados;
+    private javax.swing.JPanel PanelControlesEmpleados;
+    private javax.swing.JPanel PanelDatosAdministracionEmpleados;
+    private javax.swing.JPanel PanelTablaEmpleados;
+    private javax.swing.JTextField TextFieldConfirmaNip;
+    private javax.swing.JTextField TextFieldDomicilioEmpleado;
+    private javax.swing.JTextField TextFieldNip;
+    private javax.swing.JTextField TextFieldNombreEmpleado;
+    private javax.swing.JTextField TextFieldTelefonoEmpleado;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

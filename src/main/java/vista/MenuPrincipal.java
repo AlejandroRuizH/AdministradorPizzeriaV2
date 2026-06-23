@@ -49,9 +49,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
             cardLayout.show(PanelPrincipal,PanelDestino.MAIN_MENU.getCardName()); 
             PanelPrincipal.revalidate();
             PanelPrincipal.repaint();
-            
-            this.setLocationRelativeTo(null);
             pack();
+            this.setLocationRelativeTo(null);
+
        
         });      
     }
@@ -85,9 +85,26 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }
         
     }
+    /*
     
+    */
     public void mostrarPanel(String nombre){
         cardLayout.show(PanelPrincipal, nombre);
+        if(nombre.equals("MENU")){setSize(500,550);}
+        if(nombre.equals("ADMIN_CLIENTES")){setSize(1200,600);}
+        if(nombre.equals("ADMIN_EMPLEADOS")){setSize(1300,1000);}
+        if(nombre.equals("ADMIN_PIZZAS")){setSize(1200,600);}
+        if(nombre.equals("ADMIN_PRODUCTOS")){setSize(1200,600);}
+        if(nombre.equals("ADMIN_PROMOCIONES")){setSize(1200,600);}
+        if(nombre.equals("ADMIN_INGREDIENTES")){setSize(1200,600);}
+        if(nombre.equals("CORTE_FINAL")){setSize(800,600);}
+        if(nombre.equals("CORTE_PARCIAL")){setSize(800,600);}
+        if(nombre.equals("LOGIN_ADMIN")){setSize(480,340);}
+        if(nombre.equals("LOGIN_GERENTE")){setSize(480,340);}
+        if(nombre.equals("PANEL_CONN_DB")){setSize(480,340);}
+        if(nombre.equals("PANEL_DATOS_SUC")){setSize(480,340);}
+        if(nombre.equals("REIMPRESION")){setSize(480,340);}
+        setLocationRelativeTo(null);
     }
     
 
