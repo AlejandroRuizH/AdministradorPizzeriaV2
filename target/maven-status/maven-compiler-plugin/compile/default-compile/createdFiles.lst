@@ -11,7 +11,9 @@ vista/LoginAdministrador.class
 vista/LoginGerente.class
 vista/ReimpresionTickets.class
 vista/MainMenu.class
+vista/MenuPrincipal$1.class
 vista/AdministradoringredientesExtra.class
+vista/Cancelaciones2.class
 vista/AdministradorProductos.class
 vista/AdministradorEmpleados.class
 vista/MenuPrincipal.class
