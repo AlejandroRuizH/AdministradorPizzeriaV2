@@ -27,7 +27,6 @@ public class LoginAdministrador extends javax.swing.JPanel {
     private MenuPrincipal menuPrincipal;
     private String panelDestino;
     private String nombre;
-    //public String panelDestino;
     
     
     public LoginAdministrador(MenuPrincipal menuPrincipal, String nombre) {

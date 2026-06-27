@@ -23,6 +23,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuPrincipal.class.getName());
     private LoginAdministrador loginAdministrador;
+    private LoginGerente loginGerente;
     private CardLayout cardLayout;
     private String panelActual = "";
 
@@ -37,6 +38,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
        SwingUtilities.invokeLater(() -> {
             initComponents();
             loginAdministrador = new LoginAdministrador(this,"");
+            loginGerente = new LoginGerente(this,"");
             cardLayout = new CardLayout();
             PanelPrincipal.removeAll();
             PanelPrincipal.setLayout(cardLayout);
@@ -51,7 +53,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             PanelPrincipal.add(new CorteFinal(this), PanelDestino.CORTE_FINAL.getCardName());
             PanelPrincipal.add(new CorteParcial(this), PanelDestino.CORTE_PARCIAL.getCardName());
             PanelPrincipal.add(loginAdministrador, PanelDestino.LOGIN_ADMIN.getCardName());
-            PanelPrincipal.add(new LoginGerente(this), PanelDestino.LOGIN_GERENTE.getCardName());
+            PanelPrincipal.add(loginGerente, PanelDestino.LOGIN_GERENTE.getCardName());
             PanelPrincipal.add(new PanelConexionBD(this), PanelDestino.PANEL_CONN_DB.getCardName());
             PanelPrincipal.add(new PanelDatosSucursal(this), PanelDestino.PANEL_DATOS_SUC.getCardName());
             PanelPrincipal.add(new ReimpresionTickets(this), PanelDestino.REIMPRESION.getCardName());
@@ -169,6 +171,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         loginAdministrador.setPanelDestino(panelDestino);
         mostrarPanel(PanelDestino.LOGIN_ADMIN.getCardName());
+    
+    }
+    
+    public void mostrarLoginGerente(String panelDestino){
+        
+        loginGerente.setPanelDestino(panelDestino);
+        mostrarPanel(PanelDestino.LOGIN_GERENTE.getCardName());
     
     }
     

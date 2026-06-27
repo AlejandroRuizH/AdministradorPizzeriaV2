@@ -153,7 +153,7 @@ public class MainMenu extends javax.swing.JPanel {
     private void ButtonReporteVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonReporteVentasActionPerformed
         // TODO add your handling code here:
         // Debe ser iniciar el Login del Gerente
-        menuPrincipal.mostrarLogin(PanelDestino.REPORTE_VENTAS.getCardName());
+        menuPrincipal.mostrarLoginGerente(PanelDestino.REPORTE_VENTAS.getCardName());
         
     }//GEN-LAST:event_ButtonReporteVentasActionPerformed
 
@@ -180,6 +180,7 @@ public class MainMenu extends javax.swing.JPanel {
     private void ButtonAdminSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminSucursalActionPerformed
         // TODO add your handling code here:
         // Debe de mostrar el login del Gerente
+        menuPrincipal.mostrarLoginGerente(PanelDestino.PANEL_DATOS_SUC.getCardName());
     }//GEN-LAST:event_ButtonAdminSucursalActionPerformed
 
     private void ButtonConexionBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConexionBDActionPerformed
