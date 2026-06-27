@@ -5,7 +5,7 @@
 /Users/davidalejandroruizhernandez/NetBeansProjects/AdministradorPizzeriaV2/src/main/java/vista/AdministradorProductos.java
 /Users/davidalejandroruizhernandez/NetBeansProjects/AdministradorPizzeriaV2/src/main/java/vista/AdministradorPromociones.java
 /Users/davidalejandroruizhernandez/NetBeansProjects/AdministradorPizzeriaV2/src/main/java/vista/AdministradoringredientesExtra.java
-/Users/davidalejandroruizhernandez/NetBeansProjects/AdministradorPizzeriaV2/src/main/java/vista/Cancelaciones2.java
+/Users/davidalejandroruizhernandez/NetBeansProjects/AdministradorPizzeriaV2/src/main/java/vista/Cancelaciones.java
 /Users/davidalejandroruizhernandez/NetBeansProjects/AdministradorPizzeriaV2/src/main/java/vista/CorteFinal.java
 /Users/davidalejandroruizhernandez/NetBeansProjects/AdministradorPizzeriaV2/src/main/java/vista/CorteParcial.java
 /Users/davidalejandroruizhernandez/NetBeansProjects/AdministradorPizzeriaV2/src/main/java/vista/LoginAdministrador.java
@@ -15,3 +15,4 @@
 /Users/davidalejandroruizhernandez/NetBeansProjects/AdministradorPizzeriaV2/src/main/java/vista/PanelConexionBD.java
 /Users/davidalejandroruizhernandez/NetBeansProjects/AdministradorPizzeriaV2/src/main/java/vista/PanelDatosSucursal.java
 /Users/davidalejandroruizhernandez/NetBeansProjects/AdministradorPizzeriaV2/src/main/java/vista/ReimpresionTickets.java
+/Users/davidalejandroruizhernandez/NetBeansProjects/AdministradorPizzeriaV2/src/main/java/vista/ReporteDeVentas.java

@@ -12,6 +12,7 @@ import java.awt.event.WindowEvent;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import vista.MenuPrincipal.PanelDestino;
 
 
 /**
@@ -24,18 +25,31 @@ public class LoginAdministrador extends javax.swing.JPanel {
      * Creates new form LoginAdministrador
      */
     private MenuPrincipal menuPrincipal;
+    private String panelDestino;
+    private String nombre;
+    //public String panelDestino;
     
-    public LoginAdministrador(MenuPrincipal menuPrincipal) {
+    
+    public LoginAdministrador(MenuPrincipal menuPrincipal, String nombre) {
         
         initComponents();
         this.menuPrincipal = menuPrincipal;
-        setPreferredSize(new Dimension(450, 300));
-        menuPrincipal.revalidate();
-        menuPrincipal.repaint();
+        this.nombre = nombre;
+        this.panelDestino = panelDestino;
         
-        //setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    
+        setPreferredSize(new Dimension(450, 300));
+        //menuPrincipal.revalidate();
+        //menuPrincipal.repaint();
+        
+        System.out.println(nombre);
            
     }
+    
+    public void setPanelDestino(String panelDestino){
+        this.panelDestino = panelDestino;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -158,7 +172,10 @@ public class LoginAdministrador extends javax.swing.JPanel {
 
     private void ButtonAceptarLoginAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAceptarLoginAdministradorActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.ADMIN_EMPLEADOS.getCardName());
+        
+        System.out.println(panelDestino);
+        menuPrincipal.mostrarPanel(panelDestino);
+        
     }//GEN-LAST:event_ButtonAceptarLoginAdministradorActionPerformed
 
     private void ButtonCancelarLoginAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarLoginAdministradorActionPerformed

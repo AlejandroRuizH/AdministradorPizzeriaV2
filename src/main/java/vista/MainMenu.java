@@ -24,7 +24,7 @@ public class MainMenu extends javax.swing.JPanel {
     public MainMenu(MenuPrincipal menuPrincipal) {
         initComponents();
         this.menuPrincipal = menuPrincipal;
-        setPreferredSize(new Dimension(450, 500));
+        setPreferredSize(new Dimension(500, 550));
         menuPrincipal.revalidate();
         menuPrincipal.repaint();
         
@@ -49,6 +49,7 @@ public class MainMenu extends javax.swing.JPanel {
         ButtonCorteFinal = new javax.swing.JButton();
         ButtonReporteVentas = new javax.swing.JButton();
         ButtonAdminSucursal = new javax.swing.JButton();
+        ButtonConexionBD = new javax.swing.JButton();
 
         LabelPizzeriaTitulo.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         LabelPizzeriaTitulo.setText("Pizzeria Administrador Local");
@@ -57,13 +58,17 @@ public class MainMenu extends javax.swing.JPanel {
         ButtonAdminEmpleados.addActionListener(this::ButtonAdminEmpleadosActionPerformed);
 
         ButtonCancelaciones.setText("Cancelaciones");
+        ButtonCancelaciones.addActionListener(this::ButtonCancelacionesActionPerformed);
 
         ButtonReimpresion.setText("<html><center>Reimpresión<br></center> De Tickets</html> ");
+        ButtonReimpresion.addActionListener(this::ButtonReimpresionActionPerformed);
 
         ButtonCorteParcial.setText("<html><center>Corte de Caja<br></center>Parcial</html>");
+        ButtonCorteParcial.addActionListener(this::ButtonCorteParcialActionPerformed);
 
         ButtonCorteFinal.setText("<html><center>Corte de Caja<br></center>Final</html>");
         ButtonCorteFinal.setToolTipText("");
+        ButtonCorteFinal.addActionListener(this::ButtonCorteFinalActionPerformed);
 
         ButtonReporteVentas.setText("<html><center>Reporte De<br></center>Ventas</html>");
         ButtonReporteVentas.setToolTipText("");
@@ -71,6 +76,10 @@ public class MainMenu extends javax.swing.JPanel {
 
         ButtonAdminSucursal.setText("<html><center>Administración<br>De la Sucursal</center></html>");
         ButtonAdminSucursal.setToolTipText("");
+        ButtonAdminSucursal.addActionListener(this::ButtonAdminSucursalActionPerformed);
+
+        ButtonConexionBD.setText("<html><center>Conexión<br>A la BD</center></html>");
+        ButtonConexionBD.addActionListener(this::ButtonConexionBDActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -81,22 +90,26 @@ public class MainMenu extends javax.swing.JPanel {
                 .addComponent(LabelPizzeriaTitulo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ButtonAdminSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(ButtonCorteParcial, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ButtonCorteFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ButtonReporteVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(ButtonAdminEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(ButtonCancelaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(ButtonReimpresion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 80, Short.MAX_VALUE))
+                        .addComponent(ButtonReimpresion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ButtonCorteParcial, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ButtonAdminSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ButtonConexionBD, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(ButtonCorteFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(ButtonReporteVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 59, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,7 +127,9 @@ public class MainMenu extends javax.swing.JPanel {
                     .addComponent(ButtonCorteFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonReporteVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(ButtonAdminSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonAdminSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonConexionBD, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(173, Short.MAX_VALUE))
         );
 
@@ -132,22 +147,52 @@ public class MainMenu extends javax.swing.JPanel {
 
     private void ButtonAdminEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminEmpleadosActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(PanelDestino.LOGIN_ADMIN.getCardName());
+        menuPrincipal.mostrarLogin(PanelDestino.ADMIN_EMPLEADOS.getCardName());
     }//GEN-LAST:event_ButtonAdminEmpleadosActionPerformed
 
     private void ButtonReporteVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonReporteVentasActionPerformed
         // TODO add your handling code here:
-        //menuPrincipal.mostrarPanel(PanelDestino.PANEL_CANCELACIONES.getCardName());
-        Cancelaciones2 can = new Cancelaciones2(menuPrincipal,true);
-        can.setVisible(true);
+        // Debe ser iniciar el Login del Gerente
+        menuPrincipal.mostrarLogin(PanelDestino.REPORTE_VENTAS.getCardName());
         
     }//GEN-LAST:event_ButtonReporteVentasActionPerformed
+
+    private void ButtonCancelacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelacionesActionPerformed
+        // TODO add your handling code here:
+        menuPrincipal.mostrarLogin(PanelDestino.PANEL_CANCELACIONES.getCardName());
+    }//GEN-LAST:event_ButtonCancelacionesActionPerformed
+
+    private void ButtonReimpresionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonReimpresionActionPerformed
+        // TODO add your handling code here:
+        menuPrincipal.mostrarLogin(PanelDestino.REIMPRESION.getCardName());
+    }//GEN-LAST:event_ButtonReimpresionActionPerformed
+
+    private void ButtonCorteParcialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCorteParcialActionPerformed
+        // TODO add your handling code here:
+        menuPrincipal.mostrarLogin(PanelDestino.CORTE_PARCIAL.getCardName());
+    }//GEN-LAST:event_ButtonCorteParcialActionPerformed
+
+    private void ButtonCorteFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCorteFinalActionPerformed
+        // TODO add your handling code here:
+        menuPrincipal.mostrarLogin(PanelDestino.CORTE_FINAL.getCardName());
+    }//GEN-LAST:event_ButtonCorteFinalActionPerformed
+
+    private void ButtonAdminSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminSucursalActionPerformed
+        // TODO add your handling code here:
+        // Debe de mostrar el login del Gerente
+    }//GEN-LAST:event_ButtonAdminSucursalActionPerformed
+
+    private void ButtonConexionBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConexionBDActionPerformed
+        // TODO add your handling code here:
+        menuPrincipal.mostrarLogin(PanelDestino.PANEL_CONN_DB.getCardName());
+    }//GEN-LAST:event_ButtonConexionBDActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonAdminEmpleados;
     private javax.swing.JButton ButtonAdminSucursal;
     private javax.swing.JButton ButtonCancelaciones;
+    private javax.swing.JButton ButtonConexionBD;
     private javax.swing.JButton ButtonCorteFinal;
     private javax.swing.JButton ButtonCorteParcial;
     private javax.swing.JButton ButtonReimpresion;

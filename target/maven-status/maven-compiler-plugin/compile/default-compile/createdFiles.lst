@@ -1,6 +1,8 @@
 vista/MenuPrincipal$PanelDestino.class
 vista/CorteFinal.class
+vista/Cancelaciones.class
 vista/PanelConexionBD.class
+vista/ReporteDeVentas.class
 vista/CorteParcial.class
 vista/PanelDatosSucursal.class
 com/mycompany/administradorpizzeriav2/AdministradorPizzeriaV2.class
@@ -13,7 +15,6 @@ vista/ReimpresionTickets.class
 vista/MainMenu.class
 vista/MenuPrincipal$1.class
 vista/AdministradoringredientesExtra.class
-vista/Cancelaciones2.class
 vista/AdministradorProductos.class
 vista/AdministradorEmpleados.class
 vista/MenuPrincipal.class

@@ -4,6 +4,8 @@
  */
 package vista;
 
+import java.awt.Dimension;
+
 /**
  *
  * @author davidalejandroruizhernandez
@@ -14,7 +16,13 @@ public class PanelConexionBD extends javax.swing.JPanel {
      * Creates new form PanelConexionBD
      */
     public PanelConexionBD(MenuPrincipal menuPrincipal) {
+        
+        
         initComponents();
+        setPreferredSize(new Dimension(630, 545));
+        menuPrincipal.revalidate();
+        menuPrincipal.repaint();
+        
     }
 
     /**
@@ -26,19 +34,275 @@ public class PanelConexionBD extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        PanelDatosBD = new javax.swing.JPanel();
+        LabelTituloBD = new javax.swing.JLabel();
+        LabelSubTituloConfigBD = new javax.swing.JLabel();
+        LabelIpParameterBD = new javax.swing.JLabel();
+        LabelBDparameterBD = new javax.swing.JLabel();
+        LabelUsuarioParameterBD = new javax.swing.JLabel();
+        LabelPassParameterBD = new javax.swing.JLabel();
+        LabelIpConfiguredBD = new javax.swing.JLabel();
+        LabelBDNameConfiguredBD = new javax.swing.JLabel();
+        LabelUserConfiguredBD = new javax.swing.JLabel();
+        LabelPassConfiguredBD = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        PanelCamposBD = new javax.swing.JPanel();
+        LabelTitleNuevaConexionBD = new javax.swing.JLabel();
+        LabelDireccionIpTitleBD = new javax.swing.JLabel();
+        LabelTitleBD = new javax.swing.JLabel();
+        LabelUsuarioBD = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        ButtonProbarConexionBD = new javax.swing.JButton();
+        TextFieldDireccionBD = new javax.swing.JTextField();
+        TextFieldBD = new javax.swing.JTextField();
+        TextFieldUsuarioBD = new javax.swing.JTextField();
+        TextFieldPassBD = new javax.swing.JTextField();
+        ButtonCancelarBD = new javax.swing.JButton();
+        ButtonActualizarBD = new javax.swing.JButton();
+
+        setPreferredSize(new java.awt.Dimension(630, 590));
+
+        PanelDatosBD.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        LabelTituloBD.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        LabelTituloBD.setText("* Configuración a la Base de Datos");
+
+        LabelSubTituloConfigBD.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        LabelSubTituloConfigBD.setText("* Configuración Actual");
+
+        LabelIpParameterBD.setText("* IP:");
+        LabelIpParameterBD.setToolTipText("");
+
+        LabelBDparameterBD.setText("* Base de Datos:");
+
+        LabelUsuarioParameterBD.setText("* Usuario:");
+
+        LabelPassParameterBD.setText("* Contraseña:");
+
+        LabelIpConfiguredBD.setText("??");
+
+        LabelBDNameConfiguredBD.setText("??");
+
+        LabelUserConfiguredBD.setText("??");
+
+        LabelPassConfiguredBD.setText("??");
+
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout PanelDatosBDLayout = new javax.swing.GroupLayout(PanelDatosBD);
+        PanelDatosBD.setLayout(PanelDatosBDLayout);
+        PanelDatosBDLayout.setHorizontalGroup(
+            PanelDatosBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelDatosBDLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(108, 108, 108))
+            .addGroup(PanelDatosBDLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(PanelDatosBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelDatosBDLayout.createSequentialGroup()
+                        .addGroup(PanelDatosBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LabelTituloBD)
+                            .addComponent(LabelSubTituloConfigBD))
+                        .addContainerGap(297, Short.MAX_VALUE))
+                    .addGroup(PanelDatosBDLayout.createSequentialGroup()
+                        .addGroup(PanelDatosBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelDatosBDLayout.createSequentialGroup()
+                                .addComponent(LabelPassParameterBD)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(LabelPassConfiguredBD))
+                            .addGroup(PanelDatosBDLayout.createSequentialGroup()
+                                .addComponent(LabelUsuarioParameterBD)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(LabelUserConfiguredBD))
+                            .addGroup(PanelDatosBDLayout.createSequentialGroup()
+                                .addComponent(LabelBDparameterBD)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(LabelBDNameConfiguredBD))
+                            .addGroup(PanelDatosBDLayout.createSequentialGroup()
+                                .addComponent(LabelIpParameterBD)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(LabelIpConfiguredBD)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        PanelDatosBDLayout.setVerticalGroup(
+            PanelDatosBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelDatosBDLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(LabelTituloBD)
+                .addGap(28, 28, 28)
+                .addComponent(LabelSubTituloConfigBD)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelDatosBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelIpParameterBD)
+                    .addComponent(LabelIpConfiguredBD))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanelDatosBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelBDparameterBD)
+                    .addComponent(LabelBDNameConfiguredBD))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanelDatosBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelUsuarioParameterBD)
+                    .addComponent(LabelUserConfiguredBD))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanelDatosBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelPassParameterBD)
+                    .addComponent(LabelPassConfiguredBD))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+
+        LabelTitleNuevaConexionBD.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        LabelTitleNuevaConexionBD.setText("Nueva Conexión a la Base de Datos");
+        LabelTitleNuevaConexionBD.setToolTipText("");
+
+        LabelDireccionIpTitleBD.setText("* Dirección:");
+
+        LabelTitleBD.setText("* Base de Datos:");
+
+        LabelUsuarioBD.setText("* Usuario:");
+
+        jLabel5.setText("* Contraseña:");
+
+        ButtonProbarConexionBD.setText("Probar Conexión");
+
+        ButtonCancelarBD.setText("Cancelar");
+
+        ButtonActualizarBD.setText("Actualizar");
+
+        javax.swing.GroupLayout PanelCamposBDLayout = new javax.swing.GroupLayout(PanelCamposBD);
+        PanelCamposBD.setLayout(PanelCamposBDLayout);
+        PanelCamposBDLayout.setHorizontalGroup(
+            PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelCamposBDLayout.createSequentialGroup()
+                .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelCamposBDLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelCamposBDLayout.createSequentialGroup()
+                                .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(LabelDireccionIpTitleBD)
+                                    .addComponent(LabelUsuarioBD)
+                                    .addComponent(jLabel5)
+                                    .addComponent(LabelTitleBD))
+                                .addGap(18, 18, 18)
+                                .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(TextFieldBD, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TextFieldDireccionBD, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TextFieldUsuarioBD, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TextFieldPassBD, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(LabelTitleNuevaConexionBD)))
+                    .addGroup(PanelCamposBDLayout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(ButtonProbarConexionBD, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(58, 58, 58)
+                .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ButtonActualizarBD, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonCancelarBD, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(89, Short.MAX_VALUE))
+        );
+        PanelCamposBDLayout.setVerticalGroup(
+            PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCamposBDLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCamposBDLayout.createSequentialGroup()
+                        .addComponent(LabelTitleNuevaConexionBD)
+                        .addGap(27, 27, 27)
+                        .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LabelDireccionIpTitleBD)
+                            .addComponent(TextFieldDireccionBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LabelTitleBD)
+                            .addComponent(TextFieldBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(ButtonActualizarBD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelCamposBDLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TextFieldUsuarioBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LabelUsuarioBD))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(TextFieldPassBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(28, 28, 28)
+                        .addComponent(ButtonProbarConexionBD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelCamposBDLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(ButtonCancelarBD, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(120, 120, 120))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(PanelDatosBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(PanelCamposBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(PanelDatosBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PanelCamposBD, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonActualizarBD;
+    private javax.swing.JButton ButtonCancelarBD;
+    private javax.swing.JButton ButtonProbarConexionBD;
+    private javax.swing.JLabel LabelBDNameConfiguredBD;
+    private javax.swing.JLabel LabelBDparameterBD;
+    private javax.swing.JLabel LabelDireccionIpTitleBD;
+    private javax.swing.JLabel LabelIpConfiguredBD;
+    private javax.swing.JLabel LabelIpParameterBD;
+    private javax.swing.JLabel LabelPassConfiguredBD;
+    private javax.swing.JLabel LabelPassParameterBD;
+    private javax.swing.JLabel LabelSubTituloConfigBD;
+    private javax.swing.JLabel LabelTitleBD;
+    private javax.swing.JLabel LabelTitleNuevaConexionBD;
+    private javax.swing.JLabel LabelTituloBD;
+    private javax.swing.JLabel LabelUserConfiguredBD;
+    private javax.swing.JLabel LabelUsuarioBD;
+    private javax.swing.JLabel LabelUsuarioParameterBD;
+    private javax.swing.JPanel PanelCamposBD;
+    private javax.swing.JPanel PanelDatosBD;
+    private javax.swing.JTextField TextFieldBD;
+    private javax.swing.JTextField TextFieldDireccionBD;
+    private javax.swing.JTextField TextFieldPassBD;
+    private javax.swing.JTextField TextFieldUsuarioBD;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
