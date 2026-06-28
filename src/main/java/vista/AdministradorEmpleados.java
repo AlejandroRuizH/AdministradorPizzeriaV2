@@ -64,7 +64,7 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
         ButtonEditarEmpleado = new javax.swing.JButton();
         ButtonGrabarEmpleado = new javax.swing.JButton();
         ButtonEliminarEmpleado = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        ButtonCancelarEmpleados = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         LabelTituloAdministracionEmpleados.setText("jLabel2");
@@ -88,15 +88,30 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nombre", "Domicilio", "Teléfono", "Fecha de Ingreso", "Activo", "Tipo de Empleado", "NIP"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout PanelTablaEmpleadosLayout = new javax.swing.GroupLayout(PanelTablaEmpleados);
@@ -143,9 +158,9 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
 
         ButtonEliminarEmpleado.setText("Eliminar");
 
-        jButton1.setText("jButton1");
+        ButtonCancelarEmpleados.setText("Cancelar");
 
-        jButton2.setText("jButton2");
+        jButton2.setText("<html>Menu<br>Principal</html>");
 
         javax.swing.GroupLayout PanelControlesEmpleadosLayout = new javax.swing.GroupLayout(PanelControlesEmpleados);
         PanelControlesEmpleados.setLayout(PanelControlesEmpleadosLayout);
@@ -186,7 +201,7 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
                                     .addComponent(ButtonGrabarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ButtonEditarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ButtonEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ButtonCancelarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
@@ -243,7 +258,7 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ButtonEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ButtonCancelarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(41, Short.MAX_VALUE))
@@ -290,6 +305,7 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonCancelarEmpleados;
     private javax.swing.JButton ButtonEditarEmpleado;
     private javax.swing.JButton ButtonEliminarEmpleado;
     private javax.swing.JButton ButtonGrabarEmpleado;
@@ -314,7 +330,6 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
     private javax.swing.JTextField TextFieldNip;
     private javax.swing.JTextField TextFieldNombreEmpleado;
     private javax.swing.JTextField TextFieldTelefonoEmpleado;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
