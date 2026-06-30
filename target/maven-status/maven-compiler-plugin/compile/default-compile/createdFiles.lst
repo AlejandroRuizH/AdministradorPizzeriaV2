@@ -10,6 +10,7 @@ vista/AdministradorPizzas.class
 vista/AdministradorPromociones.class
 vista/AdministradorClientes.class
 vista/LoginAdministrador.class
+vista/AdministradorEmpleados$1.class
 vista/LoginGerente.class
 vista/ReimpresionTickets.class
 vista/MainMenu.class

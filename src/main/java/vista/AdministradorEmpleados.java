@@ -94,7 +94,7 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nombre", "Domicilio", "Teléfono", "Fecha de Ingreso", "Activo", "Tipo de Empleado", "NIP"
+                "ID", "Nombre", "Domicilio", "Teléfono", "Fecha de ingreso", "Activo", "Tipo de Empleado", "NIP"
             }
         ) {
             Class[] types = new Class [] {

@@ -124,7 +124,7 @@
                         <Column editable="false" title="Nombre" type="java.lang.String"/>
                         <Column editable="false" title="Domicilio" type="java.lang.String"/>
                         <Column editable="false" title="Tel&#xe9;fono" type="java.lang.String"/>
-                        <Column editable="false" title="Fecha de Ingreso" type="java.lang.Object"/>
+                        <Column editable="false" title="Fecha de ingreso" type="java.lang.Object"/>
                         <Column editable="false" title="Activo" type="java.lang.String"/>
                         <Column editable="false" title="Tipo de Empleado" type="java.lang.String"/>
                         <Column editable="false" title="NIP" type="java.lang.Integer"/>
