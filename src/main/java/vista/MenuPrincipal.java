@@ -33,8 +33,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal() {
         
        
-       //FlatLightLaf.setup();
-       FlatDarkLaf.setup();
+       FlatLightLaf.setup();
+       //FlatDarkLaf.setup();
        SwingUtilities.invokeLater(() -> {
             initComponents();
             loginAdministrador = new LoginAdministrador(this,"");
@@ -64,6 +64,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             PanelPrincipal.repaint();
             setLocationRelativeTo(null);
             //mostrarPanel(PanelDestino.MAIN_MENU.getCardName());
+            //
             pack();
             
             setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

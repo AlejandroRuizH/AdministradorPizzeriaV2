@@ -62,8 +62,8 @@
               <Group type="102" attributes="0">
                   <Component id="PanelDatosBD" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="PanelCamposBD" min="-2" pref="255" max="-2" attributes="0"/>
-                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                  <Component id="PanelCamposBD" min="-2" pref="267" max="-2" attributes="0"/>
+                  <EmptySpace pref="22" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -81,14 +81,17 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="LabelIpParameterBD" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="LabelIpConfiguredBD" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="LabelIconBD" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="LabelTituloBD" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -98,6 +101,11 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="LabelPuertoParameterBD" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      <Component id="LabelPuertoConfiguredBD" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="LabelPassParameterBD" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -112,11 +120,6 @@
                                       <Component id="LabelBDparameterBD" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="LabelBDNameConfiguredBD" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="LabelIpParameterBD" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="LabelIpConfiguredBD" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -133,13 +136,17 @@
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="LabelSubTituloConfigBD" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="LabelIconBD" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="LabelIpParameterBD" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="LabelIpConfiguredBD" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="LabelPuertoParameterBD" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="LabelPuertoConfiguredBD" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="LabelBDparameterBD" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="LabelBDNameConfiguredBD" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -178,7 +185,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="LabelIpParameterBD">
               <Properties>
-                <Property name="text" type="java.lang.String" value="* IP:"/>
+                <Property name="text" type="java.lang.String" value="* Host:"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
@@ -217,7 +224,17 @@
                 <Property name="text" type="java.lang.String" value="??"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="LabelPuertoParameterBD">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* Puerto:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="LabelPuertoConfiguredBD">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="??"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="LabelIconBD">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
@@ -236,17 +253,19 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="LabelDireccionIpTitleBD" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelHostTitleBD" min="-2" max="-2" attributes="0"/>
                                           <Component id="LabelUsuarioBD" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelPassBD" min="-2" max="-2" attributes="0"/>
                                           <Component id="LabelTitleBD" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelPuertoBD" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="TextFieldBD" min="-2" pref="210" max="-2" attributes="0"/>
-                                          <Component id="TextFieldDireccionBD" min="-2" pref="210" max="-2" attributes="0"/>
-                                          <Component id="TextFieldUsuarioBD" min="-2" pref="210" max="-2" attributes="0"/>
-                                          <Component id="TextFieldPassBD" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="TextFieldBD" pref="210" max="32767" attributes="0"/>
+                                          <Component id="TextFieldHostBD" pref="210" max="32767" attributes="0"/>
+                                          <Component id="TextFieldUsuarioBD" pref="210" max="32767" attributes="0"/>
+                                          <Component id="PassFieldDB" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="TextFieldPuertoBD" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="LabelTitleNuevaConexionBD" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -273,32 +292,38 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="LabelTitleNuevaConexionBD" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="LabelDireccionIpTitleBD" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="TextFieldDireccionBD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelHostTitleBD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TextFieldHostBD" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="LabelTitleBD" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="TextFieldBD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelPuertoBD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TextFieldPuertoBD" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           </Group>
                           <Component id="ButtonActualizarBD" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="TextFieldBD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelTitleBD" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="TextFieldUsuarioBD" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="LabelUsuarioBD" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="TextFieldPassBD" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="PassFieldDB" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelPassBD" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="ButtonProbarConexionBD" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -321,9 +346,9 @@
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="LabelDireccionIpTitleBD">
+            <Component class="javax.swing.JLabel" name="LabelHostTitleBD">
               <Properties>
-                <Property name="text" type="java.lang.String" value="* Direcci&#xf3;n:"/>
+                <Property name="text" type="java.lang.String" value="* Host:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="LabelTitleBD">
@@ -336,7 +361,7 @@
                 <Property name="text" type="java.lang.String" value="* Usuario:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="LabelPassBD">
               <Properties>
                 <Property name="text" type="java.lang.String" value="* Contrase&#xf1;a:"/>
               </Properties>
@@ -346,13 +371,11 @@
                 <Property name="text" type="java.lang.String" value="Probar Conexi&#xf3;n"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="TextFieldDireccionBD">
+            <Component class="javax.swing.JTextField" name="TextFieldHostBD">
             </Component>
             <Component class="javax.swing.JTextField" name="TextFieldBD">
             </Component>
             <Component class="javax.swing.JTextField" name="TextFieldUsuarioBD">
-            </Component>
-            <Component class="javax.swing.JTextField" name="TextFieldPassBD">
             </Component>
             <Component class="javax.swing.JButton" name="ButtonCancelarBD">
               <Properties>
@@ -363,6 +386,18 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actualizar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonActualizarBDActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="PassFieldDB">
+            </Component>
+            <Component class="javax.swing.JLabel" name="LabelPuertoBD">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* Puerto"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="TextFieldPuertoBD">
             </Component>
           </SubComponents>
         </Container>
