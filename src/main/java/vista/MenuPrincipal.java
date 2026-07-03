@@ -64,7 +64,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             PanelPrincipal.repaint();
             setLocationRelativeTo(null);
             //mostrarPanel(PanelDestino.MAIN_MENU.getCardName());
-            //
+            this.setResizable(false);
             pack();
             
             setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

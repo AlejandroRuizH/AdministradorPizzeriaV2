@@ -5,9 +5,13 @@
 package vista;
 
 import com.mycompany.administradorpizzeriav2.DBConfiguration;
+import database.DatabaseConnection;
 import java.awt.Dimension;
 import java.io.IOException;
 import java.lang.module.Configuration;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,11 +23,14 @@ public class PanelConexionBD extends javax.swing.JPanel {
     /**
      * Creates new form PanelConexionBD
      */
+    
+    private MenuPrincipal menuPrincipal;
+    
     public PanelConexionBD(MenuPrincipal menuPrincipal) {
         
-        
+        this.menuPrincipal = menuPrincipal;
         initComponents();
-        setPreferredSize(new Dimension(630, 545));
+        setPreferredSize(new Dimension(630, 560));
         //this.setResizable(false);
         menuPrincipal.revalidate();
         menuPrincipal.repaint();
@@ -31,10 +38,25 @@ public class PanelConexionBD extends javax.swing.JPanel {
         // Mostrar la configuracion guardada dentro del archivo config.properties
         LabelIpConfiguredBD.setText(DBConfiguration.getHost());
         LabelBDNameConfiguredBD.setText(DBConfiguration.getBaseDatos());
+        LabelPuertoConfiguredBD.setText(String.valueOf(DBConfiguration.getPuerto()));
         LabelUserConfiguredBD.setText(DBConfiguration.getUsuario());
         LabelPassConfiguredBD.setText(DBConfiguration.getPassword());
         
+        // Adding console logs
+        System.out.println(DBConfiguration.getHost());
+        System.out.println(DBConfiguration.getBaseDatos());
+        System.out.println(DBConfiguration.getUsuario());
+        System.out.println(DBConfiguration.getPassword());
+        
     }
+    
+      private void limpiaCampos(){
+                    TextFieldHostBD.setText("");
+                    TextFieldPuertoBD.setText("");
+                    TextFieldBD.setText("");
+                    TextFieldUsuarioBD.setText("");
+                    PassFieldDB.setText("");
+        }
     
   
 
@@ -194,8 +216,10 @@ public class PanelConexionBD extends javax.swing.JPanel {
         LabelPassBD.setText("* Contraseña:");
 
         ButtonProbarConexionBD.setText("Probar Conexión");
+        ButtonProbarConexionBD.addActionListener(this::ButtonProbarConexionBDActionPerformed);
 
         ButtonCancelarBD.setText("Cancelar");
+        ButtonCancelarBD.addActionListener(this::ButtonCancelarBDActionPerformed);
 
         ButtonActualizarBD.setText("Actualizar");
         ButtonActualizarBD.addActionListener(this::ButtonActualizarBDActionPerformed);
@@ -362,10 +386,42 @@ public class PanelConexionBD extends javax.swing.JPanel {
                 "Error",
                 JOptionPane.ERROR_MESSAGE
                );
-        }
+        }  
         
+        limpiaCampos();
         
     }//GEN-LAST:event_ButtonActualizarBDActionPerformed
+
+    private void ButtonCancelarBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarBDActionPerformed
+        // TODO add your handling code here:
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU.getCardName());
+        
+    }//GEN-LAST:event_ButtonCancelarBDActionPerformed
+
+    private void ButtonProbarConexionBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProbarConexionBDActionPerformed
+        // TODO add your handling code here:
+        
+        Connection test_conn = null;
+        try 
+        {
+            
+          String url = "jdbc:mysql://"+TextFieldHostBD.getText().trim()+":"+TextFieldPuertoBD.getText().trim()+"/"+TextFieldBD.getText().trim();
+          String user=TextFieldUsuarioBD.getText().trim();
+          char[] passArray = PassFieldDB.getPassword();
+          String password = new String(passArray);
+          //quitar la linea de codigo del println
+          System.out.println(password);
+          test_conn = DriverManager.getConnection(url,user,password);
+          System.out.println("Conexion exitosa");
+          JOptionPane.showMessageDialog(null, "Conexion Exitosa con la BD: "+TextFieldBD.getText());
+          test_conn.close();
+        }catch(SQLException e)
+        {
+          JOptionPane.showMessageDialog(null, "Error al conectar la BD: "+TextFieldBD.getText());
+          System.out.println("Error de conexion: "+ e.getMessage());
+        }
+        
+    }//GEN-LAST:event_ButtonProbarConexionBDActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
