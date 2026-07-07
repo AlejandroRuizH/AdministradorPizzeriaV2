@@ -1,6 +1,7 @@
 vista/MenuPrincipal$PanelDestino.class
 vista/PanelDatosSucursal$2.class
 vista/CorteFinal.class
+vista/AdministradoringredientesExtra$2.class
 vista/PanelConexionBD.class
 vista/CorteParcial.class
 vista/PanelDatosSucursal.class
@@ -18,9 +19,11 @@ vista/AdministradoringredientesExtra.class
 vista/AdministradorEmpleados.class
 vista/MenuPrincipal.class
 database/DatabaseConnection.class
+vista/AdministradoringredientesExtra$3.class
 vista/Cancelaciones.class
 vista/ReporteDeVentas.class
 vista/PanelDatosSucursal$3.class
+vista/AdministradoringredientesExtra$1.class
 com/mycompany/administradorpizzeriav2/AdministradorPizzeriaV2.class
 vista/LoginAdministrador.class
 vista/AdministradorDatosSucursal.class
