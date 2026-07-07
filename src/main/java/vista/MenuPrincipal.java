@@ -45,6 +45,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             PanelPrincipal.add(new MainMenu(this), PanelDestino.MAIN_MENU.getCardName());
             PanelPrincipal.add(new AdministradorClientes(this), PanelDestino.ADMIN_CLIENTES.getCardName());
             PanelPrincipal.add(new AdministradorEmpleados(this), PanelDestino.ADMIN_EMPLEADOS.getCardName());
+            PanelPrincipal.add(new AdministradorDatosSucursal(this), PanelDestino.ADMIN_DATOS_SUC.getCardName());
             PanelPrincipal.add(new AdministradorPizzas(this), PanelDestino.ADMIN_PIZZAS.getCardName());
             PanelPrincipal.add(new AdministradorProductos(this), PanelDestino.ADMIN_PRODUCTOS.getCardName());
             PanelPrincipal.add(new AdministradorPromociones(this), PanelDestino.ADMIN_PROMOCIONES.getCardName());
@@ -102,7 +103,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     mostrarPanel("MENU");
                 } else if ("REPORTE_VENTAS".equals(panelActual)){
                     mostrarPanel("MENU");
-                } else {
+                } else if ("ADMIN_DATOS_SUC".equals(panelActual)){
+                    mostrarPanel("MENU");
+                }else {
                     dispose(); // o System.exit(0)
                 }
             }
@@ -117,6 +120,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public enum PanelDestino{
         MAIN_MENU("MENU"),
         ADMIN_CLIENTES("ADMIN_CLIENTES"),
+        ADMIN_DATOS_SUC("ADMIN_DATOS_SUC"),
         ADMIN_EMPLEADOS("ADMIN_EMPLEADOS"),
         ADMIN_PIZZAS("ADMIN_PIZZAS"),
         ADMIN_PRODUCTOS("ADMIN_PRODUCTOS"),

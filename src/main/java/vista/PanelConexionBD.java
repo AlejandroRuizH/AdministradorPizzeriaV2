@@ -99,6 +99,7 @@ public class PanelConexionBD extends javax.swing.JPanel {
         PassFieldDB = new javax.swing.JPasswordField();
         LabelPuertoBD = new javax.swing.JLabel();
         TextFieldPuertoBD = new javax.swing.JTextField();
+        ButtonMenuPrincipalBD = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(630, 590));
 
@@ -226,36 +227,37 @@ public class PanelConexionBD extends javax.swing.JPanel {
 
         LabelPuertoBD.setText("* Puerto");
 
+        ButtonMenuPrincipalBD.setText("Menu Principal");
+        ButtonMenuPrincipalBD.addActionListener(this::ButtonMenuPrincipalBDActionPerformed);
+
         javax.swing.GroupLayout PanelCamposBDLayout = new javax.swing.GroupLayout(PanelCamposBD);
         PanelCamposBD.setLayout(PanelCamposBDLayout);
         PanelCamposBDLayout.setHorizontalGroup(
             PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelCamposBDLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
                 .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LabelTitleNuevaConexionBD)
                     .addGroup(PanelCamposBDLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
+                        .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(LabelHostTitleBD)
+                            .addComponent(LabelUsuarioBD)
+                            .addComponent(LabelPassBD)
+                            .addComponent(LabelTitleBD)
+                            .addComponent(LabelPuertoBD))
+                        .addGap(18, 18, 18)
                         .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelCamposBDLayout.createSequentialGroup()
-                                .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(LabelHostTitleBD)
-                                    .addComponent(LabelUsuarioBD)
-                                    .addComponent(LabelPassBD)
-                                    .addComponent(LabelTitleBD)
-                                    .addComponent(LabelPuertoBD))
-                                .addGap(18, 18, 18)
-                                .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(TextFieldBD, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                                    .addComponent(TextFieldHostBD, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                                    .addComponent(TextFieldUsuarioBD, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                                    .addComponent(PassFieldDB)
-                                    .addComponent(TextFieldPuertoBD)))
-                            .addComponent(LabelTitleNuevaConexionBD)))
-                    .addGroup(PanelCamposBDLayout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(ButtonProbarConexionBD, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ButtonProbarConexionBD, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(TextFieldBD, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                                .addComponent(TextFieldHostBD, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                                .addComponent(TextFieldUsuarioBD, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                                .addComponent(PassFieldDB)
+                                .addComponent(TextFieldPuertoBD)))))
                 .addGap(58, 58, 58)
-                .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ButtonActualizarBD, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonMenuPrincipalBD, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonCancelarBD, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
@@ -269,33 +271,37 @@ public class PanelConexionBD extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(LabelHostTitleBD)
-                            .addComponent(TextFieldHostBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TextFieldHostBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(ButtonActualizarBD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelCamposBDLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(LabelPuertoBD)
                             .addComponent(TextFieldPuertoBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(6, 6, 6))
-                    .addComponent(ButtonActualizarBD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TextFieldBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LabelTitleBD)))
+                    .addGroup(PanelCamposBDLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(ButtonCancelarBD, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelCamposBDLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TextFieldBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabelTitleBD))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TextFieldUsuarioBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabelUsuarioBD))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LabelUsuarioBD)
+                            .addComponent(TextFieldUsuarioBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PanelCamposBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(PassFieldDB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabelPassBD))
-                        .addGap(18, 18, 18)
-                        .addComponent(ButtonProbarConexionBD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(LabelPassBD)))
                     .addGroup(PanelCamposBDLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(ButtonCancelarBD, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(120, 120, 120))
+                        .addGap(18, 18, 18)
+                        .addComponent(ButtonMenuPrincipalBD, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ButtonProbarConexionBD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(187, 187, 187))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -394,7 +400,7 @@ public class PanelConexionBD extends javax.swing.JPanel {
 
     private void ButtonCancelarBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarBDActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU.getCardName());
+        limpiaCampos();
         
     }//GEN-LAST:event_ButtonCancelarBDActionPerformed
 
@@ -423,10 +429,17 @@ public class PanelConexionBD extends javax.swing.JPanel {
         
     }//GEN-LAST:event_ButtonProbarConexionBDActionPerformed
 
+    private void ButtonMenuPrincipalBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuPrincipalBDActionPerformed
+        // TODO add your handling code here:
+        limpiaCampos();
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU.getCardName());
+    }//GEN-LAST:event_ButtonMenuPrincipalBDActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonActualizarBD;
     private javax.swing.JButton ButtonCancelarBD;
+    private javax.swing.JButton ButtonMenuPrincipalBD;
     private javax.swing.JButton ButtonProbarConexionBD;
     private javax.swing.JLabel LabelBDNameConfiguredBD;
     private javax.swing.JLabel LabelBDparameterBD;

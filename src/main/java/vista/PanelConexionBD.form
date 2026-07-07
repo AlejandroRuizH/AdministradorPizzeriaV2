@@ -247,38 +247,34 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="LabelTitleNuevaConexionBD" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="LabelHostTitleBD" min="-2" max="-2" attributes="0"/>
-                                          <Component id="LabelUsuarioBD" min="-2" max="-2" attributes="0"/>
-                                          <Component id="LabelPassBD" min="-2" max="-2" attributes="0"/>
-                                          <Component id="LabelTitleBD" min="-2" max="-2" attributes="0"/>
-                                          <Component id="LabelPuertoBD" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="TextFieldBD" pref="210" max="32767" attributes="0"/>
-                                          <Component id="TextFieldHostBD" pref="210" max="32767" attributes="0"/>
-                                          <Component id="TextFieldUsuarioBD" pref="210" max="32767" attributes="0"/>
-                                          <Component id="PassFieldDB" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="TextFieldPuertoBD" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="LabelTitleNuevaConexionBD" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="LabelHostTitleBD" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelUsuarioBD" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelPassBD" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelTitleBD" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelPuertoBD" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
-                              <Component id="ButtonProbarConexionBD" min="-2" pref="150" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="ButtonProbarConexionBD" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="TextFieldBD" pref="210" max="32767" attributes="0"/>
+                                      <Component id="TextFieldHostBD" pref="210" max="32767" attributes="0"/>
+                                      <Component id="TextFieldUsuarioBD" pref="210" max="32767" attributes="0"/>
+                                      <Component id="PassFieldDB" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="TextFieldPuertoBD" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="ButtonActualizarBD" min="-2" pref="120" max="-2" attributes="0"/>
+                          <Component id="ButtonMenuPrincipalBD" min="-2" pref="120" max="-2" attributes="0"/>
                           <Component id="ButtonCancelarBD" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="89" max="32767" attributes="0"/>
@@ -297,41 +293,48 @@
                                   <Component id="LabelHostTitleBD" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="TextFieldHostBD" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                          </Group>
+                          <Component id="ButtonActualizarBD" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="LabelPuertoBD" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="TextFieldPuertoBD" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="ButtonActualizarBD" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="TextFieldBD" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="LabelTitleBD" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="TextFieldUsuarioBD" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="LabelUsuarioBD" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="ButtonCancelarBD" min="-2" pref="49" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="LabelUsuarioBD" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TextFieldUsuarioBD" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="PassFieldDB" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="LabelPassBD" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="ButtonProbarConexionBD" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="ButtonCancelarBD" min="-2" pref="80" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Component id="ButtonMenuPrincipalBD" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="ButtonProbarConexionBD" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -404,6 +407,14 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="TextFieldPuertoBD">
+            </Component>
+            <Component class="javax.swing.JButton" name="ButtonMenuPrincipalBD">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Menu Principal"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonMenuPrincipalBDActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
