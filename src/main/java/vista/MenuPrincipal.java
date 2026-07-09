@@ -32,11 +32,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         
+        
        
        FlatLightLaf.setup();
        //FlatDarkLaf.setup();
        SwingUtilities.invokeLater(() -> {
             initComponents();
+             setLocationRelativeTo(null);
             loginAdministrador = new LoginAdministrador(this,"");
             loginGerente = new LoginGerente(this,"");
             cardLayout = new CardLayout();
@@ -61,9 +63,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
             PanelPrincipal.add(new ReimpresionTickets(this), PanelDestino.REPORTE_VENTAS.getCardName());
             setPreferredSize(new Dimension(500, 550));
             cardLayout.show(PanelPrincipal,PanelDestino.MAIN_MENU.getCardName()); 
+           
             PanelPrincipal.revalidate();
             PanelPrincipal.repaint();
-            setLocationRelativeTo(null);
+            
             //mostrarPanel(PanelDestino.MAIN_MENU.getCardName());
             this.setResizable(false);
             pack();
@@ -83,9 +86,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     mostrarPanel("MENU");
                 } else if ("ADMIN_EMPLEADOS".equals(panelActual)){
                     mostrarPanel("MENU");
+                } else if ("ADMIN_PIZZAS".equals(panelActual)){
+                    mostrarPanel("MENU");
                 } else if ("ADMIN_PRODUCTOS".equals(panelActual)){
                     mostrarPanel("MENU");
-                } else if ("ADMIN_PROMOCIONES".equals(panelActual)){
+                }  else if ("ADMIN_PROMOCIONES".equals(panelActual)){
                     mostrarPanel("MENU");
                 } else if ("ADMIN_INGREDIENTES".equals(panelActual)){
                     mostrarPanel("MENU");
@@ -204,22 +209,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
         PanelPrincipal.setLayout(PanelPrincipalLayout);
         PanelPrincipalLayout.setHorizontalGroup(
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
         PanelPrincipalLayout.setVerticalGroup(
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGap(0, 550, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

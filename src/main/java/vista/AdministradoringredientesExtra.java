@@ -32,7 +32,7 @@ public class AdministradoringredientesExtra extends javax.swing.JPanel {
          
         this.menuPrincipal = menuPrincipal;
         initComponents();
-        setPreferredSize(new Dimension(990, 740));
+        setPreferredSize(new Dimension(977, 704));
         //this.setResizable(false);
         menuPrincipal.revalidate();
         menuPrincipal.repaint();
@@ -64,7 +64,7 @@ public class AdministradoringredientesExtra extends javax.swing.JPanel {
         
     }
     
-        private void habilitarCampos(boolean estado){
+    private void habilitarCampos(boolean estado){
         TextFieldDescripcionIngrediente.setEnabled(estado);
         ComboBoxTipoIngrediente.setEnabled(estado);
         TextFieldIDIngrediente.setEnabled(estado);
@@ -251,6 +251,8 @@ public class AdministradoringredientesExtra extends javax.swing.JPanel {
         TextFieldIDIngrediente = new javax.swing.JTextField();
         PanelImagenPanelIngredientes = new javax.swing.JPanel();
 
+        PanelTituloAdminIngredientes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         LabelTituloIngredientesExtra.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         LabelTituloIngredientesExtra.setText("Panel Administracion Ingredientes Extra");
 
@@ -268,7 +270,7 @@ public class AdministradoringredientesExtra extends javax.swing.JPanel {
             .addGroup(PanelTituloAdminIngredientesLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(LabelTituloIngredientesExtra)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PanelTablaIngredientesExtra.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -373,7 +375,7 @@ public class AdministradoringredientesExtra extends javax.swing.JPanel {
                     .addComponent(ButtonNuevoIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonGrabarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonEliminarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
         PanelBotonesIngredientesExtraLayout.setVerticalGroup(
             PanelBotonesIngredientesExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -410,8 +412,10 @@ public class AdministradoringredientesExtra extends javax.swing.JPanel {
                         .addComponent(TextFieldIDIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(ButtonCancelarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
+
+        PanelImagenPanelIngredientes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout PanelImagenPanelIngredientesLayout = new javax.swing.GroupLayout(PanelImagenPanelIngredientes);
         PanelImagenPanelIngredientes.setLayout(PanelImagenPanelIngredientesLayout);
@@ -421,7 +425,7 @@ public class AdministradoringredientesExtra extends javax.swing.JPanel {
         );
         PanelImagenPanelIngredientesLayout.setVerticalGroup(
             PanelImagenPanelIngredientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 116, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -429,25 +433,26 @@ public class AdministradoringredientesExtra extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(PanelTituloAdminIngredientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanelTablaIngredientesExtra, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelImagenPanelIngredientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PanelTablaIngredientesExtra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(PanelBotonesIngredientesExtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addContainerGap()
+                        .addComponent(PanelTituloAdminIngredientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PanelBotonesIngredientesExtra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelImagenPanelIngredientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PanelTituloAdminIngredientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanelImagenPanelIngredientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(PanelImagenPanelIngredientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelTituloAdminIngredientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelBotonesIngredientesExtra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelBotonesIngredientesExtra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PanelTablaIngredientesExtra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
