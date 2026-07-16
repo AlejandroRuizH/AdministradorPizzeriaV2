@@ -51,7 +51,8 @@ public class PanelDatosSucursal extends javax.swing.JPanel {
         ButtonAdminProductos = new javax.swing.JButton();
         ButtonAdminClientes = new javax.swing.JButton();
         ButtonAdminDatosSucursal = new javax.swing.JButton();
-        ButtonMenuPrincipalDatosSucursal = new javax.swing.JButton();
+        ButtonAdminPromociones = new javax.swing.JButton();
+        ButtonMenuPrincipal = new javax.swing.JButton();
         PanelInfoButtonsDatosSucursal = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TextAreaDescripcionDatosSucursal = new javax.swing.JTextArea();
@@ -116,6 +117,7 @@ public class PanelDatosSucursal extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        PanelButtonsDatosSucursal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         PanelButtonsDatosSucursal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 PanelButtonsDatosSucursalMouseEntered(evt);
@@ -162,32 +164,32 @@ public class PanelDatosSucursal extends javax.swing.JPanel {
         });
         ButtonAdminDatosSucursal.addActionListener(this::ButtonAdminDatosSucursalActionPerformed);
 
-        ButtonMenuPrincipalDatosSucursal.setText("Menu principal");
-        ButtonMenuPrincipalDatosSucursal.addActionListener(this::ButtonMenuPrincipalDatosSucursalActionPerformed);
+        ButtonAdminPromociones.setText("<html><center>Administración<br>Promociones</center></html>");
+        ButtonAdminPromociones.addActionListener(this::ButtonAdminPromocionesActionPerformed);
+
+        ButtonMenuPrincipal.setText("MenuPrincipal");
+        ButtonMenuPrincipal.addActionListener(this::ButtonMenuPrincipalActionPerformed);
 
         javax.swing.GroupLayout PanelButtonsDatosSucursalLayout = new javax.swing.GroupLayout(PanelButtonsDatosSucursal);
         PanelButtonsDatosSucursal.setLayout(PanelButtonsDatosSucursalLayout);
         PanelButtonsDatosSucursalLayout.setHorizontalGroup(
             PanelButtonsDatosSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelButtonsDatosSucursalLayout.createSequentialGroup()
-                .addGroup(PanelButtonsDatosSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelButtonsDatosSucursalLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(ButtonAdminIngredientesExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ButtonAdminClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelButtonsDatosSucursalLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(PanelButtonsDatosSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelButtonsDatosSucursalLayout.createSequentialGroup()
-                                .addComponent(ButtonAdminProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(ButtonMenuPrincipalDatosSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PanelButtonsDatosSucursalLayout.createSequentialGroup()
-                                .addComponent(ButtonTiposPizza, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(ButtonAdminDatosSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addGap(58, 58, 58)
+                .addGroup(PanelButtonsDatosSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ButtonTiposPizza, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonAdminIngredientesExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonAdminProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PanelButtonsDatosSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ButtonAdminDatosSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonAdminClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonAdminPromociones, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(43, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelButtonsDatosSucursalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ButtonMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112))
         );
         PanelButtonsDatosSucursalLayout.setVerticalGroup(
             PanelButtonsDatosSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,13 +200,15 @@ public class PanelDatosSucursal extends javax.swing.JPanel {
                     .addComponent(ButtonAdminIngredientesExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(PanelButtonsDatosSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ButtonTiposPizza, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonAdminPromociones, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PanelButtonsDatosSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonAdminDatosSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonTiposPizza, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(PanelButtonsDatosSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ButtonAdminProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonMenuPrincipalDatosSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(42, Short.MAX_VALUE))
+                    .addComponent(ButtonAdminProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ButtonMenuPrincipal)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         PanelInfoButtonsDatosSucursal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -217,7 +221,7 @@ public class PanelDatosSucursal extends javax.swing.JPanel {
         PanelInfoButtonsDatosSucursal.setLayout(PanelInfoButtonsDatosSucursalLayout);
         PanelInfoButtonsDatosSucursalLayout.setHorizontalGroup(
             PanelInfoButtonsDatosSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
         );
         PanelInfoButtonsDatosSucursalLayout.setVerticalGroup(
             PanelInfoButtonsDatosSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,16 +233,15 @@ public class PanelDatosSucursal extends javax.swing.JPanel {
         PanelPrincipalPanelSucursalLayout.setHorizontalGroup(
             PanelPrincipalPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPrincipalPanelSucursalLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(PanelPrincipalPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PanelButtonsDatosSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PanelPrincipalPanelSucursalLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(PanelDatosSucursal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PanelPrincipalPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PanelInfoButtonsDatosSucursal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanelImagenDatosSucursal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(12, 12, 12))
+                    .addComponent(PanelDatosSucursal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelButtonsDatosSucursal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelPrincipalPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelInfoButtonsDatosSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelImagenDatosSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 25, Short.MAX_VALUE))
         );
         PanelPrincipalPanelSucursalLayout.setVerticalGroup(
             PanelPrincipalPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,18 +251,16 @@ public class PanelDatosSucursal extends javax.swing.JPanel {
                     .addComponent(PanelDatosSucursal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelPrincipalPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelPrincipalPanelSucursalLayout.createSequentialGroup()
-                        .addComponent(PanelInfoButtonsDatosSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(PanelButtonsDatosSucursal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(PanelInfoButtonsDatosSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelButtonsDatosSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelPrincipalPanelSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(PanelPrincipalPanelSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,10 +308,10 @@ public class PanelDatosSucursal extends javax.swing.JPanel {
         TextAreaDescripcionDatosSucursal.setText("");
     }//GEN-LAST:event_PanelButtonsDatosSucursalMouseEntered
 
-    private void ButtonMenuPrincipalDatosSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuPrincipalDatosSucursalActionPerformed
+    private void ButtonAdminPromocionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminPromocionesActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU.getCardName());
-    }//GEN-LAST:event_ButtonMenuPrincipalDatosSucursalActionPerformed
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.ADMIN_PROMOCIONES.getCardName());
+    }//GEN-LAST:event_ButtonAdminPromocionesActionPerformed
 
     private void ButtonAdminIngredientesExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminIngredientesExtraActionPerformed
         // TODO add your handling code here:
@@ -337,13 +338,19 @@ public class PanelDatosSucursal extends javax.swing.JPanel {
         menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.ADMIN_DATOS_SUC.getCardName());
     }//GEN-LAST:event_ButtonAdminDatosSucursalActionPerformed
 
+    private void ButtonMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuPrincipalActionPerformed
+        // TODO add your handling code here:
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU.getCardName());
+    }//GEN-LAST:event_ButtonMenuPrincipalActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonAdminClientes;
     private javax.swing.JButton ButtonAdminDatosSucursal;
     private javax.swing.JButton ButtonAdminIngredientesExtra;
     private javax.swing.JButton ButtonAdminProductos;
-    private javax.swing.JButton ButtonMenuPrincipalDatosSucursal;
+    private javax.swing.JButton ButtonAdminPromociones;
+    private javax.swing.JButton ButtonMenuPrincipal;
     private javax.swing.JButton ButtonTiposPizza;
     private javax.swing.JLabel LabelNombreGerenteDatosSucursal;
     private javax.swing.JLabel LabelNombreSucursal;

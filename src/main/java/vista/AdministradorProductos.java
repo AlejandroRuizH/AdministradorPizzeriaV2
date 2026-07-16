@@ -4,7 +4,14 @@
  */
 package vista;
 
+import database.DatabaseConnection;
 import java.awt.Dimension;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -29,6 +36,177 @@ public class AdministradorProductos extends javax.swing.JPanel {
         //this.setResizable(false);
         menuPrincipal.revalidate();
         menuPrincipal.repaint();
+        
+         //Creacion de la tabla para los productos
+        model = new DefaultTableModel();
+        model.addColumn("ID del producto");
+        model.addColumn("Nombre del Producto");
+        model.addColumn("Descripcion");
+        model.addColumn("Precio");
+        // Asignar modelo a la tabla
+        TableProductos.setModel(model); 
+        
+        //leer la tabla de ingredientes y llenar la tabla con los datos
+        listarProductos();
+       
+        // Deshabilitar los text Fiel de los productos
+        habilitarCampos(false);
+        
+        //Deshabilitar los botones
+        ButtonCancelarProducto.setEnabled(false);
+        ButtonEditarProducto.setEnabled(false);
+        ButtonEliminarProducto.setEnabled(false);
+        ButtonGrabarProducto.setEnabled(false);
+        ButtonNuevoProducto.setEnabled(true);
+        
+    }
+    
+        private void habilitarCampos(boolean estado){
+        TextFieldDescripcionProducto.setEnabled(estado);
+        TextFieldNombreProducto.setEnabled(estado);
+        TextFieldPrecioProducto.setEnabled(estado);
+        TextFieldIDProducto.setEnabled(estado);
+    }
+    private void limpiarCampos(){
+        TextFieldDescripcionProducto.setText(""); 
+        TextFieldNombreProducto.setText(""); 
+        TextFieldPrecioProducto.setText("");
+        TextFieldIDProducto.setText("");
+    }
+    
+    private void listarProductos(){
+       try (Connection conn = DatabaseConnection.getConnection()){
+            String sql = "SELECT idProducto, producto, descripcion, precio FROM productos ORDER BY idProducto ASC";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            model.setRowCount(0);
+            while (rs.next()){
+               Object[] empleado ={
+                  rs.getInt("idProducto"),
+                  rs.getString("producto"),
+                  rs.getString("descripcion"),
+                  rs.getDouble("precio"),
+               };
+            model.addRow(empleado);
+          }
+      } catch (SQLException ex) {
+            System.getLogger(AdministradoringredientesExtra.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
+    }
+    
+         private void eliminarProducto(){
+       try (Connection conn = DatabaseConnection.getConnection()) {
+            String sql = "DELETE FROM productos WHERE idProducto=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            // ID del registro a eliminar
+            ps.setInt(1,Integer.parseInt(TextFieldIDProducto.getText()));
+
+            int filas = ps.executeUpdate();
+            if (filas > 0) {
+                JOptionPane.showMessageDialog(null, "Producto eliminado correctamente.");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontró el Producto.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar: " + e.getMessage());
+        }
+    }
+    
+private boolean capturarProducto(String sqlOption){
+           
+            //Agregar las validaciones aqui
+            boolean validacion = true;
+            if(sqlOption.matches("CREATE")){
+                validacion=true;
+                String msgErr = "";
+                int numErr=0;
+                try (Connection conn = DatabaseConnection.getConnection()){
+                    String sql = "INSERT INTO productos (idProducto, producto, descripcion, precio) VALUES (?, ?, ?, ?)";
+                    PreparedStatement st = conn.prepareStatement(sql);
+                    //Validacion ID
+                    if (TextFieldIDProducto.getText().isEmpty()){
+                        validacion=false;
+                        msgErr="Ingrese el ID del Producto";
+                        numErr++;
+                    }else{
+                        st.setInt(1,Integer.parseInt(TextFieldIDProducto.getText()));
+                    }
+                    // Validacion Nombre
+                    if (TextFieldNombreProducto.getText().isEmpty()) {
+                        if (numErr > 1) {
+                           msgErr=msgErr+"\n Ingrese el nombre del producto";
+                           numErr++;
+                        } else{
+                           msgErr="Ingrese el nombre del producto";
+                        }
+                    }else{
+                        st.setString(2,TextFieldNombreProducto.getText());
+                    }
+                    //Validacion Domicilio
+                    if (TextFieldDescripcionProducto.getText().isEmpty()) {
+                        validacion=false;
+                        if (numErr > 1) {
+                           msgErr=msgErr+"\n Ingrese la Descripcion del Producto";
+                           numErr++;
+                        } else{
+                           msgErr="Ingrese la Descripcion del Producto";
+                        }
+                    }else{
+                        st.setString(3,TextFieldDescripcionProducto.getText());    
+                    }
+                    //Validacion Telefono
+                    if (TextFieldPrecioProducto.getText().isEmpty()) {
+                        validacion=false;
+                        if (numErr > 1){
+                           msgErr=msgErr + "\n Ingrese el precio del producto";
+                           numErr++;
+                        }else{
+                           msgErr="Ingrese el precio del producto";
+                        }
+                    }else{
+                          st.setFloat(4,Float.parseFloat(TextFieldPrecioProducto.getText()));
+                    }  
+                    if (msgErr.isEmpty() && (numErr == 0)){
+                        st.executeUpdate();
+                    }else{
+                        JOptionPane.showMessageDialog(null, msgErr);
+                    }
+                    
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+                    validacion=false;
+                }
+            }else if (sqlOption.matches("UPDATE")){
+                validacion = true;
+                try (Connection conn = DatabaseConnection.getConnection()) {
+                       String sql = "UPDATE productos SET producto=?, descripcion=?, precio=? WHERE idProducto=?";
+                       PreparedStatement ps = conn.prepareStatement(sql);
+
+                       // Asignar valores desde tus componentes
+                       ps.setString(1,TextFieldNombreProducto.getText());
+                       ps.setString(2,TextFieldDescripcionProducto.getText());
+                       ps.setFloat(3,Float.parseFloat(TextFieldPrecioProducto.getText()));
+                       
+                       ps.setInt(4,Integer.parseInt(TextFieldIDProducto.getText()));
+                       if(validacion){
+                         int filas = ps.executeUpdate();
+                         if (filas > 0) {
+                           JOptionPane.showMessageDialog(null, "Registro actualizado correctamente.");
+                          } else {
+                           JOptionPane.showMessageDialog(null, "No se encontró el registro.");
+                          }
+                       }
+                       
+                }catch (SQLException e) {
+                      JOptionPane.showMessageDialog(null, "Error al actualizar: " + e.getMessage());
+                }
+            
+           }else{
+            
+            }    
+           return validacion;
+    
     }
 
     /**
@@ -60,7 +238,7 @@ public class AdministradorProductos extends javax.swing.JPanel {
         ButtonGrabarProducto = new javax.swing.JButton();
         ButtonEliminarProducto = new javax.swing.JButton();
         ButtonCancelarProducto = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
+        PanelImagenAdminProductos = new javax.swing.JPanel();
 
         PanelTitleAdminProductos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -105,6 +283,11 @@ public class AdministradorProductos extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        TableProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableProductosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TableProductos);
 
         javax.swing.GroupLayout PanelTablaAdminProductosLayout = new javax.swing.GroupLayout(PanelTablaAdminProductos);
@@ -127,18 +310,34 @@ public class AdministradorProductos extends javax.swing.JPanel {
         LabelPrecioProducto.setText("* Precio del Producto");
 
         TextFieldPrecioProducto.setVerifyInputWhenFocusTarget(false);
+        TextFieldPrecioProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextFieldPrecioProductoKeyTyped(evt);
+            }
+        });
 
         LabelIDProducto.setText("* ID del Producto");
 
+        TextFieldIDProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextFieldIDProductoKeyTyped(evt);
+            }
+        });
+
         ButtonNuevoProducto.setText("<html><center>Nuevo<br>Producto</center></html>");
+        ButtonNuevoProducto.addActionListener(this::ButtonNuevoProductoActionPerformed);
 
         ButtonEditarProducto.setText("<html><center>Editar<br>Producto</center></html>");
+        ButtonEditarProducto.addActionListener(this::ButtonEditarProductoActionPerformed);
 
         ButtonGrabarProducto.setText("Grabar");
+        ButtonGrabarProducto.addActionListener(this::ButtonGrabarProductoActionPerformed);
 
         ButtonEliminarProducto.setText("Eliminar");
+        ButtonEliminarProducto.addActionListener(this::ButtonEliminarProductoActionPerformed);
 
         ButtonCancelarProducto.setText("Cancelar");
+        ButtonCancelarProducto.addActionListener(this::ButtonCancelarProductoActionPerformed);
 
         javax.swing.GroupLayout PanelButtonsProductosLayout = new javax.swing.GroupLayout(PanelButtonsProductos);
         PanelButtonsProductos.setLayout(PanelButtonsProductosLayout);
@@ -200,16 +399,16 @@ public class AdministradorProductos extends javax.swing.JPanel {
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PanelImagenAdminProductos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PanelImagenAdminProductosLayout = new javax.swing.GroupLayout(PanelImagenAdminProductos);
+        PanelImagenAdminProductos.setLayout(PanelImagenAdminProductosLayout);
+        PanelImagenAdminProductosLayout.setHorizontalGroup(
+            PanelImagenAdminProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        PanelImagenAdminProductosLayout.setVerticalGroup(
+            PanelImagenAdminProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -225,7 +424,7 @@ public class AdministradorProductos extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelPrincipalAdminProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PanelButtonsProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(PanelImagenAdminProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         PanelPrincipalAdminProductosLayout.setVerticalGroup(
@@ -233,7 +432,7 @@ public class AdministradorProductos extends javax.swing.JPanel {
             .addGroup(PanelPrincipalAdminProductosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanelPrincipalAdminProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelImagenAdminProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(PanelTitleAdminProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelPrincipalAdminProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,6 +453,126 @@ public class AdministradorProductos extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void TextFieldPrecioProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldPrecioProductoKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) && c != '.') {
+            evt.consume(); // evita que se escriba el carácter
+        }
+        
+        if (c == '.' && TextFieldPrecioProducto.getText().contains(".")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_TextFieldPrecioProductoKeyTyped
+
+    private void TextFieldIDProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldIDProductoKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume(); // evita que se escriba el carácter
+        }
+    }//GEN-LAST:event_TextFieldIDProductoKeyTyped
+
+    private void ButtonNuevoProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNuevoProductoActionPerformed
+        // TODO add your handling code here:
+        habilitarCampos(true);
+        limpiarCampos();
+        ButtonNuevoProducto.setEnabled(true);
+        ButtonEditarProducto.setEnabled(false);
+        ButtonGrabarProducto.setEnabled(true);
+        ButtonEliminarProducto.setEnabled(false);
+        ButtonCancelarProducto.setEnabled(true);
+    }//GEN-LAST:event_ButtonNuevoProductoActionPerformed
+
+    private void ButtonEditarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEditarProductoActionPerformed
+        // TODO add your handling code here:
+        sqlMetodo = "UPDATE";
+        if(capturarProducto(sqlMetodo)){
+              limpiarCampos();
+              listarProductos();  
+              habilitarCampos(false);
+              ButtonNuevoProducto.setEnabled(true);
+              ButtonEditarProducto.setEnabled(false);
+              ButtonGrabarProducto.setEnabled(false);
+              ButtonEliminarProducto.setEnabled(false);
+              ButtonCancelarProducto.setEnabled(false);
+           }
+    }//GEN-LAST:event_ButtonEditarProductoActionPerformed
+
+    private void ButtonGrabarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonGrabarProductoActionPerformed
+        // TODO add your handling code here:
+        sqlMetodo = "CREATE";
+        if(capturarProducto(sqlMetodo)){
+              limpiarCampos();
+              listarProductos();  
+              habilitarCampos(false);
+              ButtonNuevoProducto.setEnabled(true);
+              ButtonEditarProducto.setEnabled(false);
+              ButtonGrabarProducto.setEnabled(false);
+              ButtonEliminarProducto.setEnabled(false);
+              ButtonCancelarProducto.setEnabled(false);
+           }
+    }//GEN-LAST:event_ButtonGrabarProductoActionPerformed
+
+    private void ButtonEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEliminarProductoActionPerformed
+        // TODO add your handling code here:
+        eliminarProducto();
+        listarProductos();
+        habilitarCampos(false);
+        ButtonNuevoProducto.setEnabled(true);
+        ButtonEditarProducto.setEnabled(false);
+        ButtonGrabarProducto.setEnabled(false);
+        ButtonEliminarProducto.setEnabled(false);
+        ButtonCancelarProducto.setEnabled(false);
+    }//GEN-LAST:event_ButtonEliminarProductoActionPerformed
+
+    private void ButtonCancelarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarProductoActionPerformed
+        // TODO add your handling code here:
+        habilitarCampos(false);
+        limpiarCampos();
+        ButtonNuevoProducto.setEnabled(true);
+        ButtonEditarProducto.setEnabled(false);
+        ButtonGrabarProducto.setEnabled(false);
+        ButtonEliminarProducto.setEnabled(false);
+        ButtonCancelarProducto.setEnabled(false);
+    }//GEN-LAST:event_ButtonCancelarProductoActionPerformed
+
+    private void TableProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableProductosMouseClicked
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        // Accion cuando se hace clic con el mouse
+        int fila = TableProductos.getSelectedRow();
+        ButtonNuevoProducto.setEnabled(false);
+        ButtonEditarProducto.setEnabled(true);
+        ButtonGrabarProducto.setEnabled(false);
+        ButtonEliminarProducto.setEnabled(true);  
+        ButtonCancelarProducto.setEnabled(true);
+        habilitarCampos(true);
+        TextFieldIDProducto.setEnabled(false);
+        
+        if (fila >= 0) {
+            // Extraer valores de cada columna Nombre, Domicilio, Telefono, Fecha de Ingreso, Activo, Tipo de Empleado
+            int idProducto = Integer.parseInt(TableProductos.getValueAt(fila, 0).toString());
+            String productoTabla = TableProductos.getValueAt(fila, 1).toString();
+            String descripcionTabla = TableProductos.getValueAt(fila, 2).toString();
+            String precioTabla = TableProductos.getValueAt(fila, 3).toString();
+             
+            // Pasar los valores a los text fields
+            //JTextField1 = Producto
+            TextFieldNombreProducto.setText(productoTabla);
+            
+            //jTextField2 = Descripcion
+            TextFieldDescripcionProducto.setText(descripcionTabla);
+            
+            //jTextField3 = Precio
+            TextFieldPrecioProducto.setText(precioTabla);
+            
+            //jTextField3 = ID
+            TextFieldIDProducto.setText(String.valueOf(idProducto));
+            
+        }
+    }//GEN-LAST:event_TableProductosMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonCancelarProducto;
@@ -267,6 +586,7 @@ public class AdministradorProductos extends javax.swing.JPanel {
     private javax.swing.JLabel LabelPrecioProducto;
     private javax.swing.JLabel LabelTitleAdminProductos;
     private javax.swing.JPanel PanelButtonsProductos;
+    private javax.swing.JPanel PanelImagenAdminProductos;
     private javax.swing.JPanel PanelPrincipalAdminProductos;
     private javax.swing.JPanel PanelTablaAdminProductos;
     private javax.swing.JPanel PanelTitleAdminProductos;
@@ -275,7 +595,6 @@ public class AdministradorProductos extends javax.swing.JPanel {
     private javax.swing.JTextField TextFieldIDProducto;
     private javax.swing.JTextField TextFieldNombreProducto;
     private javax.swing.JTextField TextFieldPrecioProducto;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

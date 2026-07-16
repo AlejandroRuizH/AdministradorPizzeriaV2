@@ -32,9 +32,7 @@ public class DatabaseConnection {
                                         + "?useSSL=false&serverTimezone=UTC";
                       
                       
-                      connection = DriverManager.getConnection(url,user,password);
-
-                      
+                      connection = DriverManager.getConnection(url,user,password);                      
                   }
             
             }catch (SQLException e) {
@@ -57,6 +55,18 @@ public class DatabaseConnection {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+    
+    public static boolean probarConexion(){
+        try (Connection conn = getConnection()) {
+            return conn != null && !conn.isClosed();
+
+        } catch (SQLException e) {
+            // Falta agregar ventana emergente indicando error en la conexion
+            System.out.println("Error de conexión:");
+            System.out.println(e.getMessage());
+            return false;
         }
     }
     

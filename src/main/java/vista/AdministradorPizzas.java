@@ -23,6 +23,8 @@ public class AdministradorPizzas extends javax.swing.JPanel {
     /**
      * Creates new form AdministradorPizzas
      */
+    
+    
     private MenuPrincipal menuPrincipal;
     DefaultTableModel model;
     String sqlMetodo="";
@@ -31,7 +33,7 @@ public class AdministradorPizzas extends javax.swing.JPanel {
         
         initComponents();
         this.menuPrincipal = menuPrincipal;
-        setPreferredSize(new Dimension(988, 730));
+        setPreferredSize(new Dimension(990, 730));
         //this.setResizable(false);
         menuPrincipal.revalidate();
         menuPrincipal.repaint();
@@ -58,7 +60,6 @@ public class AdministradorPizzas extends javax.swing.JPanel {
         ButtonEliminarPizza.setEnabled(false);
         ButtonGrabarPizza.setEnabled(false);
         ButtonNuevaPizza.setEnabled(true);
-        
         
     }
     
@@ -563,7 +564,7 @@ public class AdministradorPizzas extends javax.swing.JPanel {
 
     private void ButtonEditarPizzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEditarPizzaActionPerformed
         // TODO add your handling code here:
-         sqlMetodo = "UPDATE";
+        sqlMetodo = "UPDATE";
         if(capturarPizza(sqlMetodo)){
               limpiarCampos();
               listarPizzas();  

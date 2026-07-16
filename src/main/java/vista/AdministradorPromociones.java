@@ -4,6 +4,9 @@
  */
 package vista;
 
+import java.awt.Dimension;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author davidalejandroruizhernandez
@@ -13,8 +16,20 @@ public class AdministradorPromociones extends javax.swing.JPanel {
     /**
      * Creates new form AdministradorPromociones
      */
+    
+    private MenuPrincipal menuPrincipal;
+     DefaultTableModel model;
+     String sqlMetodo="";
+    
     public AdministradorPromociones(MenuPrincipal menuPrincipal) {
+        
+        this.menuPrincipal = menuPrincipal;
         initComponents();
+        setPreferredSize(new Dimension(1070, 690));
+        //this.setResizable(false);
+        menuPrincipal.revalidate();
+        menuPrincipal.repaint();
+        
     }
 
     /**
@@ -26,19 +41,265 @@ public class AdministradorPromociones extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PanelPrincipalAdminPromociones = new javax.swing.JPanel();
+        PanelTitleAdminPromociones = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        PanelTableAdminPromociones = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablePromociones = new javax.swing.JTable();
+        PanelButtonsPromociones = new javax.swing.JPanel();
+        LabelDescripcionTitle = new javax.swing.JLabel();
+        TextFieldDescripcionPromocion = new javax.swing.JTextField();
+        LabelPrecioPromocion = new javax.swing.JLabel();
+        TextFieldPrecioPromocion = new javax.swing.JTextField();
+        LabelProductosPromocion = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TextAreaProductosPromocion = new javax.swing.JTextArea();
+        LabelSizePromocion = new javax.swing.JLabel();
+        TextFieldSizePromocion = new javax.swing.JTextField();
+        LabelIDPromocion = new javax.swing.JLabel();
+        TextFieldIDPromocion = new javax.swing.JTextField();
+        ButtonNuevaPromocion = new javax.swing.JButton();
+        ButtonEditarPromocion = new javax.swing.JButton();
+        ButtonGrabarPromocion = new javax.swing.JButton();
+        ButtonEliminarPromocion = new javax.swing.JButton();
+        ButtonCancelarPromocion = new javax.swing.JButton();
+        PanelImagePromociones = new javax.swing.JPanel();
+
+        setPreferredSize(new java.awt.Dimension(1070, 686));
+
+        PanelPrincipalAdminPromociones.setPreferredSize(new java.awt.Dimension(1084, 686));
+
+        PanelTitleAdminPromociones.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        jLabel1.setText("Panel Administración de Promociones");
+
+        javax.swing.GroupLayout PanelTitleAdminPromocionesLayout = new javax.swing.GroupLayout(PanelTitleAdminPromociones);
+        PanelTitleAdminPromociones.setLayout(PanelTitleAdminPromocionesLayout);
+        PanelTitleAdminPromocionesLayout.setHorizontalGroup(
+            PanelTitleAdminPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelTitleAdminPromocionesLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PanelTitleAdminPromocionesLayout.setVerticalGroup(
+            PanelTitleAdminPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelTitleAdminPromocionesLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jLabel1)
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+
+        PanelTableAdminPromociones.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        TablePromociones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID de la Promocion", "Descripcion", "Precio", "Productos", "Tamaño"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(TablePromociones);
+
+        javax.swing.GroupLayout PanelTableAdminPromocionesLayout = new javax.swing.GroupLayout(PanelTableAdminPromociones);
+        PanelTableAdminPromociones.setLayout(PanelTableAdminPromocionesLayout);
+        PanelTableAdminPromocionesLayout.setHorizontalGroup(
+            PanelTableAdminPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE)
+        );
+        PanelTableAdminPromocionesLayout.setVerticalGroup(
+            PanelTableAdminPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+        );
+
+        PanelButtonsPromociones.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        LabelDescripcionTitle.setText("* Descripcion de la Promoción");
+
+        LabelPrecioPromocion.setText("* Precio de la Promoción");
+
+        LabelProductosPromocion.setText("* Productos de la Promoción");
+
+        TextAreaProductosPromocion.setColumns(20);
+        TextAreaProductosPromocion.setRows(5);
+        jScrollPane2.setViewportView(TextAreaProductosPromocion);
+
+        LabelSizePromocion.setText("* Tamaños de la Promoción");
+
+        LabelIDPromocion.setText("* ID de la Promoción");
+
+        ButtonNuevaPromocion.setText("jButton1");
+
+        ButtonEditarPromocion.setText("jButton2");
+
+        ButtonGrabarPromocion.setText("jButton3");
+
+        ButtonEliminarPromocion.setText("jButton4");
+
+        ButtonCancelarPromocion.setText("jButton5");
+
+        javax.swing.GroupLayout PanelButtonsPromocionesLayout = new javax.swing.GroupLayout(PanelButtonsPromociones);
+        PanelButtonsPromociones.setLayout(PanelButtonsPromocionesLayout);
+        PanelButtonsPromocionesLayout.setHorizontalGroup(
+            PanelButtonsPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelButtonsPromocionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelButtonsPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelButtonsPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(LabelDescripcionTitle)
+                        .addComponent(TextFieldDescripcionPromocion)
+                        .addComponent(LabelPrecioPromocion)
+                        .addComponent(TextFieldPrecioPromocion)
+                        .addComponent(LabelProductosPromocion)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
+                    .addComponent(LabelSizePromocion)
+                    .addComponent(TextFieldSizePromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelIDPromocion)
+                    .addComponent(TextFieldIDPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PanelButtonsPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ButtonCancelarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonEditarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonNuevaPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonGrabarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonEliminarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PanelButtonsPromocionesLayout.setVerticalGroup(
+            PanelButtonsPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelButtonsPromocionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelButtonsPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ButtonNuevaPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PanelButtonsPromocionesLayout.createSequentialGroup()
+                        .addComponent(LabelDescripcionTitle)
+                        .addGap(4, 4, 4)
+                        .addComponent(TextFieldDescripcionPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(LabelPrecioPromocion)))
+                .addGroup(PanelButtonsPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelButtonsPromocionesLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(ButtonEditarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ButtonGrabarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ButtonEliminarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ButtonCancelarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelButtonsPromocionesLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(TextFieldPrecioPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(LabelProductosPromocion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(LabelSizePromocion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TextFieldSizePromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(LabelIDPromocion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TextFieldIDPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+
+        PanelImagePromociones.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout PanelImagePromocionesLayout = new javax.swing.GroupLayout(PanelImagePromociones);
+        PanelImagePromociones.setLayout(PanelImagePromocionesLayout);
+        PanelImagePromocionesLayout.setHorizontalGroup(
+            PanelImagePromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        PanelImagePromocionesLayout.setVerticalGroup(
+            PanelImagePromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout PanelPrincipalAdminPromocionesLayout = new javax.swing.GroupLayout(PanelPrincipalAdminPromociones);
+        PanelPrincipalAdminPromociones.setLayout(PanelPrincipalAdminPromocionesLayout);
+        PanelPrincipalAdminPromocionesLayout.setHorizontalGroup(
+            PanelPrincipalAdminPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelPrincipalAdminPromocionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelPrincipalAdminPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PanelTableAdminPromociones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelTitleAdminPromociones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelPrincipalAdminPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PanelButtonsPromociones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelImagePromociones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PanelPrincipalAdminPromocionesLayout.setVerticalGroup(
+            PanelPrincipalAdminPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelPrincipalAdminPromocionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelPrincipalAdminPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PanelImagePromociones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelTitleAdminPromociones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelPrincipalAdminPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PanelButtonsPromociones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelTableAdminPromociones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(PanelPrincipalAdminPromociones, javax.swing.GroupLayout.PREFERRED_SIZE, 1062, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(PanelPrincipalAdminPromociones, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonCancelarPromocion;
+    private javax.swing.JButton ButtonEditarPromocion;
+    private javax.swing.JButton ButtonEliminarPromocion;
+    private javax.swing.JButton ButtonGrabarPromocion;
+    private javax.swing.JButton ButtonNuevaPromocion;
+    private javax.swing.JLabel LabelDescripcionTitle;
+    private javax.swing.JLabel LabelIDPromocion;
+    private javax.swing.JLabel LabelPrecioPromocion;
+    private javax.swing.JLabel LabelProductosPromocion;
+    private javax.swing.JLabel LabelSizePromocion;
+    private javax.swing.JPanel PanelButtonsPromociones;
+    private javax.swing.JPanel PanelImagePromociones;
+    private javax.swing.JPanel PanelPrincipalAdminPromociones;
+    private javax.swing.JPanel PanelTableAdminPromociones;
+    private javax.swing.JPanel PanelTitleAdminPromociones;
+    private javax.swing.JTable TablePromociones;
+    private javax.swing.JTextArea TextAreaProductosPromocion;
+    private javax.swing.JTextField TextFieldDescripcionPromocion;
+    private javax.swing.JTextField TextFieldIDPromocion;
+    private javax.swing.JTextField TextFieldPrecioPromocion;
+    private javax.swing.JTextField TextFieldSizePromocion;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

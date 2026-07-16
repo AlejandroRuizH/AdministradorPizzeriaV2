@@ -36,9 +36,10 @@ public class AdministradoringredientesExtra extends javax.swing.JPanel {
         //this.setResizable(false);
         menuPrincipal.revalidate();
         menuPrincipal.repaint();
+        //
         
         //Creacion de la tabla para los productos
-       model = new DefaultTableModel();
+        model = new DefaultTableModel();
         model.addColumn("ID del producto");
         model.addColumn("Descripcion");
         model.addColumn("Precio");
@@ -58,9 +59,6 @@ public class AdministradoringredientesExtra extends javax.swing.JPanel {
         ButtonEliminarIngrediente.setEnabled(false);
         ButtonGrabarIngrediente.setEnabled(false);
         ButtonNuevoIngrediente.setEnabled(true);
-       
-        
-        
         
     }
     
@@ -79,7 +77,7 @@ public class AdministradoringredientesExtra extends javax.swing.JPanel {
     
     private void listarIngredientes(){
        try (Connection conn = DatabaseConnection.getConnection()){
-            String sql = "SELECT idIngrediente, descripcion, precio, tipo FROM IngredientesExtra ORDER BY idIngrediente ASC";
+            String sql = "SELECT idIngrediente, descripcion, precio, tipo FROM Ingredientesextra ORDER BY idIngrediente ASC";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             model.setRowCount(0);
@@ -98,7 +96,7 @@ public class AdministradoringredientesExtra extends javax.swing.JPanel {
     }
        private void eliminarIngrediente(){
        try (Connection conn = DatabaseConnection.getConnection()) {
-            String sql = "DELETE FROM ingredientesExtra WHERE idIngrediente=?";
+            String sql = "DELETE FROM ingredientesextra WHERE idIngrediente=?";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             // ID del registro a eliminar
@@ -115,16 +113,6 @@ public class AdministradoringredientesExtra extends javax.swing.JPanel {
         }
     }
     private boolean capturarIngrediente(String sqlOption){
-           /* jTextField2=Campo para el Nombre
-            jTextField3=Campo para el Domicilio
-            jTextField1=Campo para el Telefono
-            jDateChooser1 = Campo para la fecha
-            jCheckBox1 = Check Box Activo
-            jCheckBox2 = Check Box Inactivo
-            jComboBox1 = Tipo de Empleado
-            jTextField4 = Nip para Venta
-            jTextField4 = Confirma Nip para Venta
-            */
             //Agregar las validaciones aqui
             boolean validacion = true;
             if(sqlOption.matches("CREATE")){
@@ -132,7 +120,7 @@ public class AdministradoringredientesExtra extends javax.swing.JPanel {
                 String msgErr = "";
                 int numErr=0;
                 try (Connection conn = DatabaseConnection.getConnection()){
-                    String sql = "INSERT INTO ingredientesExtra (idIngrediente, descripcion, precio, tipo) VALUES (?, ?, ?, ?)";
+                    String sql = "INSERT INTO ingredientesextra (idIngrediente, descripcion, precio, tipo) VALUES (?, ?, ?, ?)";
                     PreparedStatement st = conn.prepareStatement(sql);
                     //Validacion ID
                     if (TextFieldIDIngrediente.getText().isEmpty()){
@@ -191,7 +179,7 @@ public class AdministradoringredientesExtra extends javax.swing.JPanel {
             }else if (sqlOption.matches("UPDATE")){
                 validacion = true;
                 try (Connection conn = DatabaseConnection.getConnection()) {
-                       String sql = "UPDATE ingredientesExtra SET descripcion=?, precio=?, tipo=? WHERE idIngrediente=?";
+                       String sql = "UPDATE ingredientesextra SET descripcion=?, precio=?, tipo=? WHERE idIngrediente=?";
                        PreparedStatement ps = conn.prepareStatement(sql);
 
                        // Asignar valores desde tus componentes

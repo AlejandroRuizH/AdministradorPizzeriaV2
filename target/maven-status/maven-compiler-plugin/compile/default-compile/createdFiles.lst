@@ -7,11 +7,13 @@ vista/AdministradorPizzas$5.class
 vista/AdministradoringredientesExtra$2.class
 vista/PanelConexionBD.class
 vista/CorteParcial.class
+vista/AdministradorProductos$3.class
 vista/PanelDatosSucursal.class
 vista/PanelDatosSucursal$4.class
 vista/AdministradorPizzas$1.class
 vista/AdministradorPizzas.class
 vista/PanelDatosSucursal$5.class
+vista/AdministradorProductos$4.class
 com/mycompany/administradorpizzeriav2/DBConfiguration.class
 vista/AdministradorPromociones.class
 vista/AdministradorClientes.class
@@ -25,7 +27,9 @@ vista/MenuPrincipal.class
 vista/AdministradorPizzas$4.class
 database/DatabaseConnection.class
 vista/AdministradoringredientesExtra$3.class
+vista/AdministradorProductos$2.class
 vista/Cancelaciones.class
+vista/AdministradorPromociones$1.class
 vista/ReporteDeVentas.class
 vista/PanelDatosSucursal$3.class
 vista/AdministradoringredientesExtra$1.class

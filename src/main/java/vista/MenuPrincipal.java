@@ -83,17 +83,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 } else if ("LOGIN_GERENTE".equals(panelActual)){
                     mostrarPanel("MENU");
                 } else if ("ADMIN_CLIENTES".equals(panelActual)){
-                    mostrarPanel("MENU");
+                    mostrarPanel("PANEL_DATOS_SUC");
                 } else if ("ADMIN_EMPLEADOS".equals(panelActual)){
-                    mostrarPanel("MENU");
+                    mostrarPanel("PANEL_DATOS_SUC");
                 } else if ("ADMIN_PIZZAS".equals(panelActual)){
-                    mostrarPanel("MENU");
+                    mostrarPanel("PANEL_DATOS_SUC");
                 } else if ("ADMIN_PRODUCTOS".equals(panelActual)){
-                    mostrarPanel("MENU");
+                    mostrarPanel("PANEL_DATOS_SUC");
                 }  else if ("ADMIN_PROMOCIONES".equals(panelActual)){
-                    mostrarPanel("MENU");
+                    mostrarPanel("PANEL_DATOS_SUC");
                 } else if ("ADMIN_INGREDIENTES".equals(panelActual)){
-                    mostrarPanel("MENU");
+                    mostrarPanel("PANEL_DATOS_SUC");
                 } else if ("CANCELACIONES".equals(panelActual)){
                     mostrarPanel("MENU");
                 } else if ("CORTE_FINAL".equals(panelActual)){
