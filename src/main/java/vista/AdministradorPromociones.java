@@ -4,7 +4,14 @@
  */
 package vista;
 
+import database.DatabaseConnection;
 import java.awt.Dimension;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -30,6 +37,193 @@ public class AdministradorPromociones extends javax.swing.JPanel {
         menuPrincipal.revalidate();
         menuPrincipal.repaint();
         
+        //Creacion de la tabla para los productos
+        model = new DefaultTableModel();
+        model.addColumn("ID de la Promocion");
+        model.addColumn("Descripcion");
+        model.addColumn("Precio");
+        model.addColumn("Productos");
+        model.addColumn("Tamaño");
+        
+
+         // Asignar modelo a la tabla
+        TablePromociones.setModel(model); 
+        
+        //leer la tabla de ingredientes y llenar la tabla con los datos
+        listarPromociones();
+       
+        // Deshabilitar los text Fiel de los productos
+        habilitarCampos(false);
+        
+        //Deshabilitar los botones
+        ButtonCancelarPromocion.setEnabled(false);
+        ButtonEditarPromocion.setEnabled(false);
+        ButtonEliminarPromocion.setEnabled(false);
+        ButtonGrabarPromocion.setEnabled(false);
+        ButtonNuevaPromocion.setEnabled(true);    
+        
+    }
+    
+     private void habilitarCampos(boolean estado){
+        TextAreaProductosPromocion.setEnabled(estado);
+        TextFieldDescripcionPromocion.setEnabled(estado);
+        TextFieldIDPromocion.setEnabled(estado);
+        TextFieldPrecioPromocion.setEnabled(estado);
+        TextFieldSizePromocion.setEnabled(estado);
+    }
+    private void limpiarCampos(){
+        TextAreaProductosPromocion.setText(""); 
+        TextFieldDescripcionPromocion.setText(""); 
+        TextFieldIDPromocion.setText("");
+        TextFieldPrecioPromocion.setText("");
+        TextFieldSizePromocion.setText("");
+    }
+    
+    private void listarPromociones(){
+       try (Connection conn = DatabaseConnection.getConnection()){
+            String sql = "SELECT idPromocion, Descripcion, Precio, Productos, Size FROM promociones ORDER BY idPromocion ASC";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            model.setRowCount(0);
+            while (rs.next()){
+               Object[] empleado ={
+                  rs.getInt("idPromocion"),
+                  rs.getString("Descripcion"),
+                  rs.getFloat("Precio"),
+                  rs.getString("Productos"),
+                  rs.getString("Size"),
+               };
+            model.addRow(empleado);
+          }
+      } catch (SQLException ex) {
+            System.getLogger(AdministradoringredientesExtra.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
+    }
+    
+    private void eliminarPromocion(){
+       try (Connection conn = DatabaseConnection.getConnection()) {
+            String sql = "DELETE FROM promocion WHERE idPromocion=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            // ID del registro a eliminar
+            ps.setInt(1,Integer.parseInt(TextFieldIDPromocion.getText()));
+
+            int filas = ps.executeUpdate();
+            if (filas > 0) {
+                JOptionPane.showMessageDialog(null, "Promocion eliminada correctamente.");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontró la promocion.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar: " + e.getMessage());
+        }
+    }
+    
+    private boolean capturarPromocion(String sqlOption){
+            //Agregar las validaciones aqui
+            boolean validacion = true;
+            if(sqlOption.matches("CREATE")){
+                validacion=true;
+                String msgErr = "";
+                int numErr=0;
+                try (Connection conn = DatabaseConnection.getConnection()){
+                    String sql = "INSERT INTO promociones (idPromocion, Descripcion, Precio, Productos, Size) VALUES (?, ?, ?, ?,?)";
+                    PreparedStatement st = conn.prepareStatement(sql);
+                    //Validacion ID
+                    if (TextFieldIDPromocion.getText().isEmpty()){
+                        validacion=false;
+                        msgErr="Ingrese el ID de la Promocion";
+                        numErr++;
+                    }else{
+                        st.setInt(1,Integer.parseInt(TextFieldIDPromocion.getText()));
+                    }
+                    // Validacion Nombre
+                    if (TextFieldDescripcionPromocion.getText().isEmpty()) {
+                        if (numErr > 1) {
+                           msgErr=msgErr+"\n Ingrese la descripcion de la promocion";
+                           numErr++;
+                        } else{
+                           msgErr="Ingrese la descripcion de la promocion";
+                        }
+                    }else{
+                        st.setString(2,TextFieldDescripcionPromocion.getText());
+                    }
+                    //Validacion Domicilio
+                    if (TextFieldPrecioPromocion.getText().isEmpty()) {
+                        validacion=false;
+                        if (numErr > 1) {
+                           msgErr=msgErr+"\n Ingrese el Precio de la Promocion";
+                           numErr++;
+                        } else{
+                           msgErr="Ingrese el Precio de la Promocion";
+                        }
+                    }else{
+                        st.setFloat(3,Float.parseFloat(TextFieldPrecioPromocion.getText()));    
+                    }
+                    //Validacion Telefono
+                    if (TextAreaProductosPromocion.getText().isEmpty()) {
+                        validacion=false;
+                        if (numErr > 1){
+                           msgErr=msgErr + "\n Ingrese los productos de la promocion";
+                           numErr++;
+                        }else{
+                           msgErr="Ingrese los productos de la promocion";
+                        }
+                    }else{
+                          st.setString(4,TextAreaProductosPromocion.getText());
+                    }  
+                    if (TextFieldSizePromocion.getText().isEmpty()) {
+                        validacion=false;
+                        if (numErr > 1){
+                           msgErr=msgErr + "\n Ingrese el tamano de la promocion";
+                           numErr++;
+                        }else{
+                           msgErr="Ingrese el tamano de la promocion";
+                        }
+                    }else{
+                          st.setString(5,TextFieldSizePromocion.getText());
+                    }  
+                    if (msgErr.isEmpty() && (numErr == 0)){
+                        st.executeUpdate();
+                    }else{
+                        JOptionPane.showMessageDialog(null, msgErr);
+                    }
+                    
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+                    validacion=false;
+                }
+            }else if (sqlOption.matches("UPDATE")){
+                validacion = true;
+                try (Connection conn = DatabaseConnection.getConnection()) {
+                       String sql = "UPDATE promocion SET Descripcion=?, Precio=?, Productos=?, Size=? WHERE idPromocion=?";
+                       PreparedStatement ps = conn.prepareStatement(sql);
+
+                       // Asignar valores desde tus componentes
+                       ps.setString(1,TextFieldDescripcionPromocion.getText());
+                       ps.setFloat(2,Float.parseFloat(TextFieldPrecioPromocion.getText()));
+                       ps.setString(3,TextAreaProductosPromocion.getText());
+                       ps.setString(4,TextFieldSizePromocion.getText());
+                       
+                       ps.setInt(5,Integer.parseInt(TextFieldIDPromocion.getText()));
+                       if(validacion){
+                         int filas = ps.executeUpdate();
+                         if (filas > 0) {
+                           JOptionPane.showMessageDialog(null, "Registro actualizado correctamente.");
+                          } else {
+                           JOptionPane.showMessageDialog(null, "No se encontró el registro.");
+                          }
+                       }
+                       
+                }catch (SQLException e) {
+                      JOptionPane.showMessageDialog(null, "Error al actualizar: " + e.getMessage());
+                }
+            
+           }else{
+            
+            }    
+           return validacion;
+    
     }
 
     /**
@@ -113,6 +307,11 @@ public class AdministradorPromociones extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        TablePromociones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablePromocionesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TablePromociones);
 
         javax.swing.GroupLayout PanelTableAdminPromocionesLayout = new javax.swing.GroupLayout(PanelTableAdminPromociones);
@@ -132,6 +331,12 @@ public class AdministradorPromociones extends javax.swing.JPanel {
 
         LabelPrecioPromocion.setText("* Precio de la Promoción");
 
+        TextFieldPrecioPromocion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextFieldPrecioPromocionKeyTyped(evt);
+            }
+        });
+
         LabelProductosPromocion.setText("* Productos de la Promoción");
 
         TextAreaProductosPromocion.setColumns(20);
@@ -142,15 +347,31 @@ public class AdministradorPromociones extends javax.swing.JPanel {
 
         LabelIDPromocion.setText("* ID de la Promoción");
 
-        ButtonNuevaPromocion.setText("jButton1");
+        TextFieldIDPromocion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextFieldIDPromocionKeyTyped(evt);
+            }
+        });
 
-        ButtonEditarPromocion.setText("jButton2");
+        ButtonNuevaPromocion.setText("<html><center>Nuevo<br>Promocion</center></html>");
+        ButtonNuevaPromocion.setToolTipText("");
+        ButtonNuevaPromocion.addActionListener(this::ButtonNuevaPromocionActionPerformed);
 
-        ButtonGrabarPromocion.setText("jButton3");
+        ButtonEditarPromocion.setText("<html><center>Editar<br>Promocion</center></html>");
+        ButtonEditarPromocion.setToolTipText("");
+        ButtonEditarPromocion.addActionListener(this::ButtonEditarPromocionActionPerformed);
 
-        ButtonEliminarPromocion.setText("jButton4");
+        ButtonGrabarPromocion.setText("Grabar");
+        ButtonGrabarPromocion.setToolTipText("");
+        ButtonGrabarPromocion.addActionListener(this::ButtonGrabarPromocionActionPerformed);
 
-        ButtonCancelarPromocion.setText("jButton5");
+        ButtonEliminarPromocion.setText("Eliminar");
+        ButtonEliminarPromocion.setToolTipText("");
+        ButtonEliminarPromocion.addActionListener(this::ButtonEliminarPromocionActionPerformed);
+
+        ButtonCancelarPromocion.setText("Cancelar");
+        ButtonCancelarPromocion.setToolTipText("");
+        ButtonCancelarPromocion.addActionListener(this::ButtonCancelarPromocionActionPerformed);
 
         javax.swing.GroupLayout PanelButtonsPromocionesLayout = new javax.swing.GroupLayout(PanelButtonsPromociones);
         PanelButtonsPromociones.setLayout(PanelButtonsPromocionesLayout);
@@ -270,10 +491,124 @@ public class AdministradorPromociones extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelPrincipalAdminPromociones, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+                .addComponent(PanelPrincipalAdminPromociones, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TextFieldPrecioPromocionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldPrecioPromocionKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) && c != '.') {
+            evt.consume(); // evita que se escriba el carácter
+        }
+        
+        if (c == '.' && TextFieldPrecioPromocion.getText().contains(".")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_TextFieldPrecioPromocionKeyTyped
+
+    private void TextFieldIDPromocionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldIDPromocionKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume(); // evita que se escriba el carácter
+        }
+    }//GEN-LAST:event_TextFieldIDPromocionKeyTyped
+
+    private void ButtonNuevaPromocionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNuevaPromocionActionPerformed
+        // TODO add your handling code here:
+        habilitarCampos(true);
+        limpiarCampos();
+        ButtonNuevaPromocion.setEnabled(true);
+        ButtonEditarPromocion.setEnabled(false);
+        ButtonGrabarPromocion.setEnabled(true);
+        ButtonEliminarPromocion.setEnabled(false);
+        ButtonCancelarPromocion.setEnabled(true);
+    }//GEN-LAST:event_ButtonNuevaPromocionActionPerformed
+
+    private void ButtonEditarPromocionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEditarPromocionActionPerformed
+        // TODO add your handling code here:
+        sqlMetodo = "UPDATE";
+        if(capturarPromocion(sqlMetodo)){
+              limpiarCampos();
+              listarPromociones();  
+              habilitarCampos(false);
+              ButtonNuevaPromocion.setEnabled(true);
+              ButtonEditarPromocion.setEnabled(false);
+              ButtonGrabarPromocion.setEnabled(false);
+              ButtonEliminarPromocion.setEnabled(false);
+              ButtonCancelarPromocion.setEnabled(false);
+           }
+    }//GEN-LAST:event_ButtonEditarPromocionActionPerformed
+
+    private void ButtonGrabarPromocionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonGrabarPromocionActionPerformed
+        // TODO add your handling code here:
+        sqlMetodo = "CREATE";
+        if(capturarPromocion(sqlMetodo)){
+              limpiarCampos();
+              listarPromociones();  
+              habilitarCampos(false);
+              ButtonNuevaPromocion.setEnabled(true);
+              ButtonEditarPromocion.setEnabled(false);
+              ButtonGrabarPromocion.setEnabled(false);
+              ButtonEliminarPromocion.setEnabled(false);
+              ButtonCancelarPromocion.setEnabled(false);
+           }
+    }//GEN-LAST:event_ButtonGrabarPromocionActionPerformed
+
+    private void ButtonEliminarPromocionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEliminarPromocionActionPerformed
+        // TODO add your handling code here:
+        eliminarPromocion();
+        listarPromociones();
+        habilitarCampos(false);
+        ButtonNuevaPromocion.setEnabled(true);
+        ButtonEditarPromocion.setEnabled(false);
+        ButtonGrabarPromocion.setEnabled(false);
+        ButtonEliminarPromocion.setEnabled(false);
+        ButtonCancelarPromocion.setEnabled(false);
+    }//GEN-LAST:event_ButtonEliminarPromocionActionPerformed
+
+    private void ButtonCancelarPromocionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarPromocionActionPerformed
+        // TODO add your handling code here:
+        habilitarCampos(false);
+        limpiarCampos();
+        ButtonNuevaPromocion.setEnabled(true);
+        ButtonEditarPromocion.setEnabled(false);
+        ButtonGrabarPromocion.setEnabled(false);
+        ButtonEliminarPromocion.setEnabled(false);
+        ButtonCancelarPromocion.setEnabled(false);
+    }//GEN-LAST:event_ButtonCancelarPromocionActionPerformed
+
+    private void TablePromocionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablePromocionesMouseClicked
+        // TODO add your handling code here:
+        int fila = TablePromociones.getSelectedRow();
+        ButtonNuevaPromocion.setEnabled(false);
+        ButtonEditarPromocion.setEnabled(true);
+        ButtonGrabarPromocion.setEnabled(false);
+        ButtonEliminarPromocion.setEnabled(true);  
+        ButtonCancelarPromocion.setEnabled(true);
+        habilitarCampos(true);
+        TextFieldIDPromocion.setEnabled(false);
+        
+        if (fila >= 0) {
+            // Extraer valores de cada columna Nombre, Domicilio, Telefono, Fecha de Ingreso, Activo, Tipo de Empleado
+            int idPromocion = Integer.parseInt(TablePromociones.getValueAt(fila, 0).toString());
+            String descripcionTabla = TablePromociones.getValueAt(fila, 1).toString();
+            String precioTabla = TablePromociones.getValueAt(fila, 2).toString();
+            String productosTabla = TablePromociones.getValueAt(fila, 3).toString();
+            String sizesTabla = TablePromociones.getValueAt(fila, 4).toString();
+             
+            // Pasar los valores a los text fields
+            //JTextField1 = Producto
+            TextFieldDescripcionPromocion.setText(descripcionTabla);
+            TextFieldPrecioPromocion.setText(precioTabla);
+            TextAreaProductosPromocion.setText(productosTabla);
+            TextFieldSizePromocion.setText(sizesTabla);
+            TextFieldIDPromocion.setText(String.valueOf(idPromocion));
+            
+        }
+    }//GEN-LAST:event_TablePromocionesMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
