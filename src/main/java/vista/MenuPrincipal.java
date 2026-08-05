@@ -85,7 +85,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 } else if ("ADMIN_CLIENTES".equals(panelActual)){
                     mostrarPanel("PANEL_DATOS_SUC");
                 } else if ("ADMIN_EMPLEADOS".equals(panelActual)){
-                    mostrarPanel("PANEL_DATOS_SUC");
+                    mostrarPanel("MENU");
                 } else if ("ADMIN_PIZZAS".equals(panelActual)){
                     mostrarPanel("PANEL_DATOS_SUC");
                 } else if ("ADMIN_PRODUCTOS".equals(panelActual)){
@@ -109,7 +109,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 } else if ("REPORTE_VENTAS".equals(panelActual)){
                     mostrarPanel("MENU");
                 } else if ("ADMIN_DATOS_SUC".equals(panelActual)){
-                    mostrarPanel("MENU");
+                    mostrarPanel("PANEL_DATOS_SUC");
                 }else {
                     dispose(); // o System.exit(0)
                 }

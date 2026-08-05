@@ -16,13 +16,342 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Component id="PanelPrincipalDatosSucursal" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          <Component id="PanelPrincipalDatosSucursal" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="PanelPrincipalDatosSucursal">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jTabbedPane1" min="-2" pref="670" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="jTabbedPane1" min="-2" pref="360" max="-2" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="SubPanelDatosSucursalMain">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Datos Sucursal">
+                    <Property name="tabTitle" type="java.lang.String" value="Datos Sucursal"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="SubPanelDatosSucursal" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="SubPanelDatosSucursal" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Container class="javax.swing.JPanel" name="SubPanelDatosSucursal">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
+                      </Border>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="LabelDomicilioSucursal" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelNombreSucursal" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelIDSucursal" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="TextFieldIDSucursal" pref="300" max="32767" attributes="0"/>
+                                          <Component id="TextFieldNombreSucursal" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="TextFieldDomicilioSucursal" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="LabelTelefono1DatosSucursal" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelRFCDatosSucursal" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelTelefono2DatosSucursal" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="TextFieldRFCSucursal" max="32767" attributes="0"/>
+                                          <Component id="TextFieldTelefono1Sucursal" max="32767" attributes="0"/>
+                                          <Component id="TextFieldTelefono2Sucursal" alignment="0" pref="297" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="LabelColoniaDatosSucursal" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelEstadoDatosSucursal" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="TextFieldEstadoSucursal" min="-2" pref="150" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="LabelMunicipioDatosSucursal" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="TextFieldMunicipioSucursal" min="-2" pref="147" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="TextFieldColoniaSucursal" min="-2" pref="150" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                              <Component id="LabelCPDatosSucursal" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="TextFieldCPSucursal" min="-2" pref="150" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="ButtonActualizarDatosSucursal" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="ButtonCancelarDatosSucursal" min="-2" pref="120" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="21" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="ButtonActualizarDatosSucursal" min="-2" pref="90" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="LabelIDSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="TextFieldIDSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="LabelNombreSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="TextFieldNombreSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="TextFieldDomicilioSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelDomicilioSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="LabelColoniaDatosSucursal" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="TextFieldColoniaSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="LabelCPDatosSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TextFieldCPSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="TextFieldEstadoSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelEstadoDatosSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="TextFieldMunicipioSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelMunicipioDatosSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="TextFieldRFCSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelRFCDatosSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="TextFieldTelefono1Sucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelTelefono1DatosSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="ButtonCancelarDatosSucursal" min="-2" pref="90" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="LabelTelefono2DatosSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TextFieldTelefono2Sucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="15" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="LabelIDSucursal">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="* ID de la Sucursal:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelNombreSucursal">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="* Nombre de la Sucursal:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelDomicilioSucursal">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="* Domicilio:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelColoniaDatosSucursal">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="* Colonia:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelCPDatosSucursal">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="* CP:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelEstadoDatosSucursal">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="* Estado:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelMunicipioDatosSucursal">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="* Municipio:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelRFCDatosSucursal">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="* RFC:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelTelefono1DatosSucursal">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="* Telefono 1:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelTelefono2DatosSucursal">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="* Telefono 2:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="TextFieldIDSucursal">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="TextFieldNombreSucursal">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="TextFieldDomicilioSucursal">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="TextFieldColoniaSucursal">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="TextFieldCPSucursal">
+                      <Events>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldCPSucursalKeyTyped"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="TextFieldEstadoSucursal">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="TextFieldMunicipioSucursal">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="TextFieldRFCSucursal">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="TextFieldTelefono1Sucursal">
+                      <Events>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldTelefono1SucursalKeyTyped"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="TextFieldTelefono2Sucursal">
+                      <Events>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldTelefono2SucursalKeyTyped"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="ButtonActualizarDatosSucursal">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Actualizar"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonActualizarDatosSucursalActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="ButtonCancelarDatosSucursal">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Cancelar"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="SubPanelDatosGerente">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Datos del Gerente">
+                    <Property name="tabTitle" type="java.lang.String" value="Datos del Gerente"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                          <Component id="TextFieldNombreGerenteSucursal" min="-2" pref="391" max="-2" attributes="0"/>
+                          <EmptySpace pref="211" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="TextFieldNombreGerenteSucursal" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="272" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JTextField" name="TextFieldNombreGerenteSucursal">
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
 </Form>
