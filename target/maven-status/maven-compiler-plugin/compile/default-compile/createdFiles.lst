@@ -11,6 +11,7 @@ vista/AdministradorPizzas$1.class
 vista/AdministradorPizzas.class
 vista/PanelDatosSucursal$5.class
 vista/AdministradorClientes.class
+vista/AdministradorEmpleados$8.class
 vista/AdministradorEmpleados$1.class
 vista/AdministradorDatosSucursal$2.class
 vista/LoginGerente.class
@@ -50,6 +51,7 @@ vista/PanelDatosSucursal$3.class
 vista/AdministradoringredientesExtra$1.class
 vista/AdministradorPizzas$2.class
 com/mycompany/administradorpizzeriav2/AdministradorPizzeriaV2.class
+vista/AdministradorEmpleados$7.class
 vista/AdministradorProductos.class
 vista/PanelDatosSucursal$6.class
 vista/AdministradorDatosSucursal$1.class

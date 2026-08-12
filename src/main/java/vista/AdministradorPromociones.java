@@ -196,7 +196,7 @@ public class AdministradorPromociones extends javax.swing.JPanel {
             }else if (sqlOption.matches("UPDATE")){
                 validacion = true;
                 try (Connection conn = DatabaseConnection.getConnection()) {
-                       String sql = "UPDATE promocion SET Descripcion=?, Precio=?, Productos=?, Size=? WHERE idPromocion=?";
+                       String sql = "UPDATE promociones SET Descripcion=?, Precio=?, Productos=?, Size=? WHERE idPromocion=?";
                        PreparedStatement ps = conn.prepareStatement(sql);
 
                        // Asignar valores desde tus componentes

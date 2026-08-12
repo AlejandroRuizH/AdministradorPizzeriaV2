@@ -51,6 +51,7 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
         // Asignar modelo a la tabla
         TableEmpleados.setModel(model);
         
+        listarEmpleados();
     }
     
     public void limpiarCampos(){
@@ -103,196 +104,176 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
         
     }
     
-    private boolean capturarEmpleado(String sqlOption){
+    public void actualizarEmpleado(){
            
-            //Agregar las validaciones aqui
-            boolean validacion = true;
-            if(sqlOption.matches("CREATE")){
-                validacion=true;
-                String msgErr = "";
-                int numErr=0;
-                try (Connection conn = DatabaseConnection.getConnection()){
-                    String sql = "INSERT INTO empleados (idEmpleado, nombre, domicilio, telefono, fechaIngreso, activo, tipoEmpleado, nip) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-                    PreparedStatement st = conn.prepareStatement(sql);
-                    //Validacion ID
-                    if (TextFieldIDEmpleado.getText().isEmpty()){
-                        validacion=false;
-                        msgErr="Ingrese el ID del empleado";
-                        numErr++;
-                    }else{
-                        st.setString(1,TextFieldIDEmpleado.getText());
-                    }
-                    // Validacion Nombre
-                    if (TextFieldNombreEmpleado.getText().isEmpty()) {
-                        if (numErr > 1) {
-                           msgErr=msgErr+"\n Ingrese el Domicilio del empleado";
-                           numErr++;
-                        } else{
-                           msgErr="Ingrese el Domicilio del empleado";
-                        }
-                    }else{
-                        st.setString(2,TextFieldNombreEmpleado.getText());
-                    }
-                      if (TextFieldDomicilioEmpleado.getText().isEmpty()) {
-                        if (numErr > 1) {
-                           msgErr=msgErr+"\n Ingrese el Domicilio del empleado";
-                           numErr++;
-                        } else{
-                           msgErr="Ingrese el Domicilio del empleado";
-                        }
-                    }else{
-                        st.setString(3,TextFieldDomicilioEmpleado.getText());
-                    }
-                    //Validacion Telefono
-                    if (TextFieldTelefonoEmpleado.getText().isEmpty()) {
-                        validacion=false;
-                        if (numErr > 1){
-                           msgErr=msgErr + "\n Ingrese el numero de telefono del empleado";
-                           numErr++;
-                        }else{
-                           msgErr="Ingrese el numero de telefono del empleado";
-                        }
-                    }else{
-                          st.setString(4,TextFieldTelefonoEmpleado.getText());
-                    }
-                    // Validacion Fecha de Ingreso
-                    java.util.Date fechaUtil = DateChosserEmpleado.getDate();
-                    if (fechaUtil == null){
-                        validacion=false;
-                        if(numErr > 1){
-                            msgErr=msgErr+"\n Por favor selecciona una fecha de Ingreso.";
-                            numErr++;
-                        }else{
-                            msgErr="\n Por favor selecciona una fecha de Ingreso.";
-                        }
-                    }else{
-                        java.sql.Date fechaSQL = new java.sql.Date(fechaUtil.getTime());
-                        st.setDate(5, fechaSQL);
-                    }
-                    //Validacion de Status del empleado
-                    if( ! CheckBoxActivoEmpleado.isSelected() && !CheckBoxInactivoEmpleado.isSelected()) {
-                        validacion=false;
-                        if (numErr > 1){
-                            msgErr = msgErr + "\n Seleccione el status del empleado";
-                            numErr++;
-                        }else{
-                            msgErr="Seleccione el status del empleado";
-                        }
-                    }else{
-                        if (CheckBoxActivoEmpleado.isSelected() )st.setString(6,"Si");
-                        if (CheckBoxInactivoEmpleado.isSelected() )st.setString(6,"No");
-                    }
-                    if (ComboBoxTipoEmpleado.getSelectedItem().toString().isEmpty()) {
-                        validacion=false;
-                        if (numErr > 1){
-                           msgErr = msgErr+"\nSeleccione el puesto del empleado";
-                           numErr++;
-                        }else{
-                           msgErr="Seleccione el puesto del empleado";
-                        }
-                        
-                    }else{
-                        st.setString(7,ComboBoxTipoEmpleado.getSelectedItem().toString());
-                    }        
-                    if (TextFieldNip.getText().isEmpty() && TextFieldConfirmaNip.getText().isEmpty()) {
-                       validacion=false;
-                       if(numErr>1){
-                           msgErr=msgErr+"\nIngrese y confirme el NIP de ventas del Empleado";
-                           numErr++;
-                       }else{
-                          msgErr="Ingrese el NIP de ventas del Empleado";
-                       }
-                    }else if(!TextFieldNip.getText().isEmpty() && TextFieldConfirmaNip.getText().isEmpty()){
+        boolean validacion=true;
+           
+         try (Connection conn = DatabaseConnection.getConnection()) {
+                String sql = "UPDATE empleados SET nombre=?, domicilio=?, telefono=?, fechaIngreso=?, activo=?, tipoEmpleado=?, nip=? WHERE idEmpleado=?";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                  
+                  /*
+                  *******      Validacion de todos los campos    **********
+                  */
+                  
+                  // Validacion del TextField Nombre Empleado
+                  if (TextFieldNombreEmpleado.getText().isEmpty()){
+                      JOptionPane.showMessageDialog(null, "Campo Nombre del empleado esta vacio");
+                      validacion=false; 
+                  }
+                  
+                  // Validacion del TextField Domicilio
+                  if (TextFieldDomicilioEmpleado.getText().isEmpty()){
+                      JOptionPane.showMessageDialog(null, "Campo Domicilio del empleado esta vacio");
                       validacion=false;
-                       if(numErr>1){
-                           msgErr=msgErr+"\nConfirme el NIP de ventas del Empleado";
-                           numErr++;
-                       }else{
-                           msgErr="Confirme el NIP de ventas del Empleado";
-                       }
-                    }else if(TextFieldNip.getText().isEmpty() && !TextFieldConfirmaNip.getText().isEmpty()){
+                  }
+                  // Validacion del TextField Telefono
+                  if (TextFieldTelefonoEmpleado.getText().isEmpty()){
+                      JOptionPane.showMessageDialog(null, "Campo Telefono del empleado esta vacio");
+                      validacion=false;
+                  }
+                  // Validacion del DateChosserEmpleado
+                   if (DateChosserEmpleado.getDate() == null ){
+                      JOptionPane.showMessageDialog(null, "La Fecha de Ingreso del empleado esta vacio");
+                      validacion=false;
+                  }
+                  // Validacion del Checbox Activo Inactivo
+                  if (!CheckBoxActivoEmpleado.isSelected() && !CheckBoxInactivoEmpleado.isSelected()){
+                      JOptionPane.showMessageDialog(null, "Ingresa el status del empleado");
+                      validacion=false;
+                  }
+                  // Validacion de  ComboBox del tipo de empleado
+                  if (ComboBoxTipoEmpleado.getSelectedItem().toString().isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Selecciona el Tipo del empleado");
+                        validacion=false;
+                    }
+                  
+                  // Validacion del campo NIP
+                  if(TextFieldNip.getText().isEmpty()){
+                      JOptionPane.showMessageDialog(null, "Campo NIP del empleado esta vacio");
+                      validacion=false;
+                  }
+                  if(TextFieldConfirmaNip.getText().isEmpty()){
+                      JOptionPane.showMessageDialog(null, "Campo confirma NIP del empleado esta vacio");
+                      validacion=false;
+                  }
+                  if(!TextFieldNip.getText().matches(TextFieldConfirmaNip.getText())){            
+                       JOptionPane.showMessageDialog(null, "Los campos NIP del empleado no son iguales");
                        validacion=false;
-                       if(numErr>1){
-                           msgErr=msgErr+"\nCampo NIP del empleado esta vacio";
-                           numErr++;
-                       }else{
-                           msgErr="Campo NIP del empleado esta vacio";
-                       }
-                    }else{
-                         //Los campos para el nip no estan vacios
-                         if(TextFieldNip.getText().matches(TextFieldConfirmaNip.getText())){
-                             st.setInt(8, Integer.parseInt(TextFieldNip.getText()));       
-                         }else{
-                            validacion=false;
-                            if(numErr>1){
-                               msgErr=msgErr+"\nLos NIP del empleados no son iguales";
-                               numErr++;   
-                            }else{
-                               msgErr="Los NIP del empleados no son iguales";
-                            }
-                         }                              
-                    }
-                    if (msgErr.isEmpty() && (numErr == 0)){
-                        st.executeUpdate();
-                    }else{
-                        JOptionPane.showMessageDialog(null, msgErr);
-                    }
-                    
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
-                    validacion=false;
-                }
-            }else if (sqlOption.matches("UPDATE")){
-                validacion = true;
-                try (Connection conn = DatabaseConnection.getConnection()) {
-                       String sql = "UPDATE empleados SET nombre=?, domicilio=?, telefono=?, fechaIngreso=?, activo=?, tipoEmpleado=?, nip=? WHERE idEmpleado=?";
-                       PreparedStatement ps = conn.prepareStatement(sql);
-
-                       // Asignar valores desde tus componentes
-                       ps.setString(1,TextFieldNombreEmpleado.getText());
-                       ps.setString(2,TextFieldDomicilioEmpleado.getText());
-                       ps.setString(3,TextFieldTelefonoEmpleado.getText());
-                       java.util.Date fechaUtil = DateChosserEmpleado.getDate();
-                       java.sql.Date fechaSQL = new java.sql.Date(fechaUtil.getTime());
-                       ps.setDate(4, fechaSQL);
-                       if (CheckBoxActivoEmpleado.isSelected() )ps.setString(5,"Si");
-                       if (CheckBoxInactivoEmpleado.isSelected() )ps.setString(5,"No");
-                       ps.setString(6,ComboBoxTipoEmpleado.getSelectedItem().toString());
-                       // Agregar validacion para el NIP
-                       if(TextFieldNip.getText().isEmpty() && !TextFieldConfirmaNip.getText().isEmpty()){
-                           validacion=false;
-                           JOptionPane.showMessageDialog(null, "Campo NIP del empleado esta vacio");    
-                       }else{
-                           //Los campos para el nip no estan vacios
-                           if(TextFieldNip.getText().matches(TextFieldConfirmaNip.getText())){
-                              
-                             ps.setInt(7, Integer.parseInt(TextFieldNip.getText()));                             
-                           }else{
-                             validacion=false;
-                             JOptionPane.showMessageDialog(null, "Los NIP del empleados no son iguales"); 
-                         }                              
-                        }
-                       
-                       
-                       ps.setInt(8, Integer.parseInt(TextFieldIDEmpleado.getText()));
-                       if(validacion){
-                         int filas = ps.executeUpdate();
-                         if (filas > 0) {
+                  }
+                  
+                  if(validacion){
+                     ps.setString(1,TextFieldNombreEmpleado.getText());
+                     ps.setString(2,TextFieldDomicilioEmpleado.getText());
+                     ps.setString(3,TextFieldTelefonoEmpleado.getText());
+                     java.util.Date fechaUtil = DateChosserEmpleado.getDate();
+                     java.sql.Date fechaSQL = new java.sql.Date(fechaUtil.getTime());
+                     ps.setDate(4, fechaSQL);
+                     if (CheckBoxActivoEmpleado.isSelected() )ps.setString(5,"Si");
+                     if (CheckBoxInactivoEmpleado.isSelected() )ps.setString(5,"No");
+                     
+                     ps.setString(6,ComboBoxTipoEmpleado.getSelectedItem().toString());
+                     
+                     ps.setInt(7, Integer.parseInt(TextFieldNip.getText()));
+                     
+                     ps.setInt(8, Integer.parseInt(TextFieldIDEmpleado.getText()));
+                     
+                     int filas = ps.executeUpdate();
+                     if (filas > 0) {
                            JOptionPane.showMessageDialog(null, "Registro actualizado correctamente.");
                           } else {
                            JOptionPane.showMessageDialog(null, "No se encontró el registro.");
                           }
-                       }
+                  }
                        
-                }catch (SQLException e) {
-                      JOptionPane.showMessageDialog(null, "Error al actualizar: " + e.getMessage());
-                }
-            
-           }else{
-            
-            }    
-           return validacion;
+          }catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Error al actualizar: " + e.getMessage());
+          }    
+    }
     
+    private void capturarEmpleado(){
+           
+            //Agregar las validaciones aqui
+            boolean validacion = true;
+            try (Connection conn = DatabaseConnection.getConnection()){
+                    String sql = "INSERT INTO empleados (idEmpleado, nombre, domicilio, telefono, fechaIngreso, activo, tipoEmpleado, nip) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                    PreparedStatement st = conn.prepareStatement(sql);
+                    
+                    //Validacion TextField ID
+                    if (TextFieldIDEmpleado.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(null, "Campo ID del empleado esta vacio");
+                        validacion=false;    
+                    }
+                    // Validacion TextField Nombre
+                    if (TextFieldNombreEmpleado.getText().isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Campo Nombre del empleado esta vacio");
+                        validacion=false; 
+                    }
+                    // Validacion TextField Domicilio
+                    if (TextFieldDomicilioEmpleado.getText().isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Campo Domicilio del empleado esta vacio");
+                        validacion=false; 
+                    }
+                    //Validacion Telefono
+                    if (TextFieldTelefonoEmpleado.getText().isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Campo Telefono del empleado esta vacio");  
+                        validacion=false; 
+                    }
+                    // Validacion DataChosser Fecha de ingreso
+                    java.util.Date fechaUtil = DateChosserEmpleado.getDate();
+                    java.sql.Date fechaSQL = new java.sql.Date(fechaUtil.getTime());
+                    if (fechaUtil == null){
+                        JOptionPane.showMessageDialog(null, "Campo Fecha de Ingreso del empleado esta vacio");
+                        validacion=false;
+                    }
+                    
+                    //Validacion Checkbox Status del empleado
+                    if (!CheckBoxActivoEmpleado.isSelected() && !CheckBoxInactivoEmpleado.isSelected()){
+                      JOptionPane.showMessageDialog(null, "Selecciona el status del empleado");
+                      validacion=false;
+                    }
+                    
+                    // Validacion del ComboBox Tipo de Empleado
+                    if (ComboBoxTipoEmpleado.getSelectedItem().toString().isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Selecciona el Tipo del empleado");
+                        validacion=false;
+                    }
+                    // Validacion del NIP del empleado
+                    if (TextFieldNip.getText().isEmpty()){
+                       JOptionPane.showMessageDialog(null, "El campo NIP del empleado esta vacio");
+                       validacion=false;
+                    }
+                    // Validacion del TextField confirma NIP del empleado
+                    if (TextFieldConfirmaNip.getText().isEmpty()) {
+                       JOptionPane.showMessageDialog(null, "El campo Confirma NIP del empleado esta vacio");
+                       validacion=false;
+                    }
+                     //Validacion si los campos del NIP no son iguales
+                     if(!TextFieldNip.getText().matches(TextFieldConfirmaNip.getText())){
+                       JOptionPane.showMessageDialog(null, "Los NIP ingresados no son iguales");
+                       validacion=false;                          
+                    }
+
+                   if(validacion){
+                       st.setString(1,TextFieldIDEmpleado.getText());
+                       st.setString(2,TextFieldNombreEmpleado.getText());
+                       st.setString(3,TextFieldDomicilioEmpleado.getText());
+                       st.setString(4,TextFieldTelefonoEmpleado.getText());
+                       st.setDate(5, fechaSQL); 
+                       if (CheckBoxActivoEmpleado.isSelected() )st.setString(6,"Si");
+                       if (CheckBoxInactivoEmpleado.isSelected() )st.setString(6,"No");
+                       st.setString(7,ComboBoxTipoEmpleado.getSelectedItem().toString());
+                       st.setInt(8, Integer.parseInt(TextFieldNip.getText())); 
+                       st.executeUpdate();
+                   }else{
+                       JOptionPane.showMessageDialog(null, "Algunos de los datos del empleado no fueron llenados correctamente");
+                       validacion=false; 
+                   }
+                    
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+                    validacion=false;
+               }      
     }
     
     private void eliminarUsuario(){
@@ -450,8 +431,18 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
         });
 
         CheckBoxActivoEmpleado.setText("Activo");
+        CheckBoxActivoEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CheckBoxActivoEmpleadoMouseClicked(evt);
+            }
+        });
 
         CheckBoxInactivoEmpleado.setText("Inactivo");
+        CheckBoxInactivoEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CheckBoxInactivoEmpleadoMouseClicked(evt);
+            }
+        });
 
         ComboBoxTipoEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Empleado Mostrador o Vendedor", "Empleado de Cocina", "Repartidor" }));
 
@@ -459,15 +450,18 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
         ButtonNuevoEmpleado.addActionListener(this::ButtonNuevoEmpleadoActionPerformed);
 
         ButtonEditarEmpleado.setText("Editar Datos");
+        ButtonEditarEmpleado.addActionListener(this::ButtonEditarEmpleadoActionPerformed);
 
         ButtonGrabarEmpleado.setText("Grabar");
         ButtonGrabarEmpleado.addActionListener(this::ButtonGrabarEmpleadoActionPerformed);
 
         ButtonEliminarEmpleado.setText("Eliminar");
+        ButtonEliminarEmpleado.addActionListener(this::ButtonEliminarEmpleadoActionPerformed);
 
         ButtonCancelarEmpleados.setText("Cancelar");
 
         ButtonMenuPrincipal.setText("<html>Menu<br>Principal</html>");
+        ButtonMenuPrincipal.addActionListener(this::ButtonMenuPrincipalActionPerformed);
 
         LabelIDEmpleado.setText("*ID del Empleado");
 
@@ -649,7 +643,7 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
         ComboBoxTipoEmpleado.setEnabled(true);
         TextFieldNip.setEnabled(true);
         TextFieldConfirmaNip.setEnabled(true);
-        TextFieldIDEmpleado.setEnabled(true);
+        TextFieldIDEmpleado.setEnabled(false);
         
         if (fila >= 0) {
             // Extraer valores de cada columna Nombre, Domicilio, Telefono, Fecha de Ingreso, Activo, Tipo de Empleado
@@ -678,7 +672,7 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
             TextFieldDomicilioEmpleado.setText(domicilioTabla);
             TextFieldTelefonoEmpleado.setText(telefonoTabla);
             
-            if (TableEmpleados.isEnabled() ){
+            if (statusTabla.matches("Si")){
                 CheckBoxActivoEmpleado.setSelected(true);
                 CheckBoxInactivoEmpleado.setSelected(false);
             }else{
@@ -744,20 +738,63 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
         ButtonEditarEmpleado.setEnabled(false);
         ButtonGrabarEmpleado.setEnabled(true);
         ButtonCancelarEmpleados.setEnabled(false);
-        ButtonEliminarEmpleado.setEnabled(true);
-        sqlMetodo="CREATE";  
+        ButtonEliminarEmpleado.setEnabled(true); 
     }//GEN-LAST:event_ButtonNuevoEmpleadoActionPerformed
 
     private void ButtonGrabarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonGrabarEmpleadoActionPerformed
         // TODO add your handling code here:
-        habilitarCampos(false);
+        capturarEmpleado();
         limpiarCampos();
+        listarEmpleados();  
+        habilitarCampos(false);
         ButtonNuevoEmpleado.setEnabled(true);
         ButtonEditarEmpleado.setEnabled(false);
         ButtonGrabarEmpleado.setEnabled(false);
         ButtonCancelarEmpleados.setEnabled(false);
         ButtonEliminarEmpleado.setEnabled(false);
+          
     }//GEN-LAST:event_ButtonGrabarEmpleadoActionPerformed
+
+    private void ButtonMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuPrincipalActionPerformed
+        // TODO add your handling code here:
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU.getCardName());
+    }//GEN-LAST:event_ButtonMenuPrincipalActionPerformed
+
+    private void CheckBoxActivoEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckBoxActivoEmpleadoMouseClicked
+        // TODO add your handling code here:
+        CheckBoxInactivoEmpleado.setSelected(false);
+    }//GEN-LAST:event_CheckBoxActivoEmpleadoMouseClicked
+
+    private void CheckBoxInactivoEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckBoxInactivoEmpleadoMouseClicked
+        // TODO add your handling code here:
+        CheckBoxActivoEmpleado.setSelected(false);
+    }//GEN-LAST:event_CheckBoxInactivoEmpleadoMouseClicked
+
+    private void ButtonEditarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEditarEmpleadoActionPerformed
+        // TODO add your handling code here:
+        actualizarEmpleado();
+        limpiarCampos();
+        listarEmpleados();  
+        habilitarCampos(false);
+        ButtonNuevoEmpleado.setEnabled(true);
+        ButtonEditarEmpleado.setEnabled(false);
+        ButtonGrabarEmpleado.setEnabled(false);
+        ButtonCancelarEmpleados.setEnabled(false);
+        ButtonEliminarEmpleado.setEnabled(false);
+    }//GEN-LAST:event_ButtonEditarEmpleadoActionPerformed
+
+    private void ButtonEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEliminarEmpleadoActionPerformed
+        // TODO add your handling code here:
+        eliminarUsuario();
+        limpiarCampos();
+        listarEmpleados();  
+        habilitarCampos(false);
+        ButtonNuevoEmpleado.setEnabled(true);
+        ButtonEditarEmpleado.setEnabled(false);
+        ButtonGrabarEmpleado.setEnabled(false);
+        ButtonCancelarEmpleados.setEnabled(false);
+        ButtonEliminarEmpleado.setEnabled(false);
+    }//GEN-LAST:event_ButtonEliminarEmpleadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
