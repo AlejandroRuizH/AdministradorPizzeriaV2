@@ -63,7 +63,18 @@ public class AdministradorDatosSucursal extends javax.swing.JPanel {
 
     public void actualizarDatosSucursal(){
         try (Connection conn = DatabaseConnection.getConnection()) {
-              String sql = "UPDATE datossucursal SET nombreSucursal=?, domicilio=?, colonia=?, CodigoPostal=?, estado=?,  municipio=?,  rfc=?, telefono1=?, telefono2=?, nombreGerente=? WHERE idSucursal=?";
+              String sql = """
+                                INSERT INTO datossucursal (nombreSucursal, domicilio, colonia, CodigoPostal, estado,  municipio,  rfc, telefono1, telefono2, nombreGerente, idSucursal)
+                                VALUES (?,?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE
+                                nombreSucursal = VALUES(),
+                                domicilio = VALUES(),
+                                colonia = VALUES(),
+                                CodigoPostal = VALUES(),
+                                estado = VALUES(),
+                                municipio = VALUES(),
+                                rfc = VALUES(),
+                                telefono1 = VALUES()
+                                """;
               PreparedStatement ps = conn.prepareStatement(sql);
               
               ps.setString(1,TextFieldNombreSucursal.getText());

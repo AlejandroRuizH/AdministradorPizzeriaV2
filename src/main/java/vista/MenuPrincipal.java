@@ -52,7 +52,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             PanelPrincipal.add(new AdministradorProductos(this), PanelDestino.ADMIN_PRODUCTOS.getCardName());
             PanelPrincipal.add(new AdministradorPromociones(this), PanelDestino.ADMIN_PROMOCIONES.getCardName());
             PanelPrincipal.add(new AdministradoringredientesExtra(this), PanelDestino.ADMIN_INGREDIENTES.getCardName());
-            PanelPrincipal.add(new ReimpresionTickets(this), PanelDestino.PANEL_CANCELACIONES.getCardName());
+            PanelPrincipal.add(new Cancelaciones(this), PanelDestino.PANEL_CANCELACIONES.getCardName());
             PanelPrincipal.add(new CorteFinal(this), PanelDestino.CORTE_FINAL.getCardName());
             PanelPrincipal.add(new CorteParcial(this), PanelDestino.CORTE_PARCIAL.getCardName());
             PanelPrincipal.add(loginAdministrador, PanelDestino.LOGIN_ADMIN.getCardName());

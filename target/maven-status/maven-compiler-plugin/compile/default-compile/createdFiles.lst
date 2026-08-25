@@ -23,6 +23,7 @@ vista/AdministradoringredientesExtra$3.class
 vista/AdministradorEmpleados$5.class
 vista/Cancelaciones.class
 vista/ReporteDeVentas.class
+vista/AdministradorPromociones$5.class
 vista/AdministradorDatosSucursal$3.class
 vista/LoginAdministrador.class
 vista/AdministradorDatosSucursal.class
@@ -39,6 +40,7 @@ vista/PanelDatosSucursal$4.class
 vista/AdministradorProductos$4.class
 com/mycompany/administradorpizzeriav2/DBConfiguration.class
 vista/AdministradorPromociones.class
+vista/AdministradorPromociones$6.class
 vista/AdministradorEmpleados$6.class
 vista/AdministradoringredientesExtra.class
 vista/AdministradorEmpleados$3.class

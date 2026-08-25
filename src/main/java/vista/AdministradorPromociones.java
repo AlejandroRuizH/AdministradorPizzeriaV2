@@ -32,7 +32,7 @@ public class AdministradorPromociones extends javax.swing.JPanel {
         
         this.menuPrincipal = menuPrincipal;
         initComponents();
-        setPreferredSize(new Dimension(1070, 690));
+        setPreferredSize(new Dimension(1070, 790));
         //this.setResizable(false);
         menuPrincipal.revalidate();
         menuPrincipal.repaint();
@@ -42,8 +42,13 @@ public class AdministradorPromociones extends javax.swing.JPanel {
         model.addColumn("ID de la Promocion");
         model.addColumn("Descripcion");
         model.addColumn("Precio");
+        model.addColumn("Pizzas");
         model.addColumn("Productos");
         model.addColumn("Tamaño");
+        model.addColumn("Cantidad Pizzas");
+        model.addColumn("Cantidad Productos");
+        
+        
         
 
          // Asignar modelo a la tabla
@@ -65,14 +70,14 @@ public class AdministradorPromociones extends javax.swing.JPanel {
     }
     
      private void habilitarCampos(boolean estado){
-        TextAreaProductosPromocion.setEnabled(estado);
+        TextAreaPizzasPromocion.setEnabled(estado);
         TextFieldDescripcionPromocion.setEnabled(estado);
         TextFieldIDPromocion.setEnabled(estado);
         TextFieldPrecioPromocion.setEnabled(estado);
         TextFieldSizePromocion.setEnabled(estado);
     }
     private void limpiarCampos(){
-        TextAreaProductosPromocion.setText(""); 
+        TextAreaPizzasPromocion.setText(""); 
         TextFieldDescripcionPromocion.setText(""); 
         TextFieldIDPromocion.setText("");
         TextFieldPrecioPromocion.setText("");
@@ -81,7 +86,7 @@ public class AdministradorPromociones extends javax.swing.JPanel {
     
     private void listarPromociones(){
        try (Connection conn = DatabaseConnection.getConnection()){
-            String sql = "SELECT idPromocion, Descripcion, Precio, Productos, Size FROM promociones ORDER BY idPromocion ASC";
+            String sql = "SELECT idPromocion, Descripcion, Precio, Pizzas, Productos, Size, cantidad, Cantidad_productos FROM promociones ORDER BY idPromocion ASC";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             model.setRowCount(0);
@@ -90,8 +95,12 @@ public class AdministradorPromociones extends javax.swing.JPanel {
                   rs.getInt("idPromocion"),
                   rs.getString("Descripcion"),
                   rs.getFloat("Precio"),
+                  rs.getString("Pizzas"),
                   rs.getString("Productos"),
                   rs.getString("Size"),
+                  rs.getInt("cantidad"),
+                  rs.getInt("Cantidad_productos"),
+                  
                };
             model.addRow(empleado);
           }
@@ -127,67 +136,50 @@ public class AdministradorPromociones extends javax.swing.JPanel {
                 String msgErr = "";
                 int numErr=0;
                 try (Connection conn = DatabaseConnection.getConnection()){
-                    String sql = "INSERT INTO promociones (idPromocion, Descripcion, Precio, Productos, Size) VALUES (?, ?, ?, ?,?)";
+                    String sql = "INSERT INTO promociones (idPromocion, Descripcion, Precio, Pizzas, Productos, Size, cantidad, Cantidad_productos) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                     PreparedStatement st = conn.prepareStatement(sql);
                     //Validacion ID
                     if (TextFieldIDPromocion.getText().isEmpty()){
-                        validacion=false;
-                        msgErr="Ingrese el ID de la Promocion";
-                        numErr++;
-                    }else{
-                        st.setInt(1,Integer.parseInt(TextFieldIDPromocion.getText()));
+                        JOptionPane.showMessageDialog(null, "Ingresa el ID de la promocion");
+                        validacion=false;   
                     }
-                    // Validacion Nombre
                     if (TextFieldDescripcionPromocion.getText().isEmpty()) {
-                        if (numErr > 1) {
-                           msgErr=msgErr+"\n Ingrese la descripcion de la promocion";
-                           numErr++;
-                        } else{
-                           msgErr="Ingrese la descripcion de la promocion";
-                        }
-                    }else{
-                        st.setString(2,TextFieldDescripcionPromocion.getText());
-                    }
-                    //Validacion Domicilio
+                        JOptionPane.showMessageDialog(null, "Ingresa la Descripcion de la promocion");
+                        validacion=false;  
+                    }     
                     if (TextFieldPrecioPromocion.getText().isEmpty()) {
+                       JOptionPane.showMessageDialog(null, "Ingresa el precio de la promocion");
                         validacion=false;
-                        if (numErr > 1) {
-                           msgErr=msgErr+"\n Ingrese el Precio de la Promocion";
-                           numErr++;
-                        } else{
-                           msgErr="Ingrese el Precio de la Promocion";
-                        }
-                    }else{
-                        st.setFloat(3,Float.parseFloat(TextFieldPrecioPromocion.getText()));    
                     }
-                    //Validacion Telefono
+                   //Validacion Telefono
+                    if (TextAreaPizzasPromocion.getText().isEmpty()) {
+                       JOptionPane.showMessageDialog(null, "Ingresa las pizzas de la promocion");
+                       validacion=false;
+                    }
                     if (TextAreaProductosPromocion.getText().isEmpty()) {
-                        validacion=false;
-                        if (numErr > 1){
-                           msgErr=msgErr + "\n Ingrese los productos de la promocion";
-                           numErr++;
-                        }else{
-                           msgErr="Ingrese los productos de la promocion";
-                        }
-                    }else{
-                          st.setString(4,TextAreaProductosPromocion.getText());
-                    }  
-                    if (TextFieldSizePromocion.getText().isEmpty()) {
-                        validacion=false;
-                        if (numErr > 1){
-                           msgErr=msgErr + "\n Ingrese el tamano de la promocion";
-                           numErr++;
-                        }else{
-                           msgErr="Ingrese el tamano de la promocion";
-                        }
-                    }else{
-                          st.setString(5,TextFieldSizePromocion.getText());
-                    }  
-                    if (msgErr.isEmpty() && (numErr == 0)){
-                        st.executeUpdate();
-                    }else{
-                        JOptionPane.showMessageDialog(null, msgErr);
+                       JOptionPane.showMessageDialog(null, "Ingresa los productos de la promocion");
+                       validacion=false;
                     }
+                    if (TextFieldSizePromocion.getText().isEmpty()) {
+                       JOptionPane.showMessageDialog(null, "Ingresa el Tamaño de las pizzas para promocion");
+                       validacion=false;
+                    }
+                    
+                    if(validacion){
+                        
+                        st.setInt(1,Integer.parseInt(TextFieldIDPromocion.getText()));
+                        st.setString(2,TextFieldDescripcionPromocion.getText());
+                        st.setFloat(3,Float.parseFloat(TextFieldPrecioPromocion.getText()));
+                        st.setString(4,TextAreaPizzasPromocion.getText());
+                        st.setString(5,TextAreaProductosPromocion.getText());
+                        st.setString(6,TextFieldSizePromocion.getText());
+                        st.setInt(7,Integer.parseInt(TextFieldCantidadPizzasPromocion.getText()));
+                        st.setInt(8,Integer.parseInt(TextFieldCantidadProductosPromocion.getText()));
+                       st.executeUpdate();
+                   }else{
+                       JOptionPane.showMessageDialog(null, "Algunos de los datos de la promocion no fueron llenados correctamente");
+                       validacion=false; 
+                   }
                     
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
@@ -196,16 +188,19 @@ public class AdministradorPromociones extends javax.swing.JPanel {
             }else if (sqlOption.matches("UPDATE")){
                 validacion = true;
                 try (Connection conn = DatabaseConnection.getConnection()) {
-                       String sql = "UPDATE promociones SET Descripcion=?, Precio=?, Productos=?, Size=? WHERE idPromocion=?";
+                       String sql = "UPDATE promociones SET Descripcion=?, Precio=?, Pizzas=?, Productos=?, Size=?, cantidad=?, Cantidad_productos=? WHERE idPromocion=?";
                        PreparedStatement ps = conn.prepareStatement(sql);
 
                        // Asignar valores desde tus componentes
                        ps.setString(1,TextFieldDescripcionPromocion.getText());
                        ps.setFloat(2,Float.parseFloat(TextFieldPrecioPromocion.getText()));
-                       ps.setString(3,TextAreaProductosPromocion.getText());
-                       ps.setString(4,TextFieldSizePromocion.getText());
+                       ps.setString(3,TextAreaPizzasPromocion.getText());
+                       ps.setString(4,TextAreaProductosPromocion.getText());
+                       ps.setString(5,TextFieldSizePromocion.getText());
+                       ps.setInt(6, Integer.parseInt(TextFieldCantidadPizzasPromocion.getText()));
                        
-                       ps.setInt(5,Integer.parseInt(TextFieldIDPromocion.getText()));
+                       ps.setInt(7, Integer.parseInt(TextFieldCantidadProductosPromocion.getText()));
+                       ps.setInt(8,Integer.parseInt(TextFieldIDPromocion.getText()));
                        if(validacion){
                          int filas = ps.executeUpdate();
                          if (filas > 0) {
@@ -243,16 +238,23 @@ public class AdministradorPromociones extends javax.swing.JPanel {
         TablePromociones = new javax.swing.JTable();
         PanelButtonsPromociones = new javax.swing.JPanel();
         LabelDescripcionTitle = new javax.swing.JLabel();
-        TextFieldDescripcionPromocion = new javax.swing.JTextField();
         LabelPrecioPromocion = new javax.swing.JLabel();
-        TextFieldPrecioPromocion = new javax.swing.JTextField();
         LabelProductosPromocion = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        TextAreaProductosPromocion = new javax.swing.JTextArea();
         LabelSizePromocion = new javax.swing.JLabel();
-        TextFieldSizePromocion = new javax.swing.JTextField();
         LabelIDPromocion = new javax.swing.JLabel();
+        LabelCantidadPizzasPromocion = new javax.swing.JLabel();
+        LabelProductosDeLaPromocion = new javax.swing.JLabel();
+        LabelCantidadProductos = new javax.swing.JLabel();
+        TextFieldDescripcionPromocion = new javax.swing.JTextField();
+        TextFieldPrecioPromocion = new javax.swing.JTextField();
+        TextFieldSizePromocion = new javax.swing.JTextField();
         TextFieldIDPromocion = new javax.swing.JTextField();
+        TextFieldCantidadPizzasPromocion = new javax.swing.JTextField();
+        TextFieldCantidadProductosPromocion = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TextAreaPizzasPromocion = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TextAreaProductosPromocion = new javax.swing.JTextArea();
         ButtonNuevaPromocion = new javax.swing.JButton();
         ButtonEditarPromocion = new javax.swing.JButton();
         ButtonGrabarPromocion = new javax.swing.JButton();
@@ -290,17 +292,17 @@ public class AdministradorPromociones extends javax.swing.JPanel {
 
         TablePromociones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID de la Promocion", "Descripcion", "Precio", "Productos", "Tamaño"
+                "ID de la Promocion", "Descripcion", "Pizzas", "Tamaño", "Cantidad Pizzas", "Productos", "Cantidad Productos", "Precio"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -331,27 +333,49 @@ public class AdministradorPromociones extends javax.swing.JPanel {
 
         LabelPrecioPromocion.setText("* Precio de la Promoción");
 
+        LabelProductosPromocion.setText("* Pizzas de la Promoción");
+
+        LabelSizePromocion.setText("* Tamaños de las pizzas");
+
+        LabelIDPromocion.setText("* ID de la Promoción");
+
+        LabelCantidadPizzasPromocion.setText("* Cantidad de Pizzas");
+
+        LabelProductosDeLaPromocion.setText("* Productos de la Promocion");
+
+        LabelCantidadProductos.setText("* Cantidad de Productos");
+
         TextFieldPrecioPromocion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TextFieldPrecioPromocionKeyTyped(evt);
             }
         });
 
-        LabelProductosPromocion.setText("* Productos de la Promoción");
-
-        TextAreaProductosPromocion.setColumns(20);
-        TextAreaProductosPromocion.setRows(5);
-        jScrollPane2.setViewportView(TextAreaProductosPromocion);
-
-        LabelSizePromocion.setText("* Tamaños de la Promoción");
-
-        LabelIDPromocion.setText("* ID de la Promoción");
-
         TextFieldIDPromocion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TextFieldIDPromocionKeyTyped(evt);
             }
         });
+
+        TextFieldCantidadPizzasPromocion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextFieldCantidadPizzasPromocionKeyTyped(evt);
+            }
+        });
+
+        TextFieldCantidadProductosPromocion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextFieldCantidadProductosPromocionKeyTyped(evt);
+            }
+        });
+
+        TextAreaPizzasPromocion.setColumns(20);
+        TextAreaPizzasPromocion.setRows(5);
+        jScrollPane2.setViewportView(TextAreaPizzasPromocion);
+
+        TextAreaProductosPromocion.setColumns(20);
+        TextAreaProductosPromocion.setRows(5);
+        jScrollPane3.setViewportView(TextAreaProductosPromocion);
 
         ButtonNuevaPromocion.setText("<html><center>Nuevo<br>Promocion</center></html>");
         ButtonNuevaPromocion.setToolTipText("");
@@ -380,24 +404,33 @@ public class AdministradorPromociones extends javax.swing.JPanel {
             .addGroup(PanelButtonsPromocionesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanelButtonsPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelButtonsPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(LabelDescripcionTitle)
-                        .addComponent(TextFieldDescripcionPromocion)
-                        .addComponent(LabelPrecioPromocion)
-                        .addComponent(TextFieldPrecioPromocion)
-                        .addComponent(LabelProductosPromocion)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
-                    .addComponent(LabelSizePromocion)
-                    .addComponent(TextFieldSizePromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabelIDPromocion)
-                    .addComponent(TextFieldIDPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(PanelButtonsPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ButtonCancelarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonEditarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonNuevaPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonGrabarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonEliminarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LabelDescripcionTitle)
+                    .addGroup(PanelButtonsPromocionesLayout.createSequentialGroup()
+                        .addGroup(PanelButtonsPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(TextFieldIDPromocion, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelButtonsPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(PanelButtonsPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(TextFieldCantidadProductosPromocion)
+                                    .addComponent(TextFieldDescripcionPromocion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                                    .addComponent(TextFieldPrecioPromocion, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(TextFieldSizePromocion, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(TextFieldCantidadPizzasPromocion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(LabelPrecioPromocion, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LabelProductosPromocion, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LabelSizePromocion, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LabelCantidadPizzasPromocion, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LabelProductosDeLaPromocion, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(LabelCantidadProductos)))
+                        .addGap(18, 18, 18)
+                        .addGroup(PanelButtonsPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ButtonEditarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ButtonNuevaPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ButtonGrabarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ButtonEliminarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ButtonCancelarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelButtonsPromocionesLayout.setVerticalGroup(
@@ -408,36 +441,48 @@ public class AdministradorPromociones extends javax.swing.JPanel {
                     .addComponent(ButtonNuevaPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelButtonsPromocionesLayout.createSequentialGroup()
                         .addComponent(LabelDescripcionTitle)
-                        .addGap(4, 4, 4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(TextFieldDescripcionPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(LabelPrecioPromocion)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelButtonsPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelButtonsPromocionesLayout.createSequentialGroup()
+                        .addComponent(TextFieldPrecioPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(LabelProductosPromocion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addComponent(LabelSizePromocion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TextFieldSizePromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(LabelCantidadPizzasPromocion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TextFieldCantidadPizzasPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(LabelProductosDeLaPromocion))
+                    .addGroup(PanelButtonsPromocionesLayout.createSequentialGroup()
                         .addComponent(ButtonEditarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(ButtonGrabarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(ButtonEliminarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ButtonCancelarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ButtonEliminarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanelButtonsPromocionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelButtonsPromocionesLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(TextFieldPrecioPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(LabelProductosPromocion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(LabelSizePromocion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TextFieldSizePromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(LabelIDPromocion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TextFieldIDPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(48, Short.MAX_VALUE))
+                        .addComponent(LabelCantidadProductos))
+                    .addComponent(ButtonCancelarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TextFieldCantidadProductosPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(LabelIDPromocion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TextFieldIDPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         PanelImagePromociones.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -491,7 +536,7 @@ public class AdministradorPromociones extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelPrincipalAdminPromociones, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+                .addComponent(PanelPrincipalAdminPromociones, javax.swing.GroupLayout.DEFAULT_SIZE, 787, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -596,19 +641,42 @@ public class AdministradorPromociones extends javax.swing.JPanel {
             int idPromocion = Integer.parseInt(TablePromociones.getValueAt(fila, 0).toString());
             String descripcionTabla = TablePromociones.getValueAt(fila, 1).toString();
             String precioTabla = TablePromociones.getValueAt(fila, 2).toString();
-            String productosTabla = TablePromociones.getValueAt(fila, 3).toString();
-            String sizesTabla = TablePromociones.getValueAt(fila, 4).toString();
-             
+            String pizzasTabla = TablePromociones.getValueAt(fila, 3).toString();
+            Object valorProductos = TablePromociones.getValueAt(fila, 4);
+            String productosTabla = valorProductos != null ? valorProductos.toString() : "";
+            String sizesTabla = TablePromociones.getValueAt(fila, 5).toString();
+            Integer cantidadPizzasTabla = Integer.parseInt(TablePromociones.getValueAt(fila, 6).toString());
+            Integer cantidadProductosTabla = Integer.parseInt(TablePromociones.getValueAt(fila, 7).toString());
             // Pasar los valores a los text fields
             //JTextField1 = Producto
+            TextFieldIDPromocion.setText(String.valueOf(idPromocion));
             TextFieldDescripcionPromocion.setText(descripcionTabla);
             TextFieldPrecioPromocion.setText(precioTabla);
-            TextAreaProductosPromocion.setText(productosTabla);
+            TextAreaPizzasPromocion.setText(pizzasTabla);
+            TextAreaProductosPromocion.setText(productosTabla == null ? "" : productosTabla);
             TextFieldSizePromocion.setText(sizesTabla);
-            TextFieldIDPromocion.setText(String.valueOf(idPromocion));
+            TextFieldCantidadPizzasPromocion.setText(String.valueOf(cantidadPizzasTabla));
+            TextFieldCantidadProductosPromocion.setText(String.valueOf(cantidadProductosTabla) == null ? "" : String.valueOf(cantidadProductosTabla));
+            
             
         }
     }//GEN-LAST:event_TablePromocionesMouseClicked
+
+    private void TextFieldCantidadPizzasPromocionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCantidadPizzasPromocionKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume(); // evita que se escriba el carácter
+        }
+    }//GEN-LAST:event_TextFieldCantidadPizzasPromocionKeyTyped
+
+    private void TextFieldCantidadProductosPromocionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCantidadProductosPromocionKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume(); // evita que se escriba el carácter
+        }
+    }//GEN-LAST:event_TextFieldCantidadProductosPromocionKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -617,9 +685,12 @@ public class AdministradorPromociones extends javax.swing.JPanel {
     private javax.swing.JButton ButtonEliminarPromocion;
     private javax.swing.JButton ButtonGrabarPromocion;
     private javax.swing.JButton ButtonNuevaPromocion;
+    private javax.swing.JLabel LabelCantidadPizzasPromocion;
+    private javax.swing.JLabel LabelCantidadProductos;
     private javax.swing.JLabel LabelDescripcionTitle;
     private javax.swing.JLabel LabelIDPromocion;
     private javax.swing.JLabel LabelPrecioPromocion;
+    private javax.swing.JLabel LabelProductosDeLaPromocion;
     private javax.swing.JLabel LabelProductosPromocion;
     private javax.swing.JLabel LabelSizePromocion;
     private javax.swing.JPanel PanelButtonsPromociones;
@@ -628,7 +699,10 @@ public class AdministradorPromociones extends javax.swing.JPanel {
     private javax.swing.JPanel PanelTableAdminPromociones;
     private javax.swing.JPanel PanelTitleAdminPromociones;
     private javax.swing.JTable TablePromociones;
+    private javax.swing.JTextArea TextAreaPizzasPromocion;
     private javax.swing.JTextArea TextAreaProductosPromocion;
+    private javax.swing.JTextField TextFieldCantidadPizzasPromocion;
+    private javax.swing.JTextField TextFieldCantidadProductosPromocion;
     private javax.swing.JTextField TextFieldDescripcionPromocion;
     private javax.swing.JTextField TextFieldIDPromocion;
     private javax.swing.JTextField TextFieldPrecioPromocion;
@@ -636,5 +710,6 @@ public class AdministradorPromociones extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables
 }

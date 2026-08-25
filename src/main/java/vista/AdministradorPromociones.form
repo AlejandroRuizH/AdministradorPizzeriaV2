@@ -27,7 +27,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="PanelPrincipalAdminPromociones" pref="680" max="32767" attributes="0"/>
+              <Component id="PanelPrincipalAdminPromociones" pref="787" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -147,12 +147,15 @@
                 <Component class="javax.swing.JTable" name="TablePromociones">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="5" rowCount="4">
+                      <Table columnCount="8" rowCount="4">
                         <Column editable="false" title="ID de la Promocion" type="java.lang.Object"/>
                         <Column editable="false" title="Descripcion" type="java.lang.Object"/>
-                        <Column editable="false" title="Precio" type="java.lang.Object"/>
-                        <Column editable="false" title="Productos" type="java.lang.Object"/>
+                        <Column editable="false" title="Pizzas" type="java.lang.Object"/>
                         <Column editable="false" title="Tama&#xf1;o" type="java.lang.Object"/>
+                        <Column editable="false" title="Cantidad Pizzas" type="java.lang.Object"/>
+                        <Column editable="false" title="Productos" type="java.lang.Object"/>
+                        <Column editable="false" title="Cantidad Productos" type="java.lang.Object"/>
+                        <Column editable="false" title="Precio" type="java.lang.Object"/>
                       </Table>
                     </Property>
                   </Properties>
@@ -176,29 +179,41 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="LabelDescripcionTitle" min="-2" max="-2" attributes="0"/>
-                              <Component id="TextFieldDescripcionPromocion" alignment="0" max="32767" attributes="0"/>
-                              <Component id="LabelPrecioPromocion" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="TextFieldPrecioPromocion" alignment="0" max="32767" attributes="0"/>
-                              <Component id="LabelProductosPromocion" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" alignment="0" pref="210" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="LabelSizePromocion" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="TextFieldSizePromocion" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
                           <Component id="LabelIDPromocion" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="TextFieldIDPromocion" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ButtonCancelarPromocion" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="ButtonEditarPromocion" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="ButtonNuevaPromocion" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="ButtonGrabarPromocion" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="ButtonEliminarPromocion" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                          <Component id="LabelDescripcionTitle" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="TextFieldIDPromocion" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="TextFieldCantidadProductosPromocion" max="32767" attributes="0"/>
+                                          <Component id="TextFieldDescripcionPromocion" alignment="0" pref="210" max="32767" attributes="0"/>
+                                          <Component id="TextFieldPrecioPromocion" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane2" alignment="0" pref="0" max="32767" attributes="0"/>
+                                          <Component id="TextFieldSizePromocion" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="TextFieldCantidadPizzasPromocion" alignment="0" pref="210" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane3" alignment="0" pref="0" max="32767" attributes="0"/>
+                                          <Component id="LabelPrecioPromocion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelProductosPromocion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelSizePromocion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelCantidadPizzasPromocion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelProductosDeLaPromocion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="LabelCantidadProductos" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="ButtonEditarPromocion" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="ButtonNuevaPromocion" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="ButtonGrabarPromocion" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="ButtonEliminarPromocion" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="ButtonCancelarPromocion" min="-2" pref="120" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -209,44 +224,58 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ButtonNuevaPromocion" min="-2" pref="80" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
+                          <Component id="ButtonNuevaPromocion" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="LabelDescripcionTitle" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="TextFieldDescripcionPromocion" min="-2" pref="23" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="LabelPrecioPromocion" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="TextFieldPrecioPromocion" min="-2" pref="23" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="LabelProductosPromocion" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" pref="40" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="LabelSizePromocion" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="TextFieldSizePromocion" min="-2" pref="23" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="LabelCantidadPizzasPromocion" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="TextFieldCantidadPizzasPromocion" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="LabelProductosDeLaPromocion" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
                               <Component id="ButtonEditarPromocion" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="ButtonGrabarPromocion" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="ButtonEliminarPromocion" min="-2" pref="80" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="ButtonCancelarPromocion" min="-2" pref="80" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                              <Component id="TextFieldPrecioPromocion" min="-2" pref="23" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="LabelProductosPromocion" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="LabelSizePromocion" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="TextFieldSizePromocion" min="-2" pref="23" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="LabelIDPromocion" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="TextFieldIDPromocion" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="48" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jScrollPane3" min="-2" pref="44" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="LabelCantidadProductos" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="ButtonCancelarPromocion" min="-2" pref="80" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="TextFieldCantidadProductosPromocion" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="LabelIDPromocion" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="TextFieldIDPromocion" min="-2" pref="23" max="-2" attributes="0"/>
+                      <EmptySpace pref="68" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -257,24 +286,81 @@
                 <Property name="text" type="java.lang.String" value="* Descripcion de la Promoci&#xf3;n"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="TextFieldDescripcionPromocion">
-            </Component>
             <Component class="javax.swing.JLabel" name="LabelPrecioPromocion">
               <Properties>
                 <Property name="text" type="java.lang.String" value="* Precio de la Promoci&#xf3;n"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="LabelProductosPromocion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* Pizzas de la Promoci&#xf3;n"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="LabelSizePromocion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* Tama&#xf1;os de las pizzas"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="LabelIDPromocion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* ID de la Promoci&#xf3;n"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="LabelCantidadPizzasPromocion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* Cantidad de Pizzas"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="LabelProductosDeLaPromocion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* Productos de la Promocion"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="LabelCantidadProductos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* Cantidad de Productos"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="TextFieldDescripcionPromocion">
             </Component>
             <Component class="javax.swing.JTextField" name="TextFieldPrecioPromocion">
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldPrecioPromocionKeyTyped"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="LabelProductosPromocion">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="* Productos de la Promoci&#xf3;n"/>
-              </Properties>
+            <Component class="javax.swing.JTextField" name="TextFieldSizePromocion">
+            </Component>
+            <Component class="javax.swing.JTextField" name="TextFieldIDPromocion">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldIDPromocionKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="TextFieldCantidadPizzasPromocion">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldCantidadPizzasPromocionKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="TextFieldCantidadProductosPromocion">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldCantidadProductosPromocionKeyTyped"/>
+              </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="TextAreaPizzasPromocion">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane3">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
@@ -289,23 +375,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="LabelSizePromocion">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="* Tama&#xf1;os de la Promoci&#xf3;n"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="TextFieldSizePromocion">
-            </Component>
-            <Component class="javax.swing.JLabel" name="LabelIDPromocion">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="* ID de la Promoci&#xf3;n"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="TextFieldIDPromocion">
-              <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldIDPromocionKeyTyped"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="ButtonNuevaPromocion">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;Nuevo&lt;br&gt;Promocion&lt;/center&gt;&lt;/html&gt;"/>
