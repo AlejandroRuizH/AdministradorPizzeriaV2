@@ -351,6 +351,7 @@ public class AdministradorPromociones extends javax.swing.JPanel {
             }
         });
 
+        TextFieldIDPromocion.addActionListener(this::TextFieldIDPromocionActionPerformed);
         TextFieldIDPromocion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TextFieldIDPromocionKeyTyped(evt);
@@ -677,6 +678,10 @@ public class AdministradorPromociones extends javax.swing.JPanel {
             evt.consume(); // evita que se escriba el carácter
         }
     }//GEN-LAST:event_TextFieldCantidadProductosPromocionKeyTyped
+
+    private void TextFieldIDPromocionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldIDPromocionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldIDPromocionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

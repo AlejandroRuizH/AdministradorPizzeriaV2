@@ -21,12 +21,17 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="PanelPrincipalDatosSucursal" min="-2" max="-2" attributes="0"/>
+          <Component id="PanelPrincipalDatosSucursal" alignment="0" pref="422" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="PanelPrincipalDatosSucursal">
+      <Properties>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[670, 440]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -39,7 +44,10 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jTabbedPane1" min="-2" pref="360" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jTabbedPane1" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -63,15 +71,15 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="SubPanelDatosSucursal" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="34" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="SubPanelDatosSucursal" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
+                          <Component id="SubPanelDatosSucursal" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -110,12 +118,16 @@
                                           <Component id="LabelTelefono1DatosSucursal" min="-2" max="-2" attributes="0"/>
                                           <Component id="LabelRFCDatosSucursal" min="-2" max="-2" attributes="0"/>
                                           <Component id="LabelTelefono2DatosSucursal" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelContribuyenteDatosSucursal" min="-2" pref="98" max="-2" attributes="0"/>
+                                          <Component id="LabelRegimenDatosSucursal" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="TextFieldRFCSucursal" max="32767" attributes="0"/>
                                           <Component id="TextFieldTelefono1Sucursal" max="32767" attributes="0"/>
                                           <Component id="TextFieldTelefono2Sucursal" alignment="0" pref="297" max="32767" attributes="0"/>
+                                          <Component id="TextFieldContribuyenteSucursal" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="TextFieldRegimenSucursal" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -202,18 +214,28 @@
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="TextFieldTelefono1Sucursal" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="LabelTelefono1DatosSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelContribuyenteDatosSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="TextFieldContribuyenteSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="ButtonCancelarDatosSucursal" min="-2" pref="90" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="LabelTelefono2DatosSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="TextFieldTelefono2Sucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelRegimenDatosSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TextFieldRegimenSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="15" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="TextFieldTelefono1Sucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelTelefono1DatosSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="TextFieldTelefono2Sucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelTelefono2DatosSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="22" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -269,6 +291,16 @@
                         <Property name="text" type="java.lang.String" value="* Telefono 2:"/>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JLabel" name="LabelContribuyenteDatosSucursal">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="* Contribuyente:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelRegimenDatosSucursal">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="* Regime Fiscal:"/>
+                      </Properties>
+                    </Component>
                     <Component class="javax.swing.JTextField" name="TextFieldIDSucursal">
                     </Component>
                     <Component class="javax.swing.JTextField" name="TextFieldNombreSucursal">
@@ -298,6 +330,10 @@
                         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldTelefono2SucursalKeyTyped"/>
                       </Events>
                     </Component>
+                    <Component class="javax.swing.JTextField" name="TextFieldContribuyenteSucursal">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="TextFieldRegimenSucursal">
+                    </Component>
                     <Component class="javax.swing.JButton" name="ButtonActualizarDatosSucursal">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Actualizar"/>
@@ -310,6 +346,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Cancelar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCancelarDatosSucursalActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -339,7 +378,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="TextFieldNombreGerenteSucursal" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="272" max="32767" attributes="0"/>
+                          <EmptySpace pref="328" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

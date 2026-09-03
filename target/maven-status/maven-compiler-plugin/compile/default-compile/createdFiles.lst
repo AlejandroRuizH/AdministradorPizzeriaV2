@@ -17,6 +17,7 @@ vista/AdministradorDatosSucursal$2.class
 vista/LoginGerente.class
 vista/ReimpresionTickets.class
 vista/MainMenu.class
+vista/Cancelaciones$1.class
 vista/AdministradorEmpleados.class
 database/DatabaseConnection.class
 vista/AdministradoringredientesExtra$3.class
