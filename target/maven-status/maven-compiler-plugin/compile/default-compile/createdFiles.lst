@@ -17,6 +17,7 @@ vista/AdministradorDatosSucursal$2.class
 vista/LoginGerente.class
 vista/ReimpresionTickets.class
 vista/MainMenu.class
+vista/AdministradorDatosSucursal$5.class
 vista/Cancelaciones$1.class
 vista/AdministradorEmpleados.class
 database/DatabaseConnection.class
@@ -29,15 +30,18 @@ vista/AdministradorDatosSucursal$3.class
 vista/LoginAdministrador.class
 vista/AdministradorDatosSucursal.class
 vista/MenuPrincipal$1.class
+vista/AdministradorDatosSucursal$6.class
 config/Config.class
 vista/PanelDatosSucursal$1.class
 vista/AdministradorEmpleados$2.class
+vista/AdministradorDatosSucursal$4.class
 vista/AdministradorProductos$1.class
 vista/AdministradorPromociones$2.class
 vista/AdministradorPizzas$3.class
 vista/AdministradoringredientesExtra$2.class
 vista/PanelConexionBD.class
 vista/PanelDatosSucursal$4.class
+vista/AdministradorDatosSucursal$7.class
 vista/AdministradorProductos$4.class
 com/mycompany/administradorpizzeriav2/DBConfiguration.class
 vista/AdministradorPromociones.class
