@@ -1,3 +1,4 @@
+com\mycompany\administradorpizzeriav2\Application.class
 vista\AdministradorEmpleados$4.class
 vista\AdministradorPromociones$2.class
 vista\AdministradorDatosSucursal$1.class
@@ -17,7 +18,6 @@ vista\PanelDatosSucursal$4.class
 vista\AdministradorProductos$2.class
 vista\AdministradoringredientesExtra$3.class
 vista\AdministradorProductos.class
-com\mycompany\administradorpizzeriav2\DBConfiguration.class
 vista\AdministradorPromociones$1.class
 vista\PanelDatosSucursal$6.class
 vista\Cancelaciones.class
@@ -42,16 +42,15 @@ vista\CorteFinal.class
 vista\AdministradorProductos$4.class
 vista\AdministradorEmpleados$2.class
 vista\AdministradorEmpleados.class
-com\mycompany\administradorpizzeriav2\AdministradorPizzeriaV2.class
 vista\AdministradorPromociones$4.class
 vista\MainMenu.class
 vista\ReporteDeVentas.class
 vista\AdministradorPromociones$3.class
 vista\AdministradorEmpleados$5.class
 vista\AdministradorPizzas$2.class
-config\Config.class
 vista\PanelDatosSucursal$2.class
 vista\AdministradorDatosSucursal$7.class
+config\AppConfig.class
 vista\AdministradorPizzas$5.class
 vista\AdministradorEmpleados$8.class
 vista\AdministradorPromociones$6.class

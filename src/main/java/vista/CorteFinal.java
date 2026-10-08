@@ -152,7 +152,7 @@ public class CorteFinal extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU.getCardName());
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

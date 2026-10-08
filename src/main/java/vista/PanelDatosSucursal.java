@@ -310,37 +310,37 @@ public class PanelDatosSucursal extends javax.swing.JPanel {
 
     private void ButtonAdminPromocionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminPromocionesActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.ADMIN_PROMOCIONES.getCardName());
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.ADMIN_PROMOCIONES);
     }//GEN-LAST:event_ButtonAdminPromocionesActionPerformed
 
     private void ButtonAdminIngredientesExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminIngredientesExtraActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.ADMIN_INGREDIENTES.getCardName());
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.ADMIN_INGREDIENTES);
     }//GEN-LAST:event_ButtonAdminIngredientesExtraActionPerformed
 
     private void ButtonTiposPizzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonTiposPizzaActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.ADMIN_PIZZAS.getCardName());
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.ADMIN_PIZZAS);
     }//GEN-LAST:event_ButtonTiposPizzaActionPerformed
 
     private void ButtonAdminProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminProductosActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.ADMIN_PRODUCTOS.getCardName());
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.ADMIN_PRODUCTOS);
     }//GEN-LAST:event_ButtonAdminProductosActionPerformed
 
     private void ButtonAdminClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminClientesActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.ADMIN_CLIENTES.getCardName());
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.ADMIN_CLIENTES);
     }//GEN-LAST:event_ButtonAdminClientesActionPerformed
 
     private void ButtonAdminDatosSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminDatosSucursalActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.ADMIN_DATOS_SUC.getCardName());
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.ADMIN_DATOS_SUC);
     }//GEN-LAST:event_ButtonAdminDatosSucursalActionPerformed
 
     private void ButtonMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuPrincipalActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU.getCardName());
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU);
     }//GEN-LAST:event_ButtonMenuPrincipalActionPerformed
 
 

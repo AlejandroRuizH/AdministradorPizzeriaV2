@@ -25,19 +25,17 @@ public class LoginAdministrador extends javax.swing.JPanel {
      * Creates new form LoginAdministrador
      */
     private MenuPrincipal menuPrincipal;
-    private String panelDestino;
+    private MenuPrincipal.PanelDestino panelDestino;
     private String nombre;
     
     
-    public LoginAdministrador(MenuPrincipal menuPrincipal, String nombre) {
+    public LoginAdministrador(MenuPrincipal menuPrincipal, MenuPrincipal.PanelDestino panelDestino) {
         
-        initComponents();
         this.menuPrincipal = menuPrincipal;
-        this.nombre = nombre;
         this.panelDestino = panelDestino;
-        
+        initComponents();
     
-        setPreferredSize(new Dimension(450, 300));
+        setPreferredSize(new Dimension(460, 320));
         //menuPrincipal.revalidate();
         //menuPrincipal.repaint();
         
@@ -45,7 +43,7 @@ public class LoginAdministrador extends javax.swing.JPanel {
            
     }
     
-    public void setPanelDestino(String panelDestino){
+    public void setPanelDestino(MenuPrincipal.PanelDestino panelDestino){
         this.panelDestino = panelDestino;
     }
     
@@ -69,7 +67,10 @@ public class LoginAdministrador extends javax.swing.JPanel {
         ButtonAceptarLoginAdministrador = new javax.swing.JButton();
         ButtonCancelarLoginAdministrador = new javax.swing.JButton();
 
-        PanelimagenesLoginAdministrador.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        setPreferredSize(new java.awt.Dimension(440, 280));
+
+        PanelimagenesLoginAdministrador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PanelimagenesLoginAdministrador.setPreferredSize(new java.awt.Dimension(430, 170));
 
         LabelIntroduceCredenciales.setText("Introduce tus credenciales");
         LabelIntroduceCredenciales.setToolTipText("");
@@ -81,15 +82,18 @@ public class LoginAdministrador extends javax.swing.JPanel {
             .addGroup(PanelimagenesLoginAdministradorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(LabelIntroduceCredenciales)
-                .addContainerGap(288, Short.MAX_VALUE))
+                .addContainerGap(282, Short.MAX_VALUE))
         );
         PanelimagenesLoginAdministradorLayout.setVerticalGroup(
             PanelimagenesLoginAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelimagenesLoginAdministradorLayout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addComponent(LabelIntroduceCredenciales)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
+
+        PanelBotonesLoginAdministrador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PanelBotonesLoginAdministrador.setPreferredSize(new java.awt.Dimension(430, 90));
 
         LabelUsuarioLoginAdministrador.setText("* Usuario:");
         LabelUsuarioLoginAdministrador.setToolTipText("");
@@ -120,12 +124,12 @@ public class LoginAdministrador extends javax.swing.JPanel {
                 .addGroup(PanelBotonesLoginAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelBotonesLoginAdministradorLayout.createSequentialGroup()
                         .addComponent(PassFieldLoginAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ButtonAceptarLoginAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ButtonCancelarLoginAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(TextFieldUsuarioLoginAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelBotonesLoginAdministradorLayout.setVerticalGroup(
             PanelBotonesLoginAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +142,7 @@ public class LoginAdministrador extends javax.swing.JPanel {
                 .addGroup(PanelBotonesLoginAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelPassLoginAdministrador)
                     .addComponent(PassFieldLoginAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 28, Short.MAX_VALUE))
+                .addGap(22, 27, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelBotonesLoginAdministradorLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(PanelBotonesLoginAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -151,21 +155,21 @@ public class LoginAdministrador extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(PanelBotonesLoginAdministrador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelimagenesLoginAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelBotonesLoginAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelimagenesLoginAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(PanelimagenesLoginAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PanelBotonesLoginAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -179,7 +183,7 @@ public class LoginAdministrador extends javax.swing.JPanel {
 
     private void ButtonCancelarLoginAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarLoginAdministradorActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU.getCardName());
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU);
     }//GEN-LAST:event_ButtonCancelarLoginAdministradorActionPerformed
 
 

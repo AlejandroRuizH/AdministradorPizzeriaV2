@@ -16,23 +16,21 @@ public class LoginGerente extends javax.swing.JPanel {
     /** Creates new form LoginGerente */
     
     private MenuPrincipal menuPrincipal;
-    private String panelDestino;
+    private MenuPrincipal.PanelDestino panelDestino;
     private String nombre;
     
-    public LoginGerente(MenuPrincipal menuPrincipal, String nombre) {
-        initComponents();
+    public LoginGerente(MenuPrincipal menuPrincipal, MenuPrincipal.PanelDestino panelDestino) {
         
-        initComponents();
         this.menuPrincipal = menuPrincipal;
-        this.nombre = nombre;
         this.panelDestino = panelDestino;
+        initComponents();
+        
         setPreferredSize(new Dimension(460, 320));
-        
-        
         System.out.println(nombre);
+        
     }
     
-    public void setPanelDestino(String panelDestino){
+    public void setPanelDestino(MenuPrincipal.PanelDestino panelDestino){
         this.panelDestino = panelDestino;
     }
 
@@ -55,9 +53,12 @@ public class LoginGerente extends javax.swing.JPanel {
         ButtonAceptarLoginGerente = new javax.swing.JButton();
         ButtonCancelarLoginGerente = new javax.swing.JButton();
 
-        PanelDatosLoginGerente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        setPreferredSize(new java.awt.Dimension(440, 280));
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        PanelDatosLoginGerente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PanelDatosLoginGerente.setPreferredSize(new java.awt.Dimension(430, 170));
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jLabel1.setText("Introduce tus Credenciales");
 
         javax.swing.GroupLayout PanelDatosLoginGerenteLayout = new javax.swing.GroupLayout(PanelDatosLoginGerente);
@@ -65,17 +66,20 @@ public class LoginGerente extends javax.swing.JPanel {
         PanelDatosLoginGerenteLayout.setHorizontalGroup(
             PanelDatosLoginGerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelDatosLoginGerenteLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(250, Short.MAX_VALUE))
         );
         PanelDatosLoginGerenteLayout.setVerticalGroup(
             PanelDatosLoginGerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelDatosLoginGerenteLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
+                .addGap(77, 77, 77)
                 .addComponent(jLabel1)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
+
+        PanelLoginGerente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PanelLoginGerente.setPreferredSize(new java.awt.Dimension(430, 90));
 
         LabelUserLoginGerente.setText("* Usuario:");
 
@@ -91,21 +95,23 @@ public class LoginGerente extends javax.swing.JPanel {
         PanelLoginGerente.setLayout(PanelLoginGerenteLayout);
         PanelLoginGerenteLayout.setHorizontalGroup(
             PanelLoginGerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelLoginGerenteLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLoginGerenteLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(PanelLoginGerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(LabelUserLoginGerente)
-                    .addComponent(LabelPassLoginGerente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PanelLoginGerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelLoginGerenteLayout.createSequentialGroup()
-                        .addComponent(TextFieldPassLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LabelUserLoginGerente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(TextFieldUserLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelLoginGerenteLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(LabelPassLoginGerente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ButtonAceptarLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ButtonCancelarLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(TextFieldUserLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                        .addComponent(TextFieldPassLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ButtonAceptarLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ButtonCancelarLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         PanelLoginGerenteLayout.setVerticalGroup(
             PanelLoginGerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,34 +121,36 @@ public class LoginGerente extends javax.swing.JPanel {
                     .addComponent(TextFieldUserLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabelUserLoginGerente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PanelLoginGerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelLoginGerenteLayout.createSequentialGroup()
-                        .addGroup(PanelLoginGerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LabelPassLoginGerente)
-                            .addComponent(TextFieldPassLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLoginGerenteLayout.createSequentialGroup()
-                        .addGap(0, 28, Short.MAX_VALUE)
-                        .addGroup(PanelLoginGerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ButtonAceptarLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ButtonCancelarLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21))))
+                .addGroup(PanelLoginGerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelPassLoginGerente)
+                    .addComponent(TextFieldPassLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLoginGerenteLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(PanelLoginGerenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonAceptarLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonCancelarLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelDatosLoginGerente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(PanelLoginGerente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelDatosLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelDatosLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanelDatosLoginGerente, 168, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PanelLoginGerente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addComponent(PanelLoginGerente, 88, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -156,7 +164,7 @@ public class LoginGerente extends javax.swing.JPanel {
 
     private void ButtonCancelarLoginGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarLoginGerenteActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU.getCardName());
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU);
     }//GEN-LAST:event_ButtonCancelarLoginGerenteActionPerformed
 
 

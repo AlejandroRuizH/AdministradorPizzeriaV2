@@ -4,7 +4,6 @@
  */
 package vista;
 
-import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -13,7 +12,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
 
 /**
  *
@@ -33,14 +31,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal() {
         
         
-       
        FlatLightLaf.setup();
        //FlatDarkLaf.setup();
        SwingUtilities.invokeLater(() -> {
             initComponents();
              setLocationRelativeTo(null);
-            loginAdministrador = new LoginAdministrador(this,"");
-            loginGerente = new LoginGerente(this,"");
+            loginAdministrador = new LoginAdministrador(this,PanelDestino.MAIN_MENU);
+            loginGerente = new LoginGerente(this,PanelDestino.MAIN_MENU);
             cardLayout = new CardLayout();
             PanelPrincipal.removeAll();
             PanelPrincipal.setLayout(cardLayout);
@@ -79,37 +76,37 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 
 
                 if ("LOGIN_ADMIN".equals(panelActual)) {
-                    mostrarPanel("MENU");
+                    mostrarPanel(PanelDestino.MAIN_MENU);
                 } else if ("LOGIN_GERENTE".equals(panelActual)){
-                    mostrarPanel("MENU");
+                    mostrarPanel(PanelDestino.MAIN_MENU);
                 } else if ("ADMIN_CLIENTES".equals(panelActual)){
-                    mostrarPanel("PANEL_DATOS_SUC");
+                    mostrarPanel(PanelDestino.MAIN_MENU);
                 } else if ("ADMIN_EMPLEADOS".equals(panelActual)){
-                    mostrarPanel("MENU");
+                    mostrarPanel(PanelDestino.MAIN_MENU);
                 } else if ("ADMIN_PIZZAS".equals(panelActual)){
-                    mostrarPanel("PANEL_DATOS_SUC");
+                    mostrarPanel(PanelDestino.PANEL_DATOS_SUC);
                 } else if ("ADMIN_PRODUCTOS".equals(panelActual)){
-                    mostrarPanel("PANEL_DATOS_SUC");
+                    mostrarPanel(PanelDestino.PANEL_DATOS_SUC);
                 }  else if ("ADMIN_PROMOCIONES".equals(panelActual)){
-                    mostrarPanel("PANEL_DATOS_SUC");
+                    mostrarPanel(PanelDestino.PANEL_DATOS_SUC);
                 } else if ("ADMIN_INGREDIENTES".equals(panelActual)){
-                    mostrarPanel("PANEL_DATOS_SUC");
+                    mostrarPanel(PanelDestino.PANEL_DATOS_SUC);
                 } else if ("CANCELACIONES".equals(panelActual)){
-                    mostrarPanel("MENU");
+                    mostrarPanel(PanelDestino.MAIN_MENU);
                 } else if ("CORTE_FINAL".equals(panelActual)){
-                    mostrarPanel("MENU");
+                    mostrarPanel(PanelDestino.MAIN_MENU);
                 } else if ("CORTE_PARCIAL".equals(panelActual)){
-                    mostrarPanel("MENU");
+                    mostrarPanel(PanelDestino.MAIN_MENU);
                 } else if ("PANEL_CONN_DB".equals(panelActual)){
-                    mostrarPanel("MENU");
+                    mostrarPanel(PanelDestino.MAIN_MENU);
                 } else if ("PANEL_DATOS_SUC".equals(panelActual)){
-                    mostrarPanel("MENU");
+                    mostrarPanel(PanelDestino.MAIN_MENU);
                 } else if ("REIMPRESION".equals(panelActual)){
-                    mostrarPanel("MENU");
+                    mostrarPanel(PanelDestino.MAIN_MENU);
                 } else if ("REPORTE_VENTAS".equals(panelActual)){
-                    mostrarPanel("MENU");
+                    mostrarPanel(PanelDestino.MAIN_MENU);
                 } else if ("ADMIN_DATOS_SUC".equals(panelActual)){
-                    mostrarPanel("PANEL_DATOS_SUC");
+                    mostrarPanel(PanelDestino.PANEL_DATOS_SUC);
                 }else {
                     dispose(); // o System.exit(0)
                 }
@@ -156,16 +153,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
     /*
     
     */
-    public void mostrarPanel(String nombre){
+    public void mostrarPanel(PanelDestino paneldestino){
         CardLayout c1 =(CardLayout) PanelPrincipal.getLayout();
-        c1.show(PanelPrincipal, nombre);
-        panelActual = nombre;
+        c1.show(PanelPrincipal, paneldestino.getCardName());
+        
+        panelActual = paneldestino.getCardName();
         
         Component panelVisible = null;
         
-        for (Component c : PanelPrincipal.getComponents()) {
-          if (c.isVisible()) {
-            panelVisible = c;
+        for (Component component : PanelPrincipal.getComponents()) {
+          if (component.isVisible()) {
+            panelVisible = component;
             break;
           }
         }
@@ -177,17 +175,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
     }
     
-    public void mostrarLogin(String panelDestino){
+    public void mostrarLogin(PanelDestino panelDestino){
         
         loginAdministrador.setPanelDestino(panelDestino);
-        mostrarPanel(PanelDestino.LOGIN_ADMIN.getCardName());
+        mostrarPanel(PanelDestino.LOGIN_ADMIN);
     
     }
     
-    public void mostrarLoginGerente(String panelDestino){
+    public void mostrarLoginGerente(PanelDestino panelDestino){
         
         loginGerente.setPanelDestino(panelDestino);
-        mostrarPanel(PanelDestino.LOGIN_GERENTE.getCardName());
+        mostrarPanel(PanelDestino.LOGIN_GERENTE);
     
     }
     

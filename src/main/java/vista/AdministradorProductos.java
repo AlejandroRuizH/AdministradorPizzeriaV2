@@ -32,7 +32,7 @@ public class AdministradorProductos extends javax.swing.JPanel {
         
         initComponents();
         this.menuPrincipal = menuPrincipal;
-        setPreferredSize(new Dimension(1070, 720));
+        setPreferredSize(new Dimension(990, 740));
         //this.setResizable(false);
         menuPrincipal.revalidate();
         menuPrincipal.repaint();
@@ -240,6 +240,10 @@ private boolean capturarProducto(String sqlOption){
         ButtonCancelarProducto = new javax.swing.JButton();
         PanelImagenAdminProductos = new javax.swing.JPanel();
 
+        setPreferredSize(new java.awt.Dimension(990, 688));
+
+        PanelPrincipalAdminProductos.setPreferredSize(new java.awt.Dimension(988, 700));
+
         PanelTitleAdminProductos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         LabelTitleAdminProductos.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
@@ -252,7 +256,7 @@ private boolean capturarProducto(String sqlOption){
             .addGroup(PanelTitleAdminProductosLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(LabelTitleAdminProductos)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(224, Short.MAX_VALUE))
         );
         PanelTitleAdminProductosLayout.setVerticalGroup(
             PanelTitleAdminProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,11 +298,13 @@ private boolean capturarProducto(String sqlOption){
         PanelTablaAdminProductos.setLayout(PanelTablaAdminProductosLayout);
         PanelTablaAdminProductosLayout.setHorizontalGroup(
             PanelTablaAdminProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
         );
         PanelTablaAdminProductosLayout.setVerticalGroup(
             PanelTablaAdminProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addGroup(PanelTablaAdminProductosLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         PanelButtonsProductos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -396,7 +402,7 @@ private boolean capturarProducto(String sqlOption){
                 .addComponent(ButtonEliminarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(ButtonCancelarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PanelImagenAdminProductos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -405,7 +411,7 @@ private boolean capturarProducto(String sqlOption){
         PanelImagenAdminProductos.setLayout(PanelImagenAdminProductosLayout);
         PanelImagenAdminProductosLayout.setHorizontalGroup(
             PanelImagenAdminProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 362, Short.MAX_VALUE)
         );
         PanelImagenAdminProductosLayout.setVerticalGroup(
             PanelImagenAdminProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -417,26 +423,28 @@ private boolean capturarProducto(String sqlOption){
         PanelPrincipalAdminProductosLayout.setHorizontalGroup(
             PanelPrincipalAdminProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPrincipalAdminProductosLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(PanelPrincipalAdminProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PanelTitleAdminProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanelTablaAdminProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(PanelPrincipalAdminProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelTitleAdminProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelTablaAdminProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelPrincipalAdminProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelButtonsProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanelImagenAdminProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(PanelImagenAdminProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelButtonsProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 17, Short.MAX_VALUE))
         );
         PanelPrincipalAdminProductosLayout.setVerticalGroup(
             PanelPrincipalAdminProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPrincipalAdminProductosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanelPrincipalAdminProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PanelImagenAdminProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanelTitleAdminProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(PanelTitleAdminProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelImagenAdminProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelPrincipalAdminProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelTablaAdminProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(PanelPrincipalAdminProductosLayout.createSequentialGroup()
+                        .addComponent(PanelTablaAdminProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 2, Short.MAX_VALUE))
                     .addComponent(PanelButtonsProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );

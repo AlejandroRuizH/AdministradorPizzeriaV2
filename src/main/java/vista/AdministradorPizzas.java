@@ -33,7 +33,7 @@ public class AdministradorPizzas extends javax.swing.JPanel {
         
         initComponents();
         this.menuPrincipal = menuPrincipal;
-        setPreferredSize(new Dimension(990, 730));
+        setPreferredSize(new Dimension(990, 740));
         //this.setResizable(false);
         menuPrincipal.revalidate();
         menuPrincipal.repaint();

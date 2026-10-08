@@ -150,7 +150,7 @@ public class CorteParcial extends javax.swing.JPanel {
 
     private void ButtonCancelarCorteParcialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarCorteParcialActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU.getCardName());
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU);
     }//GEN-LAST:event_ButtonCancelarCorteParcialActionPerformed
 
 

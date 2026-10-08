@@ -147,45 +147,45 @@ public class MainMenu extends javax.swing.JPanel {
 
     private void ButtonAdminEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminEmpleadosActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarLogin(PanelDestino.ADMIN_EMPLEADOS.getCardName());
+        menuPrincipal.mostrarLogin(PanelDestino.ADMIN_EMPLEADOS);
     }//GEN-LAST:event_ButtonAdminEmpleadosActionPerformed
 
     private void ButtonReporteVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonReporteVentasActionPerformed
         // TODO add your handling code here:
         // Debe ser iniciar el Login del Gerente
-        menuPrincipal.mostrarLoginGerente(PanelDestino.REPORTE_VENTAS.getCardName());
+        menuPrincipal.mostrarLoginGerente(PanelDestino.REPORTE_VENTAS);
         
     }//GEN-LAST:event_ButtonReporteVentasActionPerformed
 
     private void ButtonCancelacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelacionesActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarLogin(PanelDestino.PANEL_CANCELACIONES.getCardName());
+        menuPrincipal.mostrarLogin(PanelDestino.PANEL_CANCELACIONES);
     }//GEN-LAST:event_ButtonCancelacionesActionPerformed
 
     private void ButtonReimpresionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonReimpresionActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarLogin(PanelDestino.REIMPRESION.getCardName());
+        menuPrincipal.mostrarLogin(PanelDestino.REIMPRESION);
     }//GEN-LAST:event_ButtonReimpresionActionPerformed
 
     private void ButtonCorteParcialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCorteParcialActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarLogin(PanelDestino.CORTE_PARCIAL.getCardName());
+        menuPrincipal.mostrarLogin(PanelDestino.CORTE_PARCIAL);
     }//GEN-LAST:event_ButtonCorteParcialActionPerformed
 
     private void ButtonCorteFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCorteFinalActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarLogin(PanelDestino.CORTE_FINAL.getCardName());
+        menuPrincipal.mostrarLogin(PanelDestino.CORTE_FINAL);
     }//GEN-LAST:event_ButtonCorteFinalActionPerformed
 
     private void ButtonAdminSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminSucursalActionPerformed
         // TODO add your handling code here:
         // Debe de mostrar el login del Gerente
-        menuPrincipal.mostrarLoginGerente(PanelDestino.PANEL_DATOS_SUC.getCardName());
+        menuPrincipal.mostrarLoginGerente(PanelDestino.PANEL_DATOS_SUC);
     }//GEN-LAST:event_ButtonAdminSucursalActionPerformed
 
     private void ButtonConexionBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConexionBDActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarLogin(PanelDestino.PANEL_CONN_DB.getCardName());
+        menuPrincipal.mostrarLogin(PanelDestino.PANEL_CONN_DB);
     }//GEN-LAST:event_ButtonConexionBDActionPerformed
 
 

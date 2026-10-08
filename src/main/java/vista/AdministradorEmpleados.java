@@ -33,7 +33,7 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
     public AdministradorEmpleados(MenuPrincipal menuPrincipal) {
         initComponents();
         this.menuPrincipal = menuPrincipal;
-        setPreferredSize(new Dimension(1200, 786));
+        setPreferredSize(new Dimension(1210, 820));
         //this.menuPrincipal.setResizable(false);
         menuPrincipal.revalidate();
         menuPrincipal.repaint();
@@ -337,6 +337,10 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
         LabelIDEmpleado = new javax.swing.JLabel();
         TextFieldIDEmpleado = new javax.swing.JTextField();
 
+        setPreferredSize(new java.awt.Dimension(1200, 800));
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 800));
+
         LabelTituloAdministracionEmpleados.setText("jLabel2");
 
         javax.swing.GroupLayout PanelDatosAdministracionEmpleadosLayout = new javax.swing.GroupLayout(PanelDatosAdministracionEmpleados);
@@ -394,8 +398,8 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
         PanelTablaEmpleadosLayout.setVerticalGroup(
             PanelTablaEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTablaEmpleadosLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         LabelNombreEmpleado.setText("* Nombre:");
@@ -580,7 +584,7 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
                                 .addComponent(ButtonCancelarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(18, 18, 18)
                 .addComponent(ButtonMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         TextFieldTelefonoEmpleado.getAccessibleContext().setAccessibleName("");
@@ -605,21 +609,21 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(PanelDatosAdministracionEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(PanelTablaEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanelControlesEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(PanelControlesEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPanel1.getAccessibleContext().setAccessibleName("");
@@ -757,7 +761,7 @@ public class AdministradorEmpleados extends javax.swing.JPanel {
 
     private void ButtonMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuPrincipalActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU.getCardName());
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU);
     }//GEN-LAST:event_ButtonMenuPrincipalActionPerformed
 
     private void CheckBoxActivoEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckBoxActivoEmpleadoMouseClicked

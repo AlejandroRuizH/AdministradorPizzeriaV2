@@ -944,7 +944,7 @@ public class AdministradorDatosSucursal extends javax.swing.JPanel {
 
     private void ButtonCancelarDatosSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarDatosSucursalActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.PANEL_DATOS_SUC.getCardName());
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.PANEL_DATOS_SUC);
     }//GEN-LAST:event_ButtonCancelarDatosSucursalActionPerformed
 
     private void TextFieldTelefonoAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldTelefonoAdministradorActionPerformed

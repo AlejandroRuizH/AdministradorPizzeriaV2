@@ -4,13 +4,9 @@
  */
 package vista;
 
-import com.mycompany.administradorpizzeriav2.DBConfiguration;
+import config.AppConfig;
 import database.DatabaseConnection;
 import java.awt.Dimension;
-import java.io.IOException;
-import java.lang.module.Configuration;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -32,21 +28,11 @@ public class PanelConexionBD extends javax.swing.JPanel {
         initComponents();
         setPreferredSize(new Dimension(630, 560));
         //this.setResizable(false);
-        menuPrincipal.revalidate();
-        menuPrincipal.repaint();
+        //menuPrincipal.revalidate();
+        //menuPrincipal.repaint();
         
         // Mostrar la configuracion guardada dentro del archivo config.properties
-        LabelIpConfiguredBD.setText(DBConfiguration.getHost());
-        LabelBDNameConfiguredBD.setText(DBConfiguration.getBaseDatos());
-        LabelPuertoConfiguredBD.setText(String.valueOf(DBConfiguration.getPuerto()));
-        LabelUserConfiguredBD.setText(DBConfiguration.getUsuario());
-        LabelPassConfiguredBD.setText(DBConfiguration.getPassword());
-        
-        // Adding console logs
-        System.out.println(DBConfiguration.getHost());
-        System.out.println(DBConfiguration.getBaseDatos());
-        System.out.println(DBConfiguration.getUsuario());
-        System.out.println(DBConfiguration.getPassword());
+        cargarConfiguracionActual();
         
     }
     
@@ -58,7 +44,29 @@ public class PanelConexionBD extends javax.swing.JPanel {
                     PassFieldDB.setText("");
         }
     
-  
+ private void cargarConfiguracionActual() {
+
+    LabelIpConfiguredBD.setText(
+            AppConfig.getDatabaseHost()
+    );
+
+    LabelBDNameConfiguredBD.setText(
+            AppConfig.getDatabaseName()
+    );
+
+    LabelPuertoConfiguredBD.setText(
+            String.valueOf(
+                    AppConfig.getDatabasePort()
+            )
+    );
+
+    LabelUserConfiguredBD.setText(
+            AppConfig.getDatabaseUser()
+    );
+
+    // Nunca mostrar la contraseña real.
+    LabelPassConfiguredBD.setText("********");
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -344,57 +352,140 @@ public class PanelConexionBD extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonActualizarBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonActualizarBDActionPerformed
-        // TODO add your handling code here:
-        
-        //Validaciones antes de guardar las configuraciones de la BD
-        if(TextFieldHostBD.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(this, "El host es obligatorio.");
-            return;
-        }
-        
-        if(TextFieldPuertoBD.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(this, "El host es obligatorio.");
-            return;
-        }else{
-            try {
-                    Integer.parseInt(TextFieldPuertoBD.getText().trim());
-                 } catch (NumberFormatException e) {
-                        JOptionPane.showMessageDialog(this, "El puerto debe ser un número.");
-                        return;
-                }
-        }
-        
-        if(TextFieldUsuarioBD.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(this, "El host es obligatorio.");
-            return;
-        }
-        
-        if(PassFieldDB.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(this, "El host es obligatorio.");
-            return;
-        }
-        
-        
-        try{
-            DBConfiguration.actualizarConfiguracion(TextFieldHostBD.getText().trim(),
-                    TextFieldPuertoBD.getText().trim(), 
-                    TextFieldBD.getText().trim(), 
-                    TextFieldUsuarioBD.getText().trim(),
-                    new String(PassFieldDB.getPassword())
-            );
-            
-            JOptionPane.showMessageDialog(this, "Configuracion guardada correctamente");
-            
-        } catch (Exception ex){
-                JOptionPane.showMessageDialog(
+    // TODO add your handling code here:
+        String host = TextFieldHostBD.getText().trim();
+    String puertoTexto = TextFieldPuertoBD.getText().trim();
+    String database = TextFieldBD.getText().trim();
+    String usuario = TextFieldUsuarioBD.getText().trim();
+    String password = new String(
+            PassFieldDB.getPassword()
+    );
+
+    // ==============================
+    // VALIDACIONES
+    // ==============================
+
+    if (host.isEmpty()) {
+        JOptionPane.showMessageDialog(
                 this,
-                ex.getMessage(),
+                "El host es obligatorio.",
+                "Validación",
+                JOptionPane.WARNING_MESSAGE
+        );
+        return;
+    }
+
+    if (puertoTexto.isEmpty()) {
+        JOptionPane.showMessageDialog(
+                this,
+                "El puerto es obligatorio.",
+                "Validación",
+                JOptionPane.WARNING_MESSAGE
+        );
+        return;
+    }
+
+    int puerto;
+
+    try {
+
+        puerto = Integer.parseInt(puertoTexto);
+
+    } catch (NumberFormatException e) {
+
+        JOptionPane.showMessageDialog(
+                this,
+                "El puerto debe ser un número.",
+                "Validación",
+                JOptionPane.WARNING_MESSAGE
+        );
+
+        return;
+    }
+
+    if (puerto < 1 || puerto > 65535) {
+
+        JOptionPane.showMessageDialog(
+                this,
+                "El puerto debe estar entre 1 y 65535.",
+                "Validación",
+                JOptionPane.WARNING_MESSAGE
+        );
+
+        return;
+    }
+
+    if (database.isEmpty()) {
+
+        JOptionPane.showMessageDialog(
+                this,
+                "La base de datos es obligatoria.",
+                "Validación",
+                JOptionPane.WARNING_MESSAGE
+        );
+
+        return;
+    }
+
+    if (usuario.isEmpty()) {
+
+        JOptionPane.showMessageDialog(
+                this,
+                "El usuario es obligatorio.",
+                "Validación",
+                JOptionPane.WARNING_MESSAGE
+        );
+
+        return;
+    }
+
+    if (password.isEmpty()) {
+
+        JOptionPane.showMessageDialog(
+                this,
+                "La contraseña es obligatoria.",
+                "Validación",
+                JOptionPane.WARNING_MESSAGE
+        );
+
+        return;
+    }
+
+    // ==============================
+    // GUARDAR CONFIGURACIÓN
+    // ==============================
+
+    try {
+
+        AppConfig.updateDatabaseConfiguration(
+                host,
+                puerto,
+                database,
+                usuario,
+                password
+        );
+
+        JOptionPane.showMessageDialog(
+                this,
+                "Configuración guardada correctamente.",
+                "Configuración",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+
+        cargarConfiguracionActual();
+
+        limpiaCampos();
+
+    } catch (Exception ex) {
+
+        JOptionPane.showMessageDialog(
+                this,
+                "No fue posible guardar la configuración.\n\n"
+                + ex.getMessage(),
                 "Error",
                 JOptionPane.ERROR_MESSAGE
-               );
-        }  
-        
-        limpiaCampos();
+        );
+    }
         
     }//GEN-LAST:event_ButtonActualizarBDActionPerformed
 
@@ -405,34 +496,77 @@ public class PanelConexionBD extends javax.swing.JPanel {
     }//GEN-LAST:event_ButtonCancelarBDActionPerformed
 
     private void ButtonProbarConexionBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProbarConexionBDActionPerformed
-        // TODO add your handling code here:
-        
-        Connection test_conn = null;
-        try 
-        {
-            
-          String url = "jdbc:mysql://"+TextFieldHostBD.getText().trim()+":"+TextFieldPuertoBD.getText().trim()+"/"+TextFieldBD.getText().trim();
-          String user=TextFieldUsuarioBD.getText().trim();
-          char[] passArray = PassFieldDB.getPassword();
-          String password = new String(passArray);
-          //quitar la linea de codigo del println
-          System.out.println(password);
-          test_conn = DriverManager.getConnection(url,user,password);
-          System.out.println("Conexion exitosa");
-          JOptionPane.showMessageDialog(null, "Conexion Exitosa con la BD: "+TextFieldBD.getText());
-          test_conn.close();
-        }catch(SQLException e)
-        {
-          JOptionPane.showMessageDialog(null, "Error al conectar la BD: "+TextFieldBD.getText());
-          System.out.println("Error de conexion: "+ e.getMessage());
-        }
-        
+    // TODO add your handling code here:
+    String host = TextFieldHostBD.getText().trim();
+    String puertoTexto = TextFieldPuertoBD.getText().trim();
+    String database = TextFieldBD.getText().trim();
+    String usuario = TextFieldUsuarioBD.getText().trim();
+    String password = new String(PassFieldDB.getPassword());
+
+    if (host.isEmpty() || puertoTexto.isEmpty() || database.isEmpty() || usuario.isEmpty() || password.isEmpty()) {
+        JOptionPane.showMessageDialog(
+                this,
+                "Completa todos los campos antes de probar "
+                + "la conexión.",
+                "Validación",
+                JOptionPane.WARNING_MESSAGE
+        );
+        return;
+    }
+
+    int puerto;
+
+    try {
+
+        puerto = Integer.parseInt(puertoTexto);
+
+    } catch (NumberFormatException e) {
+
+        JOptionPane.showMessageDialog(
+                this,
+                "El puerto debe ser un número.",
+                "Validación",
+                JOptionPane.WARNING_MESSAGE
+        );
+
+        return;
+    }
+
+    try {
+
+        DatabaseConnection.probarConexionConDetalle(
+                host,
+                puerto,
+                database,
+                usuario,
+                password
+        );
+
+        JOptionPane.showMessageDialog(
+                this,
+                "Conexión exitosa con la base de datos:\n"
+                + database,
+                "Conexión exitosa",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+
+    } catch (SQLException e) {
+
+        JOptionPane.showMessageDialog(
+                this,
+                "No fue posible conectar con la base de datos.\n\n"
+                + "Verifica el host, puerto, base de datos, "
+                + "usuario y contraseña.",
+                "Error de conexión",
+                JOptionPane.ERROR_MESSAGE
+        );
+    }           
     }//GEN-LAST:event_ButtonProbarConexionBDActionPerformed
 
     private void ButtonMenuPrincipalBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuPrincipalBDActionPerformed
         // TODO add your handling code here:
         limpiaCampos();
-        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU.getCardName());
+        menuPrincipal.mostrarPanel(MenuPrincipal.PanelDestino.MAIN_MENU);
     }//GEN-LAST:event_ButtonMenuPrincipalBDActionPerformed
 
 
